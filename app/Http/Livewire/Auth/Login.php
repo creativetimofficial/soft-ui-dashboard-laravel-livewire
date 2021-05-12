@@ -4,10 +4,10 @@ namespace App\Http\Livewire\Auth;
 
 use Livewire\Component;
 
-class SignIn extends Component
+class Login extends Component
 {
     public function render()
     {
-        return view('livewire.auth.sign-in');
+        return view('livewire.auth.login');
     }
 }
