@@ -19,15 +19,11 @@
   <link href="../assets/css/nucleo-svg.css" rel="stylesheet" />
   <!-- CSS Files -->
   <link id="pagestyle" href="../assets/css/soft-ui-dashboard.css?v=1.0.2" rel="stylesheet" />
-
-  <!-- Alpine -->
-  <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
-
-
   @livewireStyles
 </head>
 
 <body class="g-sidenav-show   bg-gray-100">  
+
     {{ $slot }}
     @livewireScripts
 </body>

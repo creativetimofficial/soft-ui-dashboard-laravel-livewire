@@ -1,4 +1,5 @@
-@include('layouts.navbars.navbar-sign-up')
+{{-- <x-layouts.app> --}}
+{{-- @include('layouts.navbars.navbar-sign-up') --}}
   <section class="h-100-vh mb-8">
     <div class="page-header align-items-start section-height-50 pt-5 pb-11 m-3 border-radius-lg" style="background-image: url('../assets/img/curved-images/curved14.jpg');">
       <span class="mask bg-gradient-dark opacity-6"></span>
@@ -63,15 +64,25 @@
               </div>
             </div>
             <div class="card-body">
-              <form role="form text-left">
-                <div class="mb-3">
-                  <input type="text" class="form-control" placeholder="Name" aria-label="Name" aria-describedby="email-addon">
+
+              <form wire:submit.prevent="register" action="#" method="POST" role="form text-left">
+                <div>
+                    <div class="@error('name') border border-danger rounded-3  @enderror mb-3">
+                      <input wire:model="name" type="text" class="form-control" placeholder="Name" aria-label="Name" aria-describedby="email-addon">
+                    </div>
+                    @error('name') <div class="text-danger">{{ $message }}</div>  @enderror
                 </div>
-                <div class="mb-3">
-                  <input type="email" class="form-control" placeholder="Email" aria-label="Email" aria-describedby="email-addon">
+                <div>
+                    <div class="@error('email') border border-danger rounded-3 @enderror mb-3">
+                      <input wire:model="email" type="email" class="form-control" placeholder="Email" aria-label="Email" aria-describedby="email-addon">
+                    </div>
+                    @error('email') <div class="text-danger">{{ $message }}</div> @enderror
                 </div>
-                <div class="mb-3">
-                  <input type="password" class="form-control" placeholder="Password" aria-label="Password" aria-describedby="password-addon">
+                <div>
+                    <div class="@error('password') border border-danger rounded-3 @enderror mb-3">
+                      <input wire:model="password" type="password" class="form-control" placeholder="Password" aria-label="Password" aria-describedby="password-addon">
+                    </div>
+                    @error('password') <div class="text-danger">{{ $message }}</div> @enderror
                 </div>
                 <div class="form-check form-check-info text-left">
                   <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" checked>
@@ -80,19 +91,18 @@
                   </label>
                 </div>
                 <div class="text-center">
-                  <button type="button" class="btn bg-gradient-dark w-100 my-4 mb-2">Sign up</button>
+                  <button type="submit" class="btn bg-gradient-dark w-100 my-4 mb-2">Sign up</button>
                 </div>
-                <p class="text-sm mt-3 mb-0">Already have an account? <a href="javascript:;" class="text-dark font-weight-bolder">Sign in</a></p>
+                <p class="text-sm mt-3 mb-0">Already have an account? <a href="{{ route('login') }}" class="text-dark font-weight-bolder">Sign in</a></p>
               </form>
+
             </div>
           </div>
         </div>
       </div>
     </div>
   </section>
-  <!-- -------- START FOOTER 3 w/ COMPANY DESCRIPTION WITH LINKS & SOCIAL ICONS & COPYRIGHT ------- -->
-  @include('layouts.footers.guest-footer.guest-footer-with-socials')
-  <!-- -------- END FOOTER 3 w/ COMPANY DESCRIPTION WITH LINKS & SOCIAL ICONS & COPYRIGHT ------- -->
+
   <!--   Core JS Files   -->
   <script src="../assets/js/core/popper.min.js"></script>
   <script src="../assets/js/core/bootstrap.min.js"></script>
@@ -103,13 +113,11 @@
       var options = {
         damping: '0.5'
       }
-      Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
+      Scrollbar.init(document.querySelector('#sidena@endsectionv-scrollbar'), options);
     }
   </script>
   <!-- Github buttons -->
   <script async defer src="https://buttons.github.io/buttons.js"></script>
   <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
   <script src="../assets/js/soft-ui-dashboard.min.js?v=1.0.2"></script>
-</body>
-
-</html>
+{{-- </x-layouts.app> --}}

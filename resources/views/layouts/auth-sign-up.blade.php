@@ -24,7 +24,7 @@
   <title>
     Soft UI Dashboard by Creative Tim
   </title>
-  <!--     Fonts and icons     -->
+  <!-- Fonts and icons     -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
   <!-- Nucleo Icons -->
   <link href="../assets/css/nucleo-icons.css" rel="stylesheet" />
@@ -34,9 +34,19 @@
   <link href="../assets/css/nucleo-svg.css" rel="stylesheet" />
   <!-- CSS Files -->
   <link id="pagestyle" href="../assets/css/soft-ui-dashboard.css?v=1.0.2" rel="stylesheet" />
+
+  <!-- Alpine -->
+  <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+  @livewireStyles
+
 </head>
 
 <body class="g-sidenav-show bg-gray-100">
+  @include('layouts.navbars.navbar-sign-up')
     {{ $slot }}
+    <!-- -------- START FOOTER 3 w/ COMPANY DESCRIPTION WITH LINKS & SOCIAL ICONS & COPYRIGHT ------- -->
+    @include('layouts.footers.guest-footer.guest-footer-with-socials')
+    <!-- -------- END FOOTER 3 w/ COMPANY DESCRIPTION WITH LINKS & SOCIAL ICONS & COPYRIGHT ------- -->
+    @livewireScripts
 </body>
 </html>

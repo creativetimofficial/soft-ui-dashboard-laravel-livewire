@@ -22,13 +22,13 @@ use App\Http\Livewire\Rtl;
 |
 */
 
-Route::get('/', function() {
-    return redirect('/sign-in');
-});
+// Route::get('/', function() {
+//     return redirect('/login');
+// });
 
-Route::get('/home', function() {
-    return redirect('/dashboard');
-})->name('home');
+// Route::get('/home', function() {
+//     return redirect('/dashboard');
+// })->name('home');
 
 Route::get('/sign-up', SignUp::class)->name('sign-up');
 Route::get('/login', Login::class)->name('login');
