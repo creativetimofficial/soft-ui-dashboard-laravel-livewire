@@ -18,10 +18,6 @@ class SignUp extends Component
         'password' => 'required|min:6'
     ];
 
-    // public function updatedEmail() {
-    //     $this->validate(['email' => 'unique:users']);
-    // }
-
     public function register() {
         $this->validate();
 
