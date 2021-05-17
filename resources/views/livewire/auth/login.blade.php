@@ -34,6 +34,7 @@
                 </form>
                 </div>
                 <div class="card-footer text-center pt-0 px-lg-2 px-1">
+                  <small class="text-muted">Forgot you password? Reset you password <a href="{{ route('forgot-password') }}" class="text-info text-gradient font-weight-bold">here</a></small>
                   <p class="mb-4 text-sm mx-auto">
                     Don't have an account?
                     <a href="{{ route('sign-up') }}" class="text-info text-gradient font-weight-bold">Sign up</a>
@@ -63,7 +64,7 @@
         }
         Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
       }
-    </script> --}}
+    </script>
     <!-- Github buttons -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->

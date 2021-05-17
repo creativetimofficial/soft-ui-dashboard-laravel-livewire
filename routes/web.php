@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Livewire\Auth\ForgotPassword;
+use App\Http\Livewire\Auth\ResetPassword;
 use App\Http\Livewire\Auth\SignUp;
 use App\Http\Livewire\Auth\Login;
 use App\Http\Livewire\Dashboard;
@@ -9,6 +11,9 @@ use App\Http\Livewire\Billing;
 use App\Http\Livewire\Profile;
 use App\Http\Livewire\Tables;
 use App\Http\Livewire\Rtl;
+
+use Illuminate\Http\Request;
+
 
 
 /*
@@ -32,6 +37,10 @@ use App\Http\Livewire\Rtl;
 
 Route::get('/sign-up', SignUp::class)->name('sign-up');
 Route::get('/login', Login::class)->name('login');
+
+Route::get('/login/forgot-password', ForgotPassword::class)->name('forgot-password');
+
+Route::get('/reset-password/{token}', ResetPassword::class)->name('reset-password');
 
 Route::middleware('auth')->group(function () {
     Route::get('/dashboard', Dashboard::class)->name('dashboard');
