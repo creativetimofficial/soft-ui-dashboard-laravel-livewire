@@ -1,3 +1,18 @@
+<!--
+=========================================================
+* Soft UI Dashboard - v1.0.2
+=========================================================
+
+* Product Page: https://www.creative-tim.com/product/soft-ui-dashboard
+* Copyright 2021 Creative Tim (https://www.creative-tim.com)
+* Licensed under MIT (https://github.com/creativetimofficial/soft-ui-dashboard/blob/master/LICENSE.md)
+
+* Coded by Creative Tim
+
+=========================================================
+
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+-->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,7 +24,7 @@
   <title>
     Soft UI Dashboard by Creative Tim
   </title>
-  <!--     Fonts and icons     -->
+  <!-- Fonts and icons     -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
   <!-- Nucleo Icons -->
   <link href="../assets/css/nucleo-icons.css" rel="stylesheet" />
@@ -22,13 +37,16 @@
 
   <!-- Alpine -->
   <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
-
-
   @livewireStyles
+
 </head>
 
-<body class="g-sidenav-show   bg-gray-100">  
+<body class="g-sidenav-show bg-gray-100">
+    @include('layouts.navbars.navbar-sign-in')
     {{ $slot }}
+    {{-- FOOTER --}}
+    @include('layouts.footers.guest-footer.guest-footer-description')
+
     @livewireScripts
 </body>
 </html>

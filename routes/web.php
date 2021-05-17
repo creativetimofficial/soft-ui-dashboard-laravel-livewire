@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Livewire\Auth\SignUp;
-use App\Http\Livewire\Auth\SignIn;
+use App\Http\Livewire\Auth\Login;
 use App\Http\Livewire\Dashboard;
 use App\Http\Livewire\Billing;
 use App\Http\Livewire\Profile;
@@ -22,22 +22,22 @@ use App\Http\Livewire\Rtl;
 |
 */
 
-Route::get('/', function() {
-    return redirect('/sign-in');
-});
+// Route::get('/', function() {
+//     return redirect('/login');
+// });
 
-Route::get('/home', function() {
-    return redirect('/dashboard');
-})->name('home');
+// Route::get('/home', function() {
+//     return redirect('/dashboard');
+// })->name('home');
 
-Route::get('/sign-up', SignUp::class)->name('sign-in');
-Route::get('/sign-in', SignIn::class)->name('sign-up');
+Route::get('/sign-up', SignUp::class)->name('sign-up');
+Route::get('/login', Login::class)->name('login');
 
-// Route::middleware('auth')->group(function () {
+Route::middleware('auth')->group(function () {
     Route::get('/dashboard', Dashboard::class)->name('dashboard');
     Route::get('/billing', Billing::class)->name('billing');
     Route::get('/profile', Profile::class)->name('profile');
     Route::get('/tables', Tables::class)->name('tables');
     Route::get('/rtl', Rtl::class)->name('rtl');
-// });
+});
 
