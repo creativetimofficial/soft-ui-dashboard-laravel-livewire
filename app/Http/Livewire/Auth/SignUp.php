@@ -34,6 +34,6 @@ class SignUp extends Component
 
     public function render()
     {
-        return view('livewire.auth.sign-up')->layout('layouts.auth-sign-up');
+        return view('livewire.auth.sign-up');
     }
 }
