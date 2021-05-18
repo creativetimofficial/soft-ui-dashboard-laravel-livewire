@@ -1,16 +1,9 @@
-@include('layouts.navbars.sidebar')
-@include('layouts.navbars.navbar')
     <main>
       <div class="container-fluid py-4">
        {{-- Tables --}}
         @include('components.tables.table')
-        {{-- Footer --}}
-        @include('layouts.footers.auth-footer.auth-footer')
       </div>
     </main>
-
-      {{-- Plugin --}}
-      @include('components.plugins.fixed-plugin')
 
       <!--   Core JS Files   -->
       <script src="../assets/js/core/popper.min.js"></script>
