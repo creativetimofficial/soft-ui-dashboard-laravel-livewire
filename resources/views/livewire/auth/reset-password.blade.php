@@ -4,9 +4,19 @@
         <div class="col-xl-4 col-lg-5 col-md-6 d-flex flex-column mx-auto">
           <div class="card card-plain mt-8">
             <div class="card-header pb-0 text-left bg-transparent">
-              <p class="mb-0">Forgot your password? Enter your email here</p>
+              @if ($showDemoNotification)
+              <div wire:model="showDemoNotification" class="mt-3 alert alert-light alert-dismissible fade show"
+                  role="alert">
+                  <span class="alert-text"> You are in a demo version, you can't update the profile.</span>
+                  <button wire:click="$set('showDemoNotification', false)" type="button" class="btn-close"
+                      data-bs-dismiss="alert" aria-label="Close">
+                  </button>
+              </div>
+              @endif
+              <p class="mb-0">Forgot your password? Enter your email and new password here</p>
             </div>
             <div class="card-body">
+
               <form wire:submit.prevent="resetPassword" action="#" method="POST" role="form text-left">
                 <div>
                     <label for="email">Email</label>

@@ -2,27 +2,8 @@
 
     {{-- If the user is authenticated --}}
     @auth()
-        @if (in_array(request()->route()->getName(),['dashboard']))
-            {{-- Navbar --}}
-            @include('layouts.navbars.auth.sidebar')
-            @include('layouts.navbars.auth.nav')
-            {{-- Plugin --}}
-            @include('components.plugins.fixed-plugin')
-            {{ $slot }}
-            {{-- Footer --}}
-            <main>
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-2"></div>
-                        <div class="col col-md-10">
-                            @include('layouts.footers.auth.footer')
-                        </div>
-                    </div>
-                </div>
-                </div>
-            </main>
             {{-- If the user is authenticated and on the login page --}}
-        @elseif(in_array(request()->route()->getName(), ['login']))
+        @if(in_array(request()->route()->getName(), ['login']))
             @include('layouts.navbars.guest.login')
             {{ $slot }}
             {{-- FOOTER --}}

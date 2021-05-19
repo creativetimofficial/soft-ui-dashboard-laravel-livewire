@@ -123,14 +123,34 @@
         </div>
     </div>
 
-    {{-- <livewire:profile-form /> --}}
-
     <div class="container-fluid py-4">
         <div class="card">
             <div class="card-header pb-0 px-3">
                 <h6 class="mb-0">Profile Information</h6>
             </div>
             <div class="card-body pt-4 p-3">
+
+                @if ($showDemoNotification)
+                <div wire:model="showDemoNotification" class="mt-3 alert alert-light alert-dismissible fade show"
+                    role="alert">
+                    <span class="alert-text"> You are in a demo version, you can't update the profile.</span>
+                    <button wire:click="$set('showDemoNotification', false)" type="button" class="btn-close"
+                        data-bs-dismiss="alert" aria-label="Close">
+                    </button>
+                </div>
+                @endif
+
+                @if ($showSuccesNotification)
+                <div wire:model="showSuccesNotification" class="mt-3 alert alert-light alert-dismissible fade show"
+                    role="alert">
+                    <span class="alert-icon"><i class="ni ni-like-2"></i></span>
+                    <span class="alert-text"> Your profile information have been successfuly saved!</span>
+                    <button wire:click="$set('showSuccesNotification', false)" type="button" class="btn-close"
+                        data-bs-dismiss="alert" aria-label="Close">
+                    </button>
+                </div>
+                @endif
+
                 <form wire:submit.prevent="save" action="#" method="POST" role="form text-left">
                     <div class="row">
                         <div class="col-md-6">
@@ -188,17 +208,6 @@
                         <button type="submit" class="btn bg-gradient-info btn-lg mt-4 mb-4">Save Changes</button>
                     </div>
                 </form>
-
-                @if ($showSuccesNotification)
-                    <div wire:model="showSuccesNotification" class="mt-3 alert alert-light alert-dismissible fade show"
-                        role="alert">
-                        <span class="alert-icon"><i class="ni ni-like-2"></i></span>
-                        <span class="alert-text"> Your profile information have been successfuly saved!</span>
-                        <button wire:click="$set('showSuccesNotification', false)" type="button" class="btn-close"
-                            data-bs-dismiss="alert" aria-label="Close">
-                        </button>
-                    </div>
-                @endif
 
             </div>
         </div>
