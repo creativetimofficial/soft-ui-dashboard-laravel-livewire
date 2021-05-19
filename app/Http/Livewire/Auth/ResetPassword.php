@@ -34,21 +34,16 @@ class ResetPassword extends Component
     }
 
     public function resetPassword() {
-        if(env('IS_DEMO')) {
-            $this->showDemoNotification = true;
-        }
-        else {
-            $newCredentials = $this->validate();
-            $existingUser = User::where('email', $this->email)->first();
-            if($existingUser && $existingUser->id == $this->urlID) { 
-                $existingUser->update([
-                    'password' => Hash::make($this->password) 
-                ]);
-                $this->showSuccesNotification = true;
-                $this->showFailureNotification = false;
-            } else {
-                $this->showFailureNotification = true;
-            }
+        $newCredentials = $this->validate();
+        $existingUser = User::where('email', $this->email)->first();
+        if($existingUser && $existingUser->id == $this->urlID) { 
+            $existingUser->update([
+                'password' => Hash::make($this->password) 
+            ]);
+            $this->showSuccesNotification = true;
+            $this->showFailureNotification = false;
+        } else {
+            $this->showFailureNotification = true;
         }
     }
 

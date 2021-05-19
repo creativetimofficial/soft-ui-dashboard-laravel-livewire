@@ -17,6 +17,8 @@ class ForgotPassword extends Component
     public $showSuccesNotification = false; 
     public $showFailureNotification = false;
 
+    public $showDemoNotification = false;
+
     protected $rules = [
         'email' => 'required|email',
     ];  
@@ -27,13 +29,18 @@ class ForgotPassword extends Component
 
     public function recoverPassword() { 
         $this->validate();
-        $user = User::where('email', $this->email)->first();
-        if($user){
-            $this->notify(new ResetPassword($user->id));
-            $this->showSuccesNotification = true;
-            $this->showFailureNotification = false;
+        if(env('IS_DEMO')) {
+            $this->showDemoNotification = true;
         } else {
-            $this->showFailureNotification = true;
+            $this->validate();
+            $user = User::where('email', $this->email)->first();
+            if($user){
+                $this->notify(new ResetPassword($user->id));
+                $this->showSuccesNotification = true;
+                $this->showFailureNotification = false;
+            } else {
+                $this->showFailureNotification = true;
+            }
         }
     }
 
