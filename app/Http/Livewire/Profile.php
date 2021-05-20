@@ -10,6 +10,8 @@ class Profile extends Component
 {   
     public User $user;
     public $showSuccesNotification  = false;
+
+    public $showDemoNotification = false;
     
     protected $rules = [
         'user.name' => 'max:40|min:3',
@@ -24,9 +26,13 @@ class Profile extends Component
     }
 
     public function save() {
-        $this->validate();
-        $this->user->save();
-        $this->showSuccesNotification = true;
+        if(env('IS_DEMO')) {
+           $this->showDemoNotification = true;
+        } else {
+            $this->validate();
+            $this->user->save();
+            $this->showSuccesNotification = true;
+        }
     }
 
     public function render()

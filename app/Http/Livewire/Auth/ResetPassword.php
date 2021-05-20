@@ -3,10 +3,10 @@
 namespace App\Http\Livewire\Auth;
 
 use App\Models\User;
+
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\URL;
-// use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Request;
 use Livewire\Component;
 
@@ -19,6 +19,8 @@ class ResetPassword extends Component
     public $showSuccesNotification = false; 
     public $showFailureNotification = false;
 
+    public $showDemoNotification = false;
+
     public $urlID = '';
 
     protected $rules = [
@@ -26,8 +28,9 @@ class ResetPassword extends Component
         'password' => 'required|min:6|same:passwordConfirmation'
     ];  
 
-    public function mount() {
-        $this->urlID = intval(Request::segment(2));
+    public function mount($id) {
+        $existingUser = User::find($id);
+        $this->urlID = intval($existingUser->id);
     }
 
     public function resetPassword() {
