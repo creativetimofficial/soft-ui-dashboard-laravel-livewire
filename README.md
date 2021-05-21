@@ -1,4 +1,4 @@
-# [Soft UI Dashboard Laravel](http://demos.creative-tim.com/soft-ui-dashboard-laravel/dashboard.html?ref=readme-sud)
+# [Soft UI Dashboard Laravel](http://demos.creative-tim.com/soft-ui-dashboard-laravel/dashboard.html?ref=readme-sudl)
 <!--- nu stiu ce versiune e -->
 ![version](https://img.shields.io/badge/version-1.0.2-blue.svg) 
 ![license](https://img.shields.io/badge/license-MIT-blue.svg)
