@@ -10,7 +10,7 @@
   <div class="collapse navbar-collapse  w-auto" id="sidenav-collapse-main">
     <ul class="navbar-nav">
       <li class="nav-item">
-        <a class="nav-link  active" href="{{ route('dashboard')}}">
+        <a class="nav-link {{ Route::currentRouteName() == 'dashboard' ? 'active' : ''}}" href="{{ route('dashboard')}}">
           <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
             <svg width="12px" height="12px" viewBox="0 0 45 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
               <title>shop </title>
@@ -30,7 +30,7 @@
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link  " href="{{ route('tables')}}">
+        <a class="nav-link {{ Route::currentRouteName() == 'tables' ? 'active' : ''}}" href="{{ route('tables')}}">
           <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
             <svg width="12px" height="12px" viewBox="0 0 42 42" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
               <title>office</title>
@@ -50,7 +50,7 @@
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link  " href="{{ route('billing')}}">
+        <a class="nav-link {{ Route::currentRouteName() == 'billing' ? 'active' : ''}}" href="{{ route('billing')}}">
           <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
             <svg width="12px" height="12px" viewBox="0 0 43 36" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
               <title>credit-card</title>
@@ -70,7 +70,7 @@
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link  " href="{{ route('rtl')}}">
+        <a class="nav-link {{ Route::currentRouteName() == 'rtl' ? 'active' : ''}}" href="{{ route('rtl')}}">
           <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
             <svg width="12px" height="12px" viewBox="0 0 40 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
               <title>settings</title>
@@ -94,7 +94,7 @@
         <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">Account pages</h6>
       </li>
       <li class="nav-item">
-        <a class="nav-link  " href="{{ route('profile')}}">
+        <a class="nav-link {{ Route::currentRouteName() == 'profile' ? 'active' : ''}}" href="{{ route('profile')}}">
           <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
             <svg width="12px" height="12px" viewBox="0 0 46 42" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
               <title>customer-support</title>
@@ -115,7 +115,7 @@
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link  " href="{{ route('login')}}">
+        <a class="nav-link" href="{{ route('login')}}">
           <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
             <svg width="12px" height="12px" viewBox="0 0 40 44" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
               <title>document</title>
@@ -135,7 +135,7 @@
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link  " href="{{ route('sign-up')}}">
+        <a class="nav-link" href="{{ route('sign-up')}}">
           <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
             <svg width="12px" height="20px" viewBox="0 0 40 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
               <title>spaceship</title>
@@ -158,5 +158,19 @@
       </li>
     </ul>
   </div>
-  @include('components.cards.card-sidebar')
+  <div class="sidenav-footer mx-3 mt-3 pt-3">
+    <div class="card card-background shadow-none card-background-mask-secondary" id="sidenavCard">
+      <div class="full-background" style="background-image: url('../assets/img/curved-images/white-curved.jpeg')"></div>
+      <div class="card-body text-left p-3 w-100">
+        <div class="icon icon-shape icon-sm bg-white shadow text-center mb-3 d-flex align-items-center justify-content-center border-radius-md">
+          <i class="ni ni-diamond text-dark text-gradient text-lg top-0" aria-hidden="true" id="sidenavCardIcon"></i>
+        </div>
+        <div class="docs-info">
+          <h6 class="text-white up mb-0">Need help?</h6>
+          <p class="text-xs font-weight-bold">Please check our docs</p>
+          <a href="https://www.creative-tim.com/learning-lab/bootstrap/license/soft-ui-dashboard" target="_blank" class="btn btn-white btn-sm w-100 mb-0">Documentation</a>
+        </div>
+      </div>
+    </div>
+  </div>
 </aside>

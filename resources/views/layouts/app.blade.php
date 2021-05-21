@@ -1,34 +1,68 @@
-<!DOCTYPE html>
-<html lang="en">
+<x-layouts.base>
 
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
-  <link rel="icon" type="image/png" href="../assets/img/favicon.png">
-  <title>
-    Soft UI Dashboard by Creative Tim
-  </title>
-  <!--     Fonts and icons     -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
-  <!-- Nucleo Icons -->
-  <link href="../assets/css/nucleo-icons.css" rel="stylesheet" />
-  <link href="../assets/css/nucleo-svg.css" rel="stylesheet" />
-  <!-- Font Awesome Icons -->
-  <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
-  <link href="../assets/css/nucleo-svg.css" rel="stylesheet" />
-  <!-- CSS Files -->
-  <link id="pagestyle" href="../assets/css/soft-ui-dashboard.css?v=1.0.2" rel="stylesheet" />
+    {{-- If the user is authenticated --}}
+    @auth()
+            {{-- If the user is authenticated and on the login page --}}
+        @if(in_array(request()->route()->getName(), ['login']))
+            @include('layouts.navbars.guest.login')
+            {{ $slot }}
+            {{-- FOOTER --}}
+            @include('layouts.footers.guest.description')
+            {{-- If the user is authenticated and on the sign up page --}}
+        @elseif(in_array(request()->route()->getName(), ['sign-up']))
+            @include('layouts.navbars.guest.sign-up')
+            {{ $slot }}
+            {{-- FOOTER --}}
+            @include('layouts.footers.guest.with-socials')
+        @else
+            {{-- Navbar --}}
+            @include('layouts.navbars.auth.sidebar')
+            @include('layouts.navbars.auth.nav')
+            {{-- Plugin --}}
+            @include('components.plugins.fixed-plugin')
+            {{ $slot }}
+            {{-- Footer --}}
+            <main>
+                <div class="container-fluid">
+                    <div class="row">
+                        @include('layouts.footers.auth.footer')
+                    </div>
+                </div>
+            </main>
+        @endif
+    @endauth
 
-  <!-- Alpine -->
-  <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+    {{-- If the user is not authenticated (if the user is a guest) --}}
+    @guest
+        {{-- If the user is on the login page --}}
+        @if (!auth()->check() && in_array(request()->route()->getName(),['login'],))
+            @include('layouts.navbars.guest.login')
+            {{ $slot }}
+            {{-- FOOTER --}}
+            @include('layouts.footers.guest.description')
+        @endif
 
+        {{-- If the user is on the sign up page --}}
+        @if (!auth()->check() && in_array(request()->route()->getName(),['sign-up'],))
+            @include('layouts.navbars.guest.sign-up')
+            {{ $slot }}
+            {{-- FOOTER --}}
+            @include('layouts.footers.guest.with-socials')
+        @endif
+    @endguest
+    
+    <script>
+        var win = navigator.platform.indexOf('Win') > -1;
+        if (win && document.querySelector('#sidenav-scrollbar')) {
+          var options = {
+            damping: '0.5'
+          }
+          Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
+        }
+      </script>
+      <!-- Github buttons -->
+      <script async defer src="https://buttons.github.io/buttons.js"></script>
+      <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
+      <script src="../assets/js/soft-ui-dashboard.min.js?v=1.0.2"></script>
 
-  @livewireStyles
-</head>
-
-<body class="g-sidenav-show   bg-gray-100">  
-    {{ $slot }}
-    @livewireScripts
-</body>
-</html>
+</x-layouts.base>

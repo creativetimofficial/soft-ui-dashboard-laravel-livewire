@@ -14,8 +14,6 @@ use App\Http\Livewire\Rtl;
 
 use Illuminate\Http\Request;
 
-
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -27,20 +25,14 @@ use Illuminate\Http\Request;
 |
 */
 
-// Route::get('/', function() {
-//     return redirect('/login');
-// });
-
-// Route::get('/home', function() {
-//     return redirect('/dashboard');
-// })->name('home');
+Route::get('/', Login::class)->name('login');
 
 Route::get('/sign-up', SignUp::class)->name('sign-up');
 Route::get('/login', Login::class)->name('login');
 
 Route::get('/login/forgot-password', ForgotPassword::class)->name('forgot-password');
-
-Route::get('/reset-password/{token}', ResetPassword::class)->name('reset-password');
+ 
+Route::get('/reset-password/{id}',ResetPassword::class)->name('reset-password')->middleware('signed');
 
 Route::middleware('auth')->group(function () {
     Route::get('/dashboard', Dashboard::class)->name('dashboard');

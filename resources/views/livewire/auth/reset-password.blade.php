@@ -4,9 +4,10 @@
         <div class="col-xl-4 col-lg-5 col-md-6 d-flex flex-column mx-auto">
           <div class="card card-plain mt-8">
             <div class="card-header pb-0 text-left bg-transparent">
-              <p class="mb-0">Forgot your password? Enter your email here</p>
+              <p class="mb-0">Forgot your password? Enter your email and new password here</p>
             </div>
             <div class="card-body">
+
               <form wire:submit.prevent="resetPassword" action="#" method="POST" role="form text-left">
                 <div>
                     <label for="email">Email</label>
