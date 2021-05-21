@@ -34,7 +34,7 @@ class ResetPassword extends Component
     }
 
     public function resetPassword() {
-        $newCredentials = $this->validate();
+        $this->validate();
         $existingUser = User::where('email', $this->email)->first();
         if($existingUser && $existingUser->id == $this->urlID) { 
             $existingUser->update([

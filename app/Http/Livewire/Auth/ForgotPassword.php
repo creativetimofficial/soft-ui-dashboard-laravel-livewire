@@ -28,7 +28,6 @@ class ForgotPassword extends Component
     }
 
     public function recoverPassword() { 
-        $this->validate();
         if(env('IS_DEMO')) {
             $this->showDemoNotification = true;
         } else {

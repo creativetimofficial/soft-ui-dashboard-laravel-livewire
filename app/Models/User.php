@@ -22,11 +22,6 @@ class User extends Authenticatable
 
     protected $guarded = [];
 
-    // public function sendPasswordResetNotification($token) {
-    //     $this->notify(new ResetPassword($token));
-    // }
-
-
     /**
      * The attributes that should be hidden for arrays.
      *

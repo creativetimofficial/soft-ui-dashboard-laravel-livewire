@@ -1,5 +1,4 @@
- <!-- -------- START FOOTER 3 w/ COMPANY DESCRIPTION WITH LINKS & SOCIAL ICONS & COPYRIGHT ------- -->
- <footer class="footer py-4 fixed-bottom">
+<footer class="footer py-4 fixed-bottom">
     <div class="container">
       <div class="row">
         <div class="col-lg-8 mb-4 mx-auto text-center">
