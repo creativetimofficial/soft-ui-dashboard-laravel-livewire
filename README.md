@@ -97,7 +97,7 @@ And Laravel: https://laravel.com/docs/8.x/installation
 7. Run `php artisan storage:link` to create the storage symlink (if you are using **Vagrant** with **Homestead** for development, remember to ssh into your virtual machine and run the command from there).
 
 ## Usage
-Register a user or login with data from your database and start testing (make sure to run the migrations and seeders for these credentials to be available).
+Register a user or login with default user **admin@softui.com** and password **secret** from your database and start testing (make sure to run the migrations and seeders for these credentials to be available).
 
 Besides the dashboard, the auth pages, the billing and table pages, there is also has an edit profile page. All the necessary files are installed out of the box and all the needed routes are added to `routes/web.php`. Keep in mind that all of the features can be viewed once you login using the credentials provided or by registering your own user. 
 
@@ -120,7 +120,7 @@ Besides the dashboard, the auth pages, the billing and table pages, there is als
 The documentation for the Soft UI Dashboard Laravel is hosted at our [website](https://www.creative-tim.com/live/soft-ui-dashboard-laravel/?start-page=/docs/getting-started/laravel-setup.html&ref=sudl-readme).
 
 ### Login
-If you are not logged in you can only access this page or the Sign Up page. The default url takes you to the login page. Logging in is possible with already existing credentials. 
+If you are not logged in you can only access this page or the Sign Up page. The default url takes you to the login page where you use the default credentials **admin@softui.com** with the password **secret**. Logging in is possible only with already existing credentials. For this to work you should have run the migrations. 
 
 The `App\Http\Livewire\Auth\Login` handles the logging in of an existing user.
 
