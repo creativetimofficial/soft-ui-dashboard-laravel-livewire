@@ -5,9 +5,8 @@
           <div class="card card-plain mt-8">
             <div class="card-header pb-0 text-left bg-transparent">
               @if ($showDemoNotification)
-              <div wire:model="showDemoNotification" class="mt-3 alert alert-light alert-dismissible fade show"
-                  role="alert">
-                  <span class="alert-text"> You are in a demo version, you can't update the profile.</span>
+              <div wire:model="showDemoNotification" class="mt-3 alert alert-primary alert-dismissible fade show" role="alert">
+                  <span class="alert-text text-white"> You are in a demo version, you can't update the profile.</span>
                   <button wire:click="$set('showDemoNotification', false)" type="button" class="btn-close"
                       data-bs-dismiss="alert" aria-label="Close">
                   </button>
@@ -29,17 +28,17 @@
                 </div>
             </form>
             @if($showSuccesNotification)
-            <div wire:model="showSuccesNotification" class="mt-3 alert alert-light alert-dismissible fade show" role="alert">
-              <span class="alert-icon"><i class="ni ni-like-2"></i></span>
-              <span class="alert-text"> An email for resetting your password has been sent!</span>
+            <div wire:model="showSuccesNotification" class="mt-3 alert alert-primary alert-dismissible fade show" role="alert">
+              <span class="alert-icon text-white"><i class="ni ni-like-2"></i></span>
+              <span class="alert-text text-white"> An email for resetting your password has been sent!</span>
               <button  wire:click="$set('showSuccesNotification', false)" type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
               </button>
             </div>
             @endif
 
             @if($showFailureNotification)
-            <div wire:model="showFailureNotification" class="mt-3 alert alert-light alert-dismissible fade show" role="alert">
-              <span class="alert-text"> You are not registered as a user. Please sign up <a href="{{ route('sign-up')}}">here</a></span>
+            <div wire:model="showFailureNotification" class="mt-3 alert alert-primary alert-dismissible fade show" role="alert">
+              <span class="alert-text text-white"> You are not registered as a user. Please sign up <a class="text-info" href="{{ route('sign-up')}}">here</a></span>
               <button  wire:click="$set('showFailureNotification', false)" type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
               </button>
             </div>

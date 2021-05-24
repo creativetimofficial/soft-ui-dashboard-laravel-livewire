@@ -131,9 +131,8 @@
             <div class="card-body pt-4 p-3">
 
                 @if ($showDemoNotification)
-                <div wire:model="showDemoNotification" class="mt-3 alert alert-light alert-dismissible fade show"
-                    role="alert">
-                    <span class="alert-text"> You are in a demo version, you can't update the profile.</span>
+                <div wire:model="showDemoNotification" class="mt-3  alert alert-primary alert-dismissible fade show" role="alert">
+                    <span class="alert-text text-white"> You are in a demo version, you can't update the profile.</span>
                     <button wire:click="$set('showDemoNotification', false)" type="button" class="btn-close"
                         data-bs-dismiss="alert" aria-label="Close">
                     </button>
@@ -141,10 +140,9 @@
                 @endif
 
                 @if ($showSuccesNotification)
-                <div wire:model="showSuccesNotification" class="mt-3 alert alert-light alert-dismissible fade show"
-                    role="alert">
-                    <span class="alert-icon"><i class="ni ni-like-2"></i></span>
-                    <span class="alert-text"> Your profile information have been successfuly saved!</span>
+                <div wire:model="showSuccesNotification" class="mt-3 alert alert-primary alert-dismissible fade show" role="alert">
+                    <span class="alert-icon text-white"><i class="ni ni-like-2"></i></span>
+                    <span class="alert-text text-white">Your profile information have been successfuly saved!</span>
                     <button wire:click="$set('showSuccesNotification', false)" type="button" class="btn-close"
                         data-bs-dismiss="alert" aria-label="Close">
                     </button>
@@ -219,3 +217,16 @@
 <script src="../assets/js/core/popper.min.js"></script>
 <script src="../assets/js/core/bootstrap.min.js"></script>
 <script src="../assets/js/plugins/smooth-scrollbar.min.js"></script>
+<script>
+    var win = navigator.platform.indexOf('Win') > -1;
+    if (win && document.querySelector('#sidenav-scrollbar')) {
+      var options = {
+        damping: '0.5'
+      }
+      Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
+    }
+  </script>
+  <!-- Github buttons -->
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+  <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
+  <script src="../assets/js/soft-ui-dashboard.min.js?v=1.0.2"></script>

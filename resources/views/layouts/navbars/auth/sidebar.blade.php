@@ -156,6 +156,9 @@
           <span class="nav-link-text ms-1">Sign Up</span>
         </a>
       </li>
+      <li class="nav-item">
+        <a href="#" class="btn btn-primary btn-lg active mt-3" role="button" aria-pressed="true">Upgrade to PRO</a>
+      </li>
     </ul>
   </div>
   <div class="sidenav-footer mx-3 mt-3 pt-3">
