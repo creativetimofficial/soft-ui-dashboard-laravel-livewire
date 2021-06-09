@@ -3,13 +3,13 @@
     {{-- If the user is authenticated --}}
     @auth()
             {{-- If the user is authenticated and on the login page --}}
-        @if(in_array(request()->route()->getName(), ['login']))
+        @if(in_array(request()->route()->getName(), ['login', 'sign-in']))
             @include('layouts.navbars.guest.login')
             {{ $slot }}
             {{-- FOOTER --}}
             @include('layouts.footers.guest.description')
             {{-- If the user is authenticated and on the sign up page --}}
-        @elseif(in_array(request()->route()->getName(), ['sign-up']))
+        @elseif(in_array(request()->route()->getName(), ['sign-up', 'static-sign-up']))
             @include('layouts.navbars.guest.sign-up')
             {{ $slot }}
             {{-- FOOTER --}}
