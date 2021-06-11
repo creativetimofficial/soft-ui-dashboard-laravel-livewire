@@ -3,12 +3,13 @@
 namespace App\Http\Livewire\Auth;
 
 use Livewire\Component;
-use App\Model\User;
+use App\Models\User;
 
 class Login extends Component
 {
     public $email = '';
     public $password = '';
+    public $remember_me = false;
 
     protected $rules = [
         'email' => 'required|email',
@@ -21,10 +22,14 @@ class Login extends Component
 
     public function login() {
         $credentials = $this->validate();
-
-        return auth()->attempt(['email' => $this->email, 'password' => $this->password]) ? 
-            redirect()->intended('/dashboard') 
-            : $this->addError('email', trans('auth.failed')); 
+        if(auth()->attempt(['email' => $this->email, 'password' => $this->password], $this->remember_me)) {
+            $user = User::where(["email" => $this->email])->first();
+            auth()->login($user, $this->remember_me);
+            return redirect()->intended('/dashboard');        
+        }
+        else{
+            return $this->addError('email', trans('auth.failed')); 
+        }
     }
 
     public function render()
