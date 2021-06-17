@@ -60,14 +60,13 @@ Let us know your thoughts below. And good luck with development!
 * [Demo](#demo)
 * [Documentation](#documentation)
 * [Login](#login)
-* [Register](#Register)
+* [Register](#register)
 * [Forgot Password](#forgot-password)
 * [Reset Password](#reset-password)
 * [Profile](#profile)
 * [Dashboard](#dashboard)
 * [File Structure](#file-structure)
 * [Browser Support](#browser-support)
-* [Resources](#resources)
 * [Reporting Issues](#reporting-issues)
 * [Licensing](#licensing)
 * [Useful Links](#useful-links)
@@ -127,14 +126,19 @@ The `App\Http\Livewire\Auth\Login` handles the logging in of an existing user.
 ```
     public function login() {
         $credentials = $this->validate();
-        return auth()->attempt(['email' => $this->email, 'password' => $this->password]) ? 
-            redirect()->intended('/dashboard') 
-            : $this->addError('email', trans('auth.failed')); 
+        if(auth()->attempt(['email' => $this->email, 'password' => $this->password], $this->remember_me)) {
+            $user = User::where(["email" => $this->email])->first();
+            auth()->login($user, $this->remember_me);
+            return redirect()->intended('/dashboard-default');        
+        }
+        else{
+            return $this->addError('email', trans('auth.failed')); 
+        }
     }
 ```
 
 ### Register
-You can register as a user by filling in the name, email and password for your account. You can do this by accessing the sign up page from the "**Sign Up**" button in the top navbar or by clicking the "**Sign Up**" button from the bottom of the log in form or if you are logged in from the "**Sign Up**" button from the sidebar. Another simple way is adding **/sign-up** in the url.
+You can register as a user by filling in the name, email and password for your account. You can do this by accessing the sign up page from the "**Sign Up**" button in the top navbar or by clicking the "**Sign Up**" button from the bottom of the log in form.. Another simple way is adding **/sign-up** in the url.
 
 The `App\Http\Livewire\Auth\SignUp` handles the registration of a new user.
 
