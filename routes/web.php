@@ -15,6 +15,7 @@ use App\Http\Livewire\StaticSignUp;
 use App\Http\Livewire\Rtl;
 
 use App\Http\Livewire\LaravelExamples\MyProfile;
+use App\Http\Livewire\LaravelExamples\UserManagement;
 
 use Illuminate\Http\Request;
 
@@ -47,5 +48,6 @@ Route::middleware('auth')->group(function () {
     Route::get('/static-sign-up', StaticSignUp::class)->name('static-sign-up');
     Route::get('/rtl', Rtl::class)->name('rtl');
     Route::get('/laravel-my-profile', MyProfile::class)->name('my-profile');
+    Route::get('/laravel-user-management', UserManagement::class)->name('user-management');
 });
 
