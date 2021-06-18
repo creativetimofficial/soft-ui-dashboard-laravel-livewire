@@ -19,10 +19,10 @@
                 <div class="col-auto my-auto">
                     <div class="h-100">
                         <h5 class="mb-1">
-                            Alec Thompson
+                            {{ __('Alec Thompson') }}
                         </h5>
                         <p class="mb-0 font-weight-bold text-sm">
-                            CEO / Co-Founder
+                            {{ __(' CEO / Co-Founder') }}
                         </p>
                     </div>
                 </div>
@@ -55,7 +55,7 @@
                                             </g>
                                         </g>
                                     </svg>
-                                    <span class="ms-1">Overview</span>
+                                    <span class="ms-1">{{ __('Overview') }}</span>
                                 </a>
                             </li>
                             <li class="nav-item">
@@ -82,7 +82,7 @@
                                             </g>
                                         </g>
                                     </svg>
-                                    <span class="ms-1">Teams</span>
+                                    <span class="ms-1">{{ __('Teams') }}</span>
                                 </a>
                             </li>
                             <li class="nav-item">
@@ -113,7 +113,7 @@
                                             </g>
                                         </g>
                                     </svg>
-                                    <span class="ms-1">Projects</span>
+                                    <span class="ms-1">{{ __('Projects') }}</span>
                                 </a>
                             </li>
                         </ul>
@@ -126,13 +126,15 @@
     <div class="container-fluid py-4">
         <div class="card">
             <div class="card-header pb-0 px-3">
-                <h6 class="mb-0">Profile Information</h6>
+                <h6 class="mb-0">{{ __('Profile Information') }}</h6>
             </div>
             <div class="card-body pt-4 p-3">
 
                 @if ($showDemoNotification)
-                    <div wire:model="showDemoNotification" class="mt-3  alert alert-primary alert-dismissible fade show" role="alert">
-                        <span class="alert-text text-white"> You are in a demo version, you can't update the profile.</span>
+                    <div wire:model="showDemoNotification" class="mt-3  alert alert-primary alert-dismissible fade show"
+                        role="alert">
+                        <span class="alert-text text-white">
+                            {{ __('You are in a demo version, you can\'t update the profile.') }}</span>
                         <button wire:click="$set('showDemoNotification', false)" type="button" class="btn-close"
                             data-bs-dismiss="alert" aria-label="Close">
                         </button>
@@ -140,9 +142,11 @@
                 @endif
 
                 @if ($showSuccesNotification)
-                    <div wire:model="showSuccesNotification" class="mt-3 alert alert-primary alert-dismissible fade show" role="alert">
+                    <div wire:model="showSuccesNotification"
+                        class="mt-3 alert alert-primary alert-dismissible fade show" role="alert">
                         <span class="alert-icon text-white"><i class="ni ni-like-2"></i></span>
-                        <span class="alert-text text-white">Your profile information have been successfuly saved!</span>
+                        <span
+                            class="alert-text text-white">{{ __('Your profile information have been successfuly saved!') }}</span>
                         <button wire:click="$set('showSuccesNotification', false)" type="button" class="btn-close"
                             data-bs-dismiss="alert" aria-label="Close">
                         </button>
@@ -153,8 +157,8 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="user-name" class="form-control-label">Full Name</label>
-                                <div class="@error('user.name')border border-danger rounded-3 @enderror mb-3">
+                                <label for="user-name" class="form-control-label">{{ __('Full Name') }}</label>
+                                <div class="@error('user.name')border border-danger rounded-3 @enderror">
                                     <input wire:model="user.name" class="form-control" type="text" placeholder="Name"
                                         id="user-name">
                                 </div>
@@ -163,8 +167,8 @@
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="user-email" class="form-control-label">Email</label>
-                                <div class="@error('user.email')border border-danger rounded-3 @enderror mb-3">
+                                <label for="user-email" class="form-control-label">{{ __('Email') }}</label>
+                                <div class="@error('user.email')border border-danger rounded-3 @enderror">
                                     <input wire:model="user.email" class="form-control" type="email"
                                         placeholder="@example.com" id="user-email">
                                 </div>
@@ -175,18 +179,18 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="user.phone" class="form-control-label">Phone</label>
-                                <div class="@error('user.phone')border border-danger rounded-3 @enderror mb-3">
+                                <label for="user.phone" class="form-control-label">{{ __('Phone') }}</label>
+                                <div class="@error('user.phone')border border-danger rounded-3 @enderror">
                                     <input wire:model="user.phone" class="form-control" type="tel"
-                                        placeholder="40-(770)-888-444" id="phone">
+                                        placeholder="40770888444" id="phone">
                                 </div>
                                 @error('user.phone') <div class="text-danger">{{ $message }}</div> @enderror
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="user.location" class="form-control-label">Location</label>
-                                <div class="@error('user.location') border border-danger rounded-3 @enderror mb-3">
+                                <label for="user.location" class="form-control-label">{{ __('Location') }}</label>
+                                <div class="@error('user.location') border border-danger rounded-3 @enderror">
                                     <input wire:model="user.location" class="form-control" type="text"
                                         placeholder="Location" id="name">
                                 </div>
@@ -195,15 +199,16 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="about">About Me</label>
-                        <div class="@error('user.about')border border-danger rounded-3 @enderror mb-3">
+                        <label for="about">{{ 'About Me' }}</label>
+                        <div class="@error('user.about')border border-danger rounded-3 @enderror">
                             <textarea wire:model="user.about" class="form-control" id="about" rows="3"
                                 placeholder="Say something about yourself"></textarea>
                         </div>
                         @error('user.about') <div class="text-danger">{{ $message }}</div> @enderror
                     </div>
                     <div class="">
-                        <button type="submit" class="btn bg-gradient-info btn-lg mt-4 mb-4">Save Changes</button>
+                        <button type="submit"
+                            class="btn bg-gradient-info btn-lg mt-4 mb-4">{{ 'Save Changes' }}</button>
                     </div>
                 </form>
 
@@ -220,13 +225,14 @@
 <script>
     var win = navigator.platform.indexOf('Win') > -1;
     if (win && document.querySelector('#sidenav-scrollbar')) {
-      var options = {
-        damping: '0.5'
-      }
-      Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
+        var options = {
+            damping: '0.5'
+        }
+        Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
     }
-  </script>
-  <!-- Github buttons -->
-  <script async defer src="https://buttons.github.io/buttons.js"></script>
-  <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
-  <script src="../assets/js/soft-ui-dashboard.min.js?v=1.0.2"></script>
+
+</script>
+<!-- Github buttons -->
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+<!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
+<script src="../assets/js/soft-ui-dashboard.min.js?v=1.0.2"></script>
