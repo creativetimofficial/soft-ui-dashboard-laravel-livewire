@@ -16,14 +16,10 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        DB::statement('SET FOREIGN_KEY_CHECKS=0');
-
         User::factory()->create([
             'name' => 'admin',
             'email' => 'admin@softui.com',
             'password' => Hash::make('secret')
         ]);
-
-        DB::statement('SET FOREIGN_KEY_CHECKS=1');
     }
 }
