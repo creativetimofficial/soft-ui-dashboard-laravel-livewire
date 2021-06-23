@@ -59,7 +59,7 @@
             <a class="btn bg-gradient-dark w-100" href="https://www.creative-tim.com/product/soft-ui-dashboard-laravel"
                 target="_blank">Free download</a>
             <a class="btn btn-outline-dark w-100"
-                href=" https://soft-ui-dashboard-laravel.creative-tim.com/documentation/" target="blank">View
+                href="/documentation/bootstrap/overview/soft-ui-dashboard/index.html" target="blank">View
                 documentation</a>
             <div class="w-100 text-center">
                 <a class="github-button" href=" https://github.com/creativetimofficial/soft-ui-dashboard-laravel"

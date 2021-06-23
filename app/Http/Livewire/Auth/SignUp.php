@@ -14,13 +14,18 @@ class SignUp extends Component
 
     protected $rules = [
         'name' => 'required|min:3',
-        'email' => 'required|email|unique:users',
+        'email' => 'required|email:rfc,dns|unique:users',
         'password' => 'required|min:6'
     ];
 
+    public function validateEmail($email) {
+        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            
+        }
+    }
+
     public function register() {
         $this->validate();
-
         $user = User::create([
             'name' => $this->name,
             'email' => $this->email,

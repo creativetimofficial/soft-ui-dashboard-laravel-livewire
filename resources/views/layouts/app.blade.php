@@ -49,8 +49,9 @@
             @include('layouts.navbars.guest.login')
             {{ $slot }}
             {{-- FOOTER --}}
-            @include('layouts.footers.guest.description')
-
+            <div class="mt-5">
+                @include('layouts.footers.guest.with-socials')
+            </div>
 
             {{-- If the user is on the sign up page --}}
         @elseif (!auth()->check() &&
