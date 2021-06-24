@@ -18,9 +18,9 @@ class SignUp extends Component
         'password' => 'required|min:6'
     ];
 
-    public function validateEmail($email) {
-        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-            
+    public function mount() {
+        if(auth()->user()){
+            redirect('/dashboard');
         }
     }
 

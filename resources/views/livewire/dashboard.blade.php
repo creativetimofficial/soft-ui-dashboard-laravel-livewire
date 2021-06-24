@@ -110,7 +110,7 @@
                   <div class="bg-gradient-primary border-radius-lg h-100">
                     <img src="../assets/img/shapes/waves-white.svg" class="position-absolute h-100 w-50 top-0 d-lg-block d-none" alt="waves">
                     <div class="position-relative d-flex align-items-center justify-content-center h-100">
-                      <img class="w-100 position-relative z-index-2 pt-4" src="../assets/img/illustrations/rocket-white.png">
+                      <img class="w-100 position-relative z-index-2 pt-4" src="/assets/img/illustrations/warning-rocket.png">
                     </div>
                   </div>
                 </div>
@@ -681,15 +681,15 @@
 
     var gradientStroke1 = ctx2.createLinearGradient(0, 230, 0, 50);
 
-    gradientStroke1.addColorStop(1, 'rgba(203,12,159,0.2)');
-    gradientStroke1.addColorStop(0.2, 'rgba(72,72,176,0.0)');
-    gradientStroke1.addColorStop(0, 'rgba(203,12,159,0)'); //purple colors
+    gradientStroke1.addColorStop(1, 'rgba(253,235,173,0.4)');
+    gradientStroke1.addColorStop(0.2, 'rgba(245,57,57,0.0)');
+    gradientStroke1.addColorStop(0, 'rgba(255,214,61,0)'); //purple colors
 
     var gradientStroke2 = ctx2.createLinearGradient(0, 230, 0, 50);
 
-    gradientStroke2.addColorStop(1, 'rgba(20,23,39,0.2)');
-    gradientStroke2.addColorStop(0.2, 'rgba(72,72,176,0.0)');
-    gradientStroke2.addColorStop(0, 'rgba(20,23,39,0)'); //purple colors
+    gradientStroke2.addColorStop(1, 'rgba(20,23,39,0.4)');
+    gradientStroke2.addColorStop(0.2, 'rgba(245,57,57,0.0)');
+    gradientStroke2.addColorStop(0, 'rgba(255,214,61,0)'); //purple colors
 
 
     new Chart(ctx2, {
@@ -701,7 +701,7 @@
             tension: 0.4,
             borderWidth: 0,
             pointRadius: 0,
-            borderColor: "#cb0c9f",
+            borderColor: "#fbcf33",
             borderWidth: 3,
             backgroundColor: gradientStroke1,
             data: [50, 40, 300, 220, 500, 250, 400, 230, 500],
@@ -713,7 +713,7 @@
             tension: 0.4,
             borderWidth: 0,
             pointRadius: 0,
-            borderColor: "#3A416F",
+            borderColor: "#f53939",
             borderWidth: 3,
             backgroundColor: gradientStroke2,
             data: [30, 90, 40, 140, 290, 290, 340, 230, 400],

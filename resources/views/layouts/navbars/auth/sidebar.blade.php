@@ -11,7 +11,7 @@
     <hr class="horizontal dark mt-0">
     <div class="collapse navbar-collapse w-auto" id="sidenav-collapse-main">
         <ul class="navbar-nav">
-            <li class="nav-item">
+            <li class="nav-item pb-2">
                 <a class="nav-link {{ Route::currentRouteName() == 'dashboard' ? 'active' : '' }}"
                     href="{{ route('dashboard') }}">
                     <div
@@ -41,8 +41,7 @@
             </li>
 
             <li class="nav-item mt-2">
-                <h6 class="ps-4 ms-2 text-uppercase text-xs text-primary font-weight-bolder opacity-6">Laravel Examples
-                </h6>
+                <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">Laravel Examples</h6>
             </li>
             <li class="nav-item">
                 <a class="nav-link {{ Route::currentRouteName() == 'my-profile' ? 'active' : '' }}"
@@ -75,12 +74,13 @@
                     <span class="nav-link-text ms-1">My Profile</span>
                 </a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item pb-2">
                 <a class="nav-link {{ Route::currentRouteName() == 'user-management' ? 'active' : '' }}"
                     href="{{ route('user-management') }}">
                     <div
                         class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
-                        <img src="assets/img/small-logos/bullet-list.png" width="12px" height="12px">
+                        <i style="font-size: 1rem;" class="fas fa-lg fa-list-ul ps-2 pe-2 text-center
+                        {{ in_array(request()->route()->getName(),['user-management']) ? 'text-white' : 'text-dark' }}"></i>
                     </div>
                     <span class="nav-link-text ms-1">User Management</span>
                 </a>
@@ -270,7 +270,7 @@
             </li>
             <li class="nav-link mb-0">
                 <a href="https://www.creative-tim.com/product/soft-ui-dashboard-pro-laravel"
-                    class="btn btn-primary btn-md active px-5" target="_blank" role="button" aria-pressed="true">
+                    class="btn btn-primary btn-md active px-5 text-white" target="_blank" role="button" aria-pressed="true">
                     Upgrade to PRO</a>
             </li>
         </ul>
