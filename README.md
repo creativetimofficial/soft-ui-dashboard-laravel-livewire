@@ -10,46 +10,24 @@
 
 ![Image](https://s3.amazonaws.com/creativetim_bucket/products/450/original/opt_sd_free_thumbnail.png)
 
-Most complex and innovative Dashboard Made by [Creative Tim](https://creative-tim.com/). Check our latest Free Bootstrap 5 Dashboard.
+## Free Frontend Web App for Laravel with Livewire & Alpine.js
+What happens when you combine Soft UI, one of the hottest design trends right now, and Laravel?  We've partnered with [UPDIVISION](https://updivision.com/) to create the ultimate design & development toolbox. 
 
-Designed for those who like bold elements and beautiful websites. Made of hundred of elements, designed blocks and fully coded pages, Soft UI Dashboard is ready to help you create stunning websites and webapps.
+Soft UI Dashboard Laravel comes with dozens of handcrafted UI elements tailored for Bootstrap 5 and an out of the box Laravel backend. The Livewire integration allows you to build dynamic interfaces easier without leaving the comfort of your favourite framework. If you combine this even further with Alpine.js, you get the perfect combo for kickstarting your next project.       
+ 
+## Ok, I`m hooked. So, what am I getting?
+You're getting a lean, mean, app-building machine. Here is the blueprint:  
+* 70 handcrafted UI components. From buttons and inputs to navbars and cards, everything is designed to create visually cohesive interfaces.  
+* 7 example pages to get you started
+* fully-functional authentication system, register and user profile editing features built with Laravel
+* Livewire & Alpine.js integration
 
-We created many examples for pages like Sign In, Profile and so on. Just choose between a Basic Design, an illustration or a cover and you are good to go!
+## Free for personal and commercial projects
+Whether you're working on a side project or delivering to a client, we've got you covered. Soft UI Dashboard Laravel is released under MIT license, so you can use it both for personal and commercial projects for free. All you need to do is start coding.    
 
-**Fully Coded Elements**
+## Detailed documentation and example pages
+We also included detailed documentation for every component and feature so you can follow along. The pre-built example pages give you a quick glimpse of what Soft UI Dashboard Laravel has to offer so you can get started in no time.  
 
-Soft UI Dashboard is built with over 70 frontend individual elements, like buttons, inputs, navbars, navtabs, cards or alerts, giving you the freedom of choosing and combining. All components can take variations in colour, that you can easily modify using SASS files and classes.
-
-You will save a lot of time going from prototyping to full-functional code, because all elements are implemented.
-This Free Bootstrap 5 Dashboard is coming with prebuilt design blocks, so the development process is seamless,
-switching from our pages to the real website is very easy to be done.
-
-View [all components here](https://www.creative-tim.com/learning-lab/bootstrap/alerts/soft-ui-dashboard?ref=readme-sudpl).
-
-**Documentation built by Developers**
-
-Each element is well presented in a very complex documentation.
-You can read more about the <a href="https://www.creative-tim.com/learning-lab/bootstrap/overview/soft-ui-dashboard" target="_blank">documentation here</a>.
-
-**Example Pages**
-
-If you want to get inspiration or just show something directly to your clients,
-you can jump start your development with our pre-built example pages. You will be able
-to quickly set up the basic structure for your web project.
-View <a href="https://demos.creative-tim.com/soft-ui-dashboard-laravel/dashboard" target="_blank">example pages here</a>.
-
-**HELPFUL LINKS**
-
-- View <a href="https://github.com/creativetimofficial/soft-ui-dashboard-laravel" target="_blank">Github Repository</a>
-
-- Check <a href="https://www.creative-tim.com/faq" target="_blank">FAQ Page</a>
-
-#### Special thanks
-During the development of this dashboard, we have used many existing resources from awesome developers. We want to thank them for providing their tools open source:
-- [Bootstrap 5](https://www.getbootstrap.com)- Open source front end framework
-- [Popper.js](https://popper.js.org/) - Kickass library used to manage poppers
-
-Let us know your thoughts below. And good luck with development!
 
 ## Table of Contents
 
@@ -63,7 +41,7 @@ Let us know your thoughts below. And good luck with development!
 * [Register](#register)
 * [Forgot Password](#forgot-password)
 * [Reset Password](#reset-password)
-* [Profile](#profile)
+* [User Profile](#user-profile)
 * [Dashboard](#dashboard)
 * [File Structure](#file-structure)
 * [Browser Support](#browser-support)
@@ -195,8 +173,8 @@ The `App\Http\Livewire\Auth\ResetPassword` helps the user reset the password.
     }
 ```
 
-### Profile
-The profile can be accessed by a logged in user by clicking "**Profile**" from the sidebar or adding **/profile** in the url. The user can add information like phone number, location, description or change the name and email.
+### User Profile
+The profile can be accessed by a logged in user by clicking "**User Profile**" from the sidebar or adding **/profile** in the url. The user can add information like phone number, location, description or change the name and email.
 
 The `App\Http\Livewire\Profile` handles the user's profile information.
 
