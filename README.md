@@ -91,10 +91,10 @@ Besides the dashboard, the auth pages, the billing and table pages, there is als
 | Forgot Password Page | Reset Password Page | Profile Page  |
 | --- | --- | ---  |
 | [![Forgot Password Page](https://cdn4.iconfinder.com/data/icons/unigrid-layout/60/021_layout_wireframe_grid_image-512.png)](https://paper-dashboard-laravel.creative-tim.com/profile?ref=pdl-readme)  | [![Reset Password Page](https://cdn4.iconfinder.com/data/icons/unigrid-layout/60/021_layout_wireframe_grid_image-512.png)](https://paper-dashboard-laravel.creative-tim.com/user?ref=pdl-readme) | [![Profile Page](https://cdn4.iconfinder.com/data/icons/unigrid-layout/60/021_layout_wireframe_grid_image-512.png)](https://paper-dashboard-laravel.creative-tim.com/notifications?ref=pdl-readme)
-[View More](https://soft-ui-dashboard-laravel.creative-tim.com/dashboard/?ref=pdl-readme)
+[View More](https://soft-ui-dashboard-laravel.creative-tim.com/dashboard)
 
 ## Documentation
-The documentation for the Soft UI Dashboard Laravel is hosted at our [website](https://soft-ui-dashboard-laravel.creative-tim.com/documentation/bootstrap/overview/soft-ui-dashboard/index.html/?ref=pdl-readme).
+The documentation for the Soft UI Dashboard Laravel is hosted at our [website](https://soft-ui-dashboard-laravel.creative-tim.com/documentation/bootstrap/overview/soft-ui-dashboard/index.html).
 
 ### Login
 If you are not logged in you can only access this page or the Sign Up page. The default url takes you to the login page where you use the default credentials **admin@softui.com** with the password **secret**. Logging in is possible only with already existing credentials. For this to work you should have run the migrations. 
