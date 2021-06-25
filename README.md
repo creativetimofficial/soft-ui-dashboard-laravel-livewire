@@ -86,11 +86,11 @@ Besides the dashboard, the auth pages, the billing and table pages, there is als
 ## Demo
 | Register | Login | Dashboard |
 | --- | --- | ---  |
-| [![Register](https://cdn4.iconfinder.com/data/icons/unigrid-layout/60/021_layout_wireframe_grid_image-512.png)](https://cdn4.iconfinder.com/data/icons/unigrid-layout/60/021_layout_wireframe_grid_image-512.png) | [![Login](https://cdn4.iconfinder.com/data/icons/unigrid-layout/60/021_layout_wireframe_grid_image-512.png)](https://cdn4.iconfinder.com/data/icons/unigrid-layout/60/021_layout_wireframe_grid_image-512.png)  | [![Dashboard](https://cdn4.iconfinder.com/data/icons/unigrid-layout/60/021_layout_wireframe_grid_image-512.png)](https://paper-dashboard-laravel.creative-tim.com/?ref=pdl-readme)
+| [![Register](https://cdn4.iconfinder.com/data/icons/unigrid-layout/60/021_layout_wireframe_grid_image-512.png)](https://soft-ui-dashboard-laravel.creative-tim.com/sign-up) | [![Login](https://cdn4.iconfinder.com/data/icons/unigrid-layout/60/021_layout_wireframe_grid_image-512.png)](https://soft-ui-dashboard-laravel.creative-tim.com/login)  | [![Dashboard](https://cdn4.iconfinder.com/data/icons/unigrid-layout/60/021_layout_wireframe_grid_image-512.png)](https://soft-ui-dashboard-laravel.creative-tim.com/dashboard)
 
 | Forgot Password Page | Reset Password Page | Profile Page  |
 | --- | --- | ---  |
-| [![Forgot Password Page](https://cdn4.iconfinder.com/data/icons/unigrid-layout/60/021_layout_wireframe_grid_image-512.png)](https://paper-dashboard-laravel.creative-tim.com/profile?ref=pdl-readme)  | [![Reset Password Page](https://cdn4.iconfinder.com/data/icons/unigrid-layout/60/021_layout_wireframe_grid_image-512.png)](https://paper-dashboard-laravel.creative-tim.com/user?ref=pdl-readme) | [![Profile Page](https://cdn4.iconfinder.com/data/icons/unigrid-layout/60/021_layout_wireframe_grid_image-512.png)](https://paper-dashboard-laravel.creative-tim.com/notifications?ref=pdl-readme)
+| [![Forgot Password Page](https://cdn4.iconfinder.com/data/icons/unigrid-layout/60/021_layout_wireframe_grid_image-512.png)](https://soft-ui-dashboard-laravel.creative-tim.com/login/forgot-password)  | [![Reset Password Page](https://cdn4.iconfinder.com/data/icons/unigrid-layout/60/021_layout_wireframe_grid_image-512.png)](https://soft-ui-dashboard-laravel.creative-tim.com/) | [![Profile Page](https://cdn4.iconfinder.com/data/icons/unigrid-layout/60/021_layout_wireframe_grid_image-512.png)](https://soft-ui-dashboard-laravel.creative-tim.com/laravel-user-profile)
 [View More](https://soft-ui-dashboard-laravel.creative-tim.com/dashboard)
 
 ## Documentation
