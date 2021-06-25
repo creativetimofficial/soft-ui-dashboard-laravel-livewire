@@ -91,10 +91,10 @@ Besides the dashboard, the auth pages, the billing and table pages, there is als
 | Forgot Password Page | Reset Password Page | Profile Page  |
 | --- | --- | ---  |
 | [![Forgot Password Page](https://cdn4.iconfinder.com/data/icons/unigrid-layout/60/021_layout_wireframe_grid_image-512.png)](https://paper-dashboard-laravel.creative-tim.com/profile?ref=pdl-readme)  | [![Reset Password Page](https://cdn4.iconfinder.com/data/icons/unigrid-layout/60/021_layout_wireframe_grid_image-512.png)](https://paper-dashboard-laravel.creative-tim.com/user?ref=pdl-readme) | [![Profile Page](https://cdn4.iconfinder.com/data/icons/unigrid-layout/60/021_layout_wireframe_grid_image-512.png)](https://paper-dashboard-laravel.creative-tim.com/notifications?ref=pdl-readme)
-[View More](https://www.creative-tim.com/live/soft-ui-dashboard-laravel/?ref=sudl-readme)
+[View More](https://soft-ui-dashboard-laravel.creative-tim.com/dashboard/?ref=pdl-readme)
 
 ## Documentation
-The documentation for the Soft UI Dashboard Laravel is hosted at our [website](https://www.creative-tim.com/live/soft-ui-dashboard-laravel/?start-page=/docs/getting-started/laravel-setup.html&ref=sudl-readme).
+The documentation for the Soft UI Dashboard Laravel is hosted at our [website](https://soft-ui-dashboard-laravel.creative-tim.com/documentation/bootstrap/overview/soft-ui-dashboard/index.html/?ref=pdl-readme).
 
 ### Login
 If you are not logged in you can only access this page or the Sign Up page. The default url takes you to the login page where you use the default credentials **admin@softui.com** with the password **secret**. Logging in is possible only with already existing credentials. For this to work you should have run the migrations. 
@@ -174,9 +174,9 @@ The `App\Http\Livewire\Auth\ResetPassword` helps the user reset the password.
 ```
 
 ### User Profile
-The profile can be accessed by a logged in user by clicking "**User Profile**" from the sidebar or adding **/profile** in the url. The user can add information like phone number, location, description or change the name and email.
+The profile can be accessed by a logged in user by clicking "**User Profile**" from the sidebar or adding **/user-profile** in the url. The user can add information like phone number, location, description or change the name and email.
 
-The `App\Http\Livewire\Profile` handles the user's profile information.
+The `App\Http\Livewire\UserProfile` handles the user's profile information.
 
 ```
     public function save() {
@@ -190,6 +190,56 @@ The `App\Http\Livewire\Profile` handles the user's profile information.
 You can access the dashboard either by using the "**Dashboard**" link in the left sidebar or by adding **/dashboard** in the url after logging in. 
 
 ## File Structure
+app
+├── Console
+│   └── Kernel.php
+├── Exceptions
+│   └── Handler.php
+├── Http
+│   ├── Controllers
+│   │   └── Controller.php
+│   ├── Kernel.php
+│   ├── Livewire
+│   │   ├── Auth
+│   │   │   ├── ForgotPassword.php
+│   │   │   ├── Login.php
+│   │   │   ├── Logout.php
+│   │   │   ├── ResetPassword.php
+│   │   │   └── SignUp.php
+│   │   ├── Billing.php
+│   │   ├── Dashboard.php
+│   │   ├── LaravelExamples
+│   │   │   ├── UserManagement.php
+│   │   │   └── UserProfile.php
+│   │   ├── Profile.php
+│   │   ├── Rtl.php
+│   │   ├── StaticSignIn.php
+│   │   ├── StaticSignUp.php
+│   │   └── Tables.php
+│   └── Middleware
+│       ├── Authenticate.php
+│       ├── EncryptCookies.php
+│       ├── PreventRequestsDuringMaintenance.php
+│       ├── RedirectIfAuthenticated.php
+│       ├── TrimStrings.php
+│       ├── TrustHosts.php
+│       ├── TrustProxies.php
+│       └── VerifyCsrfToken.php
+├── Models
+│   └── User.php
+├── Notifications
+│   └── ResetPassword.php
+├── Providers
+│   ├── AppServiceProvider.php
+│   ├── AuthServiceProvider.php
+│   ├── BroadcastServiceProvider.php
+│   ├── EventServiceProvider.php
+│   └── RouteServiceProvider.php
+└── View
+    └── Components
+        └── Layouts
+            ├── App.php
+            └── ...
 
 ## Browser Support
 At present, we officially aim to support the last two versions of the following browsers:
