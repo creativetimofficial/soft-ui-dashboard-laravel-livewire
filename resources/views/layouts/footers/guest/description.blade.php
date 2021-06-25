@@ -17,7 +17,7 @@
                     class="text-secondary me-xl-5 me-3 mb-sm-0 mb-2">
                     Products
                 </a>
-                <a href="http://blog.creative-tim.com" target="_blank" class="text-secondary me-xl-5 me-3 mb-sm-0 mb-2">
+                <a href="https://www.creative-tim.com/blog" target="_blank" class="text-secondary me-xl-5 me-3 mb-sm-0 mb-2">
                     Blog
                 </a>
                 <a href="https://www.creative-tim.com/support-terms" target="_blank"

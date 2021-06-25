@@ -206,14 +206,13 @@
                         </div>
                         @error('user.about') <div class="text-danger">{{ $message }}</div> @enderror
                     </div>
-                    <div class="">
+                    <div class="d-flex justify-content-end">
                         <button type="submit"
-                            class="btn bg-gradient-info btn-lg mt-4 mb-4">{{ 'Save Changes' }}</button>
+                            class="btn bg-gradient-dark btn-md mt-4 mb-4">{{ 'Save Changes' }}</button>
                     </div>
                 </form>
 
             </div>
         </div>
     </div>
-</div>
 </div>

@@ -17,28 +17,28 @@
             <ul class="navbar-nav mx-auto">
                 @if (auth()->user())
                     <li class="nav-item">
-                        <a class="nav-link d-flex align-items-center me-2 active" aria-current="page"
+                        <a class="nav-link text-dark d-flex align-items-center me-2 active" aria-current="page"
                             href="{{ route('dashboard') }}">
                             <i class="fa fa-chart-pie opacity-6 text-dark me-1"></i>
                             Dashboard
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link me-2" href="{{ route('profile') }}">
+                        <a class="nav-link text-dark me-2" href="{{ route('profile') }}">
                             <i class="fa fa-user opacity-6 text-dark me-1"></i>
                             Profile
                         </a>
                     </li>
                 @endif
                 <li class="nav-item">
-                    <a class="nav-link me-2"
+                    <a class="nav-link text-dark me-2 text-dark"
                         href=" {{ auth()->user() ? route('static-sign-up') : route('sign-up') }}">
                         <i class="fas fa-user-circle opacity-6 text-dark me-1"></i>
                         Sign Up
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link me-2" href="{{ auth()->user() ? route('sign-in') : route('login') }}">
+                    <a class="nav-link text-dark me-2" href="{{ auth()->user() ? route('sign-in') : route('login') }}">
                         <i class="fas fa-key opacity-6 text-dark me-1"></i>
                         Sign In
                     </a>
