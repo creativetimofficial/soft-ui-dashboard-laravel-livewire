@@ -190,6 +190,7 @@ The `App\Http\Livewire\UserProfile` handles the user's profile information.
 You can access the dashboard either by using the "**Dashboard**" link in the left sidebar or by adding **/dashboard** in the url after logging in. 
 
 ## File Structure
+```
 app
 ├── Console
 │   └── Kernel.php
@@ -240,7 +241,7 @@ app
         └── Layouts
             ├── App.php
             └── ...
-
+```
 ## Browser Support
 At present, we officially aim to support the last two versions of the following browsers:
 
