@@ -101,18 +101,17 @@ Register a user or login with default user **admin@softui.com** and password **s
 Besides the dashboard, the auth pages, the billing and table pages, there is also has an edit profile page. All the necessary files are installed out of the box and all the needed routes are added to `routes/web.php`. Keep in mind that all of the features can be viewed once you login using the credentials provided or by registering your own user. 
 
 ## Versions
-<!--- schimb in loc de argon in soft-ui-dashboard-laravel, e luat de pe paper -->
 [<img src="https://github.com/creativetimofficial/public-assets/blob/master/logos/html-logo.jpg?raw=true" width="60" height="60" />](https://demos.creative-tim.com/argon-dashboard-pro/pages/dashboards/dashboard.html?ref=sudl-readme)
 [<img src="https://github.com/creativetimofficial/public-assets/blob/master/logos/laravel_logo.png?raw=true" width="60" height="60" />](https://argon-dashboard-pro-laravel.creative-tim.com/?ref=sudl-readme)
 
 ## Demo
 | Register | Login | Dashboard |
 | --- | --- | ---  |
-| [![Register](https://cdn4.iconfinder.com/data/icons/unigrid-layout/60/021_layout_wireframe_grid_image-512.png)](https://cdn4.iconfinder.com/data/icons/unigrid-layout/60/021_layout_wireframe_grid_image-512.png) | [![Login](https://cdn4.iconfinder.com/data/icons/unigrid-layout/60/021_layout_wireframe_grid_image-512.png)](https://cdn4.iconfinder.com/data/icons/unigrid-layout/60/021_layout_wireframe_grid_image-512.png)  | [![Dashboard](https://cdn4.iconfinder.com/data/icons/unigrid-layout/60/021_layout_wireframe_grid_image-512.png)](https://paper-dashboard-laravel.creative-tim.com/?ref=pdl-readme)
+| [![Register](/screens/Register.png)](https://cdn4.iconfinder.com/data/icons/unigrid-layout/60/021_layout_wireframe_grid_image-512.png) | [![Login](screens/Login.png)](https://cdn4.iconfinder.com/data/icons/unigrid-layout/60/021_layout_wireframe_grid_image-512.png)  | [![Dashboard](/screens/Dashboard.png)](https://paper-dashboard-laravel.creative-tim.com/?ref=pdl-readme)
 
 | Forgot Password Page | Reset Password Page | Profile Page  |
 | --- | --- | ---  |
-| [![Forgot Password Page](https://cdn4.iconfinder.com/data/icons/unigrid-layout/60/021_layout_wireframe_grid_image-512.png)](https://paper-dashboard-laravel.creative-tim.com/profile?ref=pdl-readme)  | [![Reset Password Page](https://cdn4.iconfinder.com/data/icons/unigrid-layout/60/021_layout_wireframe_grid_image-512.png)](https://paper-dashboard-laravel.creative-tim.com/user?ref=pdl-readme) | [![Profile Page](https://cdn4.iconfinder.com/data/icons/unigrid-layout/60/021_layout_wireframe_grid_image-512.png)](https://paper-dashboard-laravel.creative-tim.com/notifications?ref=pdl-readme)
+| [![Forgot Password Page](/screens/Forgot-password.png)](https://paper-dashboard-laravel.creative-tim.com/profile?ref=pdl-readme)  | [![Reset Password Page](/screens/Reset-password.png)](https://paper-dashboard-laravel.creative-tim.com/user?ref=pdl-readme) | [![Profile Page](/screens/Profile.png))](https://paper-dashboard-laravel.creative-tim.com/notifications?ref=pdl-readme)
 [View More](https://www.creative-tim.com/live/soft-ui-dashboard-laravel/?ref=sudl-readme)
 
 ## Documentation
