@@ -107,12 +107,12 @@ Besides the dashboard, the auth pages, the billing and table pages, there is als
 ## Demo
 | Register | Login | Dashboard |
 | --- | --- | ---  |
-| [![Register](/screens/Register.png)](https://cdn4.iconfinder.com/data/icons/unigrid-layout/60/021_layout_wireframe_grid_image-512.png) | [![Login](screens/Login.png)](https://cdn4.iconfinder.com/data/icons/unigrid-layout/60/021_layout_wireframe_grid_image-512.png)  | [![Dashboard](/screens/Dashboard.png)](https://paper-dashboard-laravel.creative-tim.com/?ref=pdl-readme)
+| [![Register](/screens/Register.png)](https://soft-ui-dashboard-laravel.creative-tim.com/sign-up) | [![Login](screens/Login.png)](https://soft-ui-dashboard-laravel.creative-tim.com/login)  | [![Dashboard](/screens/Dashboard.png)](https://soft-ui-dashboard-laravel.creative-tim.com/dashboard)
 
 | Forgot Password Page | Reset Password Page | Profile Page  |
 | --- | --- | ---  |
-| [![Forgot Password Page](/screens/Forgot-password.png)](https://paper-dashboard-laravel.creative-tim.com/profile?ref=pdl-readme)  | [![Reset Password Page](/screens/Reset-password.png)](https://paper-dashboard-laravel.creative-tim.com/user?ref=pdl-readme) | [![Profile Page](/screens/Profile.png))](https://paper-dashboard-laravel.creative-tim.com/notifications?ref=pdl-readme)
-[View More](https://www.creative-tim.com/live/soft-ui-dashboard-laravel/?ref=sudl-readme)
+| [![Forgot Password Page](/screens/Forgot-password.png)](https://soft-ui-dashboard-laravel.creative-tim.com/login/forgot-password)  | [![Reset Password Page](/screens/Reset-password.png)](https://soft-ui-dashboard-laravel.creative-tim.com/login) | [![Profile Page](/screens/Profile.png)](https://soft-ui-dashboard-laravel.creative-tim.com/laravel-user-profile)
+[View More](https://www.creative-tim.com/live/soft-ui-dashboard-laravel)
 
 ## Documentation
 The documentation for the Soft UI Dashboard Laravel is hosted at our [website](https://www.creative-tim.com/live/soft-ui-dashboard-laravel/?start-page=/docs/getting-started/laravel-setup.html&ref=sudl-readme).
