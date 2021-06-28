@@ -115,7 +115,7 @@ Besides the dashboard, the auth pages, the billing and table pages, there is als
 [View More](https://soft-ui-dashboard-laravel.creative-tim.com/dashboard)
 
 ## Documentation
-The documentation for the Soft UI Dashboard Laravel is hosted at our [website](https://www.creative-tim.com/live/soft-ui-dashboard-laravel/?start-page=/docs/getting-started/laravel-setup.html&ref=sudl-readme).
+The documentation for the Soft UI Dashboard Laravel is hosted at our [website](https://soft-ui-dashboard-laravel.creative-tim.com/documentation/bootstrap/overview/soft-ui-dashboard/index.html).
 
 ### Login
 If you are not logged in you can only access this page or the Sign Up page. The default url takes you to the login page where you use the default credentials **admin@softui.com** with the password **secret**. Logging in is possible only with already existing credentials. For this to work you should have run the migrations. 
