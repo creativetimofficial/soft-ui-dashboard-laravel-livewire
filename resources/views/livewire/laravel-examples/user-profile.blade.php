@@ -135,8 +135,7 @@
                         role="alert">
                         <span class="alert-text text-white">
                             {{ __('You are in a demo version, you can\'t update the profile.') }}</span>
-                        <button wire:click="$set('showDemoNotification', false)" type="button" class="btn-close"
-                            data-bs-dismiss="alert" aria-label="Close">
+                        <button wire:click="$set('showDemoNotification', false)" type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
                         </button>
                     </div>
                 @endif
@@ -147,8 +146,7 @@
                         <span class="alert-icon text-white"><i class="ni ni-like-2"></i></span>
                         <span
                             class="alert-text text-white">{{ __('Your profile information have been successfuly saved!') }}</span>
-                        <button wire:click="$set('showSuccesNotification', false)" type="button" class="btn-close"
-                            data-bs-dismiss="alert" aria-label="Close">
+                        <button wire:click="$set('showSuccesNotification', false)" type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
                         </button>
                     </div>
                 @endif
@@ -207,8 +205,7 @@
                         @error('user.about') <div class="text-danger">{{ $message }}</div> @enderror
                     </div>
                     <div class="d-flex justify-content-end">
-                        <button type="submit"
-                            class="btn bg-gradient-dark btn-md mt-4 mb-4">{{ 'Save Changes' }}</button>
+                        <button type="submit" class="btn bg-gradient-dark btn-md mt-4 mb-4">{{ 'Save Changes' }}</button>
                     </div>
                 </form>
 
