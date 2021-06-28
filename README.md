@@ -112,7 +112,7 @@ Besides the dashboard, the auth pages, the billing and table pages, there is als
 | Forgot Password Page | Reset Password Page | Profile Page  |
 | --- | --- | ---  |
 | [![Forgot Password Page](/screens/Forgot-password.png)](https://soft-ui-dashboard-laravel.creative-tim.com/login/forgot-password)  | [![Reset Password Page](/screens/Reset-password.png)](https://soft-ui-dashboard-laravel.creative-tim.com/login) | [![Profile Page](/screens/Profile.png)](https://soft-ui-dashboard-laravel.creative-tim.com/laravel-user-profile)
-[View More](https://www.creative-tim.com/live/soft-ui-dashboard-laravel)
+[View More](https://soft-ui-dashboard-laravel.creative-tim.com/dashboard)
 
 ## Documentation
 The documentation for the Soft UI Dashboard Laravel is hosted at our [website](https://www.creative-tim.com/live/soft-ui-dashboard-laravel/?start-page=/docs/getting-started/laravel-setup.html&ref=sudl-readme).
