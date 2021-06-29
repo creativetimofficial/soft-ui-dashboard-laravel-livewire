@@ -3,7 +3,7 @@
       <div class="sidenav-header">
           <i class="fas fa-times p-3 cursor-pointer text-secondary opacity-5 position-absolute left-0 top-0 d-none d-xl-none"
               aria-hidden="true" id="iconSidenav"></i>
-          <a class="navbar-brand m-0" href="../pages/dashboard.html">
+          <a class="navbar-brand m-0" href="{{ route('dashboard') }}">
               <img src="../assets/img/logo-ct.png" class="navbar-brand-img h-100" alt="...">
               <span class="me-1 font-weight-bold">Soft UI Dashboard</span>
           </a>
@@ -12,7 +12,7 @@
       <div class="collapse navbar-collapse px-0 w-auto" id="sidenav-collapse-main">
           <ul class="navbar-nav">
               <li class="nav-item">
-                  <a class="nav-link " href="../pages/dashboard.html">
+                  <a class="nav-link " href="{{ route('dashboard') }}">
                       <div
                           class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center ms-2 d-flex align-items-center justify-content-center">
                           <svg width="12px" height="12px" viewBox="0 0 45 40" version="1.1"
@@ -39,7 +39,7 @@
                   </a>
               </li>
               <li class="nav-item">
-                  <a class="nav-link " href="../pages/tables.html">
+                  <a class="nav-link " href="{{ route('tables') }}">
                       <div
                           class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center ms-2 d-flex align-items-center justify-content-center">
                           <svg width="12px" height="12px" viewBox="0 0 42 42" version="1.1"
@@ -66,7 +66,7 @@
                   </a>
               </li>
               <li class="nav-item">
-                  <a class="nav-link " href="../pages/billing.html">
+                  <a class="nav-link " href="{{ route('billing') }}">
                       <div
                           class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center ms-2 d-flex align-items-center justify-content-center">
                           <svg width="12px" height="12px" viewBox="0 0 43 36" version="1.1"
@@ -93,7 +93,7 @@
                   </a>
               </li>
               <li class="nav-item">
-                  <a class="nav-link active" href="../pages/rtl.html">
+                  <a class="nav-link active" href="{{ route('billing') }}">
                       <div
                           class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center ms-2 d-flex align-items-center justify-content-center">
                           <svg width="12px" height="12px" viewBox="0 0 40 40" version="1.1"
@@ -123,7 +123,7 @@
                   </a>
               </li>
               <li class="nav-item">
-                  <a class="nav-link " href="../pages/profile.html">
+                  <a class="nav-link " href="{{ route('profile') }}">
                       <div
                           class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center ms-2 d-flex align-items-center justify-content-center">
                           <svg width="12px" height="12px" viewBox="0 0 46 42" version="1.1"
@@ -153,7 +153,7 @@
                   </a>
               </li>
               <li class="nav-item">
-                  <a class="nav-link " href="../pages/sign-in.html">
+                  <a class="nav-link " href="{{ route('sign-in')}}">
                       <div
                           class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center ms-2 d-flex align-items-center justify-content-center">
                           <svg width="12px" height="12px" viewBox="0 0 40 44" version="1.1"
@@ -180,7 +180,7 @@
                   </a>
               </li>
               <li class="nav-item">
-                  <a class="nav-link " href="../pages/sign-up.html">
+                  <a class="nav-link " href="{{ route('static-sign-up') }}">
                       <div
                           class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center ms-2 d-flex align-items-center justify-content-center">
                           <svg width="12px" height="20px" viewBox="0 0 40 40" version="1.1"
@@ -227,7 +227,7 @@
                   <div class="docs-info">
                       <h6 class="text-white up mb-0 text-right">تحتاج مساعدة?</h6>
                       <p class="text-xs font-weight-bold text-right">يرجى التحقق من مستنداتنا</p>
-                      <a href="https://www.creative-tim.com/learning-lab/bootstrap/license/soft-ui-dashboard"
+                      <a href="/documentation/bootstrap/overview/soft-ui-dashboard/index.html"
                           target="_blank" class="btn btn-white btn-sm w-100 mb-0">توثيق</a>
                   </div>
               </div>
@@ -1110,22 +1110,20 @@
               <div class="container-fluid">
                   <div class="row align-items-center justify-content-lg-between">
                       <div class="col-lg-6 mb-lg-0 mb-4">
-                          <div class="copyright text-center text-sm text-muted text-lg-right">
-                              © <script>
-                                  document.write(new Date().getFullYear())
-
-                              </script>,
-                              made with <i class="fa fa-heart"></i> by
-                              <a href="https://www.creative-tim.com" class="font-weight-bold" target="_blank">Creative
-                                  Tim</a>
-                              for a better web.
-                          </div>
+                        <div class="copyright text-center text-sm text-muted text-lg-left">
+                            © {{ now()->year }} Soft by <a style="color: #252f40;" href="https://www.creative-tim.com" class="font-weight-bold ml-1"
+                                target="_blank">Creative Tim</a> &amp; <a style="color: #252f40;" href="https://www.updivision.com"
+                                class="font-weight-bold ml-1" target="_blank">UPDIVISION</a>
+                        </div>
                       </div>
                       <div class="col-lg-6">
                           <ul class="nav nav-footer justify-content-center justify-content-lg-end">
                               <li class="nav-item">
                                   <a href="https://www.creative-tim.com" class="nav-link text-muted"
                                       target="_blank">Creative Tim</a>
+                              </li>
+                              <li class="nav-item">
+                                <a href="https://www.updivision.com" class=" nav-link text-muted" target="_blank">UPDIVISION</a>
                               </li>
                               <li class="nav-item">
                                   <a href="https://www.creative-tim.com/presentation" class="nav-link text-muted"
@@ -1204,21 +1202,21 @@
                       onclick="navbarFixed(this)">
               </div>
               <hr class="horizontal dark my-sm-4">
-              <a class="btn bg-gradient-dark w-100" href="https://www.creative-tim.com/product/soft-ui-dashboard">Free
+              <a class="btn bg-gradient-dark w-100" href="https://www.creative-tim.com/product/soft-ui-dashboard-laravel">Free
                   download</a>
               <a class="btn btn-outline-dark w-100"
-                  href="https://www.creative-tim.com/learning-lab/bootstrap/license/soft-ui-dashboard">View
+                  href="/documentation/bootstrap/overview/soft-ui-dashboard/index.html">View
                   documentation</a>
               <div class="w-100 text-center">
-                  <a class="github-button" href="https://github.com/creativetimofficial/soft-ui-dashboard"
+                  <a class="github-button" href="https://github.com/creativetimofficial/soft-ui-dashboard-laravel"
                       data-icon="octicon-star" data-size="large" data-show-count="true"
                       aria-label="Star creativetimofficial/soft-ui-dashboard on GitHub">Star</a>
                   <h6 class="mt-3">Thank you for sharing!</h6>
-                  <a href="https://twitter.com/intent/tweet?text=Check%20Soft%20UI%20Dashboard%20made%20by%20%40CreativeTim%20%23webdesign%20%23dashboard%20%23bootstrap5&amp;url=https%3A%2F%2Fwww.creative-tim.com%2Fproduct%2Fsoft-ui-dashboard"
+                  <a href="https://twitter.com/intent/tweet?text=Check%20Soft%20UI%20Dashboard%20made%20by%20%40CreativeTim%20and%20%40UPDIVISION%20%23webdesign%20%23dashboard%20%23laravel%20%23livewire%20%23bootstrap5&amp;url=https%3A%2F%2Fwww.creative-tim.com%2Fproduct%2Fsoft-ui-dashboard-laravel"
                       class="btn btn-dark mb-0 me-2" target="_blank">
                       <i class="fab fa-twitter me-1" aria-hidden="true"></i> Tweet
                   </a>
-                  <a href="https://www.facebook.com/sharer/sharer.php?u=https://www.creative-tim.com/product/soft-ui-dashboard"
+                  <a href="https://www.facebook.com/sharer/sharer.php?u=https://www.creative-tim.com/product/soft-ui-dashboard-laravel"
                       class="btn btn-dark mb-0 me-2" target="_blank">
                       <i class="fab fa-facebook-square me-1" aria-hidden="true"></i> Share
                   </a>
@@ -1388,17 +1386,3 @@
       });
 
   </script>
-  <script>
-      var win = navigator.platform.indexOf('Win') > -1;
-      if (win && document.querySelector('#sidenav-scrollbar')) {
-          var options = {
-              damping: '0.5'
-          }
-          Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
-      }
-
-  </script>
-  <!-- Github buttons -->
-  <script async defer src="https://buttons.github.io/buttons.js"></script>
-  <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
-  <script src="../assets/js/soft-ui-dashboard.min.js?v=1.0.2"></script>

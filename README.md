@@ -1,5 +1,5 @@
-# [Soft UI Dashboard Laravel](http://demos.creative-tim.com/soft-ui-dashboard-laravel/dashboard.html?ref=readme-sudl)
-<!--- nu stiu ce versiune e -->
+# [Soft UI Dashboard Laravel](http://demos.soft-ui-dashboard-laravel.creative-tim.com/dashboard)
+
 ![version](https://img.shields.io/badge/version-1.0.0-blue.svg) 
 ![license](https://img.shields.io/badge/license-MIT-blue.svg)
 [![GitHub issues open](https://img.shields.io/github/issues/creativetimofficial/soft-ui-dashboard-laravel.svg)](https://github.com/creativetimofficial/soft-ui-dashboard-laravel/issues?q=is%3Aopen+is%3Aissue) 

@@ -20,6 +20,7 @@
                     @include('layouts.footers.auth.footer')
                 </div>
             </div>
+            @include('components.plugins.fixed-plugin')
         @else
             @include('layouts.navbars.auth.sidebar')
             @include('layouts.navbars.auth.nav')

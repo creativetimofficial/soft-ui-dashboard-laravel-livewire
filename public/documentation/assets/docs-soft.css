@@ -462,7 +462,7 @@
   font-weight: 600 !important;
   margin-left: 4px !important;
   text-decoration: none;
-  color: #923dfa;
+  color: #f53939;
   background-color: transparent;
 }
 
@@ -620,7 +620,7 @@
 .ct-docs-sidenav-pro-badge {
   text-transform: uppercase;
   float: right !important;
-  color: #d31a98;
+  color: #f53939;
   background-color: #eaecfb;
   font-size: 66%;
   font-weight: 600;
@@ -808,7 +808,7 @@
   padding-top: 8px !important;
   display: inline !important;
   border-radius: 6px !important;
-  background-image: linear-gradient(310deg,#7928ca,#ff0080) !important;
+  background-image: linear-gradient(310deg,#f53939,#fbcf33) !important;
 }
 
 @media (max-width: 1200px) {
@@ -1006,7 +1006,7 @@ code[class*=language-], pre[class*=language-] {
 .ct-docs-content-col > ul > li > a,
 .ct-docs-description a {
   text-decoration: none;
-  color: #923dfa;
+  color: #f53939;
   background-color: transparent;
 }
 

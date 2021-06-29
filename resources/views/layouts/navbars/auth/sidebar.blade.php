@@ -44,8 +44,8 @@
                 <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">Laravel Examples</h6>
             </li>
             <li class="nav-item">
-                <a class="nav-link {{ Route::currentRouteName() == 'my-profile' ? 'active' : '' }}"
-                    href="{{ route('my-profile') }}">
+                <a class="nav-link {{ Route::currentRouteName() == 'user-profile' ? 'active' : '' }}"
+                    href="{{ route('user-profile') }}">
                     <div
                         class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                         <svg width="12px" height="12px" viewBox="0 0 46 42" version="1.1"
@@ -71,7 +71,7 @@
                             </g>
                         </svg>
                     </div>
-                    <span class="nav-link-text ms-1">My Profile</span>
+                    <span class="nav-link-text ms-1">User Profile</span>
                 </a>
             </li>
             <li class="nav-item pb-2">
