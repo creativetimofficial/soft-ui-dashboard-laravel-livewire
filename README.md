@@ -1,4 +1,4 @@
-# [Soft UI Dashboard Laravel](http://demos.soft-ui-dashboard-laravel.creative-tim.com/dashboard)
+# [Soft UI Dashboard Laravel](https://soft-ui-dashboard-laravel.creative-tim.com/login)
 
 ![version](https://img.shields.io/badge/version-1.0.0-blue.svg) 
 ![license](https://img.shields.io/badge/license-MIT-blue.svg)
@@ -8,7 +8,7 @@
 
 *Frontend version*: Soft UI Dashboard v1.0.0. More info at https://www.creative-tim.com/product/soft-ui-dashboard-laravel/?ref=sudl-readme 
 
-![Image](https://s3.amazonaws.com/creativetim_bucket/products/450/original/opt_sd_free_thumbnail.png)
+![Image](https://github.com/creativetimofficial/public-assets/blob/master/soft-ui-design-system-laravel/soft-ui-free.gif)
 
 ## Free Frontend Web App for Laravel with Livewire & Alpine.js
 What happens when you combine Soft UI, one of the hottest design trends right now, and Laravel?  We've partnered with [UPDIVISION](https://updivision.com/) to create the ultimate design & development toolbox. 
@@ -79,18 +79,21 @@ Register a user or login with default user **admin@softui.com** and password **s
 Besides the dashboard, the auth pages, the billing and table pages, there is also has an edit profile page. All the necessary files are installed out of the box and all the needed routes are added to `routes/web.php`. Keep in mind that all of the features can be viewed once you login using the credentials provided or by registering your own user. 
 
 ## Versions
-<!--- schimb in loc de argon in soft-ui-dashboard-laravel, e luat de pe paper -->
 [<img src="https://github.com/creativetimofficial/public-assets/blob/master/logos/html-logo.jpg?raw=true" width="60" height="60" />](https://demos.creative-tim.com/argon-dashboard-pro/pages/dashboards/dashboard.html?ref=sudl-readme)
 [<img src="https://github.com/creativetimofficial/public-assets/blob/master/logos/laravel_logo.png?raw=true" width="60" height="60" />](https://argon-dashboard-pro-laravel.creative-tim.com/?ref=sudl-readme)
+
+| HTML | Laravel |
+| --- | --- |
+| [![HTML](https://github.com/creativetimofficial/public-assets/blob/master/soft-ui-design-system-laravel/soft-ui-html.png)](https://demos.creative-tim.com/soft-ui-dashboard/pages/dashboard.html?ref=readme-sudl) | [![Laravel](https://github.com/creativetimofficial/public-assets/blob/master/soft-ui-design-system-laravel/Dashboard.png)](https://demos.creative-tim.com/soft-ui-dashboard-laravel)  | 
 
 ## Demo
 | Register | Login | Dashboard |
 | --- | --- | ---  |
-| [![Register](https://cdn4.iconfinder.com/data/icons/unigrid-layout/60/021_layout_wireframe_grid_image-512.png)](https://soft-ui-dashboard-laravel.creative-tim.com/sign-up) | [![Login](https://cdn4.iconfinder.com/data/icons/unigrid-layout/60/021_layout_wireframe_grid_image-512.png)](https://soft-ui-dashboard-laravel.creative-tim.com/login)  | [![Dashboard](https://cdn4.iconfinder.com/data/icons/unigrid-layout/60/021_layout_wireframe_grid_image-512.png)](https://soft-ui-dashboard-laravel.creative-tim.com/dashboard)
+| [![Register](https://github.com/creativetimofficial/public-assets/blob/master/soft-ui-design-system-laravel/Register.png)](https://soft-ui-dashboard-laravel.creative-tim.com/sign-up) | [![Login](https://github.com/creativetimofficial/public-assets/blob/master/soft-ui-design-system-laravel/Login.png)](https://soft-ui-dashboard-laravel.creative-tim.com/login)  | [![Dashboard](https://github.com/creativetimofficial/public-assets/blob/master/soft-ui-design-system-laravel/Dashboard.png)](https://soft-ui-dashboard-laravel.creative-tim.com/dashboard)
 
 | Forgot Password Page | Reset Password Page | Profile Page  |
 | --- | --- | ---  |
-| [![Forgot Password Page](https://cdn4.iconfinder.com/data/icons/unigrid-layout/60/021_layout_wireframe_grid_image-512.png)](https://soft-ui-dashboard-laravel.creative-tim.com/login/forgot-password)  | [![Reset Password Page](https://cdn4.iconfinder.com/data/icons/unigrid-layout/60/021_layout_wireframe_grid_image-512.png)](https://soft-ui-dashboard-laravel.creative-tim.com/) | [![Profile Page](https://cdn4.iconfinder.com/data/icons/unigrid-layout/60/021_layout_wireframe_grid_image-512.png)](https://soft-ui-dashboard-laravel.creative-tim.com/laravel-user-profile)
+| [![Forgot Password Page](https://github.com/creativetimofficial/public-assets/blob/master/soft-ui-design-system-laravel/Forgot-password.png)](https://soft-ui-dashboard-laravel.creative-tim.com/login/forgot-password)  | [![Reset Password Page](https://github.com/creativetimofficial/public-assets/blob/master/soft-ui-design-system-laravel/Login.png)](https://soft-ui-dashboard-laravel.creative-tim.com/) | [![Profile Page](https://github.com/creativetimofficial/public-assets/blob/master/soft-ui-design-system-laravel/Profile.png)](https://soft-ui-dashboard-laravel.creative-tim.com/laravel-user-profile)
 [View More](https://soft-ui-dashboard-laravel.creative-tim.com/dashboard)
 
 ## Documentation
