@@ -15,18 +15,17 @@
             <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4 d-flex justify-content-end" id="navbar">
                 <div class="nav-item d-flex align-self-end">
                     <a href="https://www.creative-tim.com/product/soft-ui-dashboard-laravel" target="_blank"
-                        class="btn btn-primary active mt-4 text-white" role="button" aria-pressed="true">
-                        <span class="pe-2 mt-3 text-white"><i class="ni ni-cloud-download-95 ni-lg mt-1"></i></span>
+                        class="btn btn-primary active mb-0 text-white" role="button" aria-pressed="true">
                         Download
                     </a>
                 </div>
-                <div class="ms-md-3 pt-2 pe-md-3 d-flex align-items-center">
+                <div class="ms-md-3 pe-md-3 d-flex align-items-center">
                     <div class="input-group">
                         <span class="input-group-text text-body"><i class="fas fa-search" aria-hidden="true"></i></span>
                         <input type="text" class="form-control" placeholder="Type here...">
                     </div>
                 </div>
-                <ul class="pt-2 navbar-nav justify-content-end">
+                <ul class="navbar-nav justify-content-end">
                     <li class="nav-item d-flex align-items-center">
                         <a href="javascript:;" class="nav-link text-body font-weight-bold px-0">
                             <livewire:auth.logout />
