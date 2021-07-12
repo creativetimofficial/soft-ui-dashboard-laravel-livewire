@@ -6,6 +6,4 @@ All notable changes to `Soft UI Laravel` will be documented in this file.
 - Soft UI Dashboard Free
 - Login
 - Register
-- Forgot password
-- Reset password
 - Profile edit

@@ -84,16 +84,16 @@ Besides the dashboard, the auth pages, the billing and table pages, there is als
 
 | HTML | Laravel |
 | --- | --- |
-| [![HTML](https://github.com/creativetimofficial/public-assets/blob/master/soft-ui-design-system-laravel/soft-ui-html.png)](https://demos.creative-tim.com/soft-ui-dashboard/pages/dashboard.html?ref=readme-sudl) | [![Laravel](https://github.com/creativetimofficial/public-assets/blob/master/soft-ui-design-system-laravel/Dashboard.png)](https://demos.creative-tim.com/soft-ui-dashboard-laravel)  | 
+| [![HTML](https://github.com/creativetimofficial/public-assets/blob/master/soft-ui-design-system-laravel/soft-ui-html.png)](https://www.creative-tim.com/product/soft-ui-dashboard) | [![Laravel](https://github.com/creativetimofficial/public-assets/blob/master/soft-ui-design-system-laravel/Dashboard.png)](https://www.creative-tim.com/product/soft-ui-dashboard-laravel)  | 
 
 ## Demo
 | Register | Login | Dashboard |
 | --- | --- | ---  |
-| [![Register](https://github.com/creativetimofficial/public-assets/blob/master/soft-ui-design-system-laravel/Register.png)](https://soft-ui-dashboard-laravel.creative-tim.com/sign-up) | [![Login](https://github.com/creativetimofficial/public-assets/blob/master/soft-ui-design-system-laravel/Login.png)](https://soft-ui-dashboard-laravel.creative-tim.com/login)  | [![Dashboard](https://github.com/creativetimofficial/public-assets/blob/master/soft-ui-design-system-laravel/Dashboard.png)](https://soft-ui-dashboard-laravel.creative-tim.com/dashboard)
+| [<img src="https://github.com/creativetimofficial/public-assets/blob/master/soft-ui-design-system-laravel/Register.png" width="40" height="40" />](https://soft-ui-dashboard-laravel.creative-tim.com/sign-up) | [<img src="https://github.com/creativetimofficial/public-assets/blob/master/soft-ui-design-system-laravel/Login.png" width="40" height="40" />](https://soft-ui-dashboard-laravel.creative-tim.com/login)  | [<img src="https://github.com/creativetimofficial/public-assets/blob/master/soft-ui-design-system-laravel/Dashboard.png" width="40" height="40" />](https://soft-ui-dashboard-laravel.creative-tim.com/dashboard)
 
 | Forgot Password Page | Reset Password Page | Profile Page  |
 | --- | --- | ---  |
-| [![Forgot Password Page](https://github.com/creativetimofficial/public-assets/blob/master/soft-ui-design-system-laravel/Forgot-password.png)](https://soft-ui-dashboard-laravel.creative-tim.com/login/forgot-password)  | [![Reset Password Page](https://github.com/creativetimofficial/public-assets/blob/master/soft-ui-design-system-laravel/Login.png)](https://soft-ui-dashboard-laravel.creative-tim.com/) | [![Profile Page](https://github.com/creativetimofficial/public-assets/blob/master/soft-ui-design-system-laravel/Profile.png)](https://soft-ui-dashboard-laravel.creative-tim.com/laravel-user-profile)
+| [<img src="https://github.com/creativetimofficial/public-assets/blob/master/soft-ui-design-system-laravel/Forgot-password.png" width="40" height="40" />](https://soft-ui-dashboard-laravel.creative-tim.com/login/forgot-password)  | [<img src="https://github.com/creativetimofficial/public-assets/blob/master/soft-ui-design-system-laravel/Login.png" width="40" height="40" />](https://soft-ui-dashboard-laravel.creative-tim.com/) | [<img src="https://github.com/creativetimofficial/public-assets/blob/master/soft-ui-design-system-laravel/Profile.png" width="40" height="40" />](https://soft-ui-dashboard-laravel.creative-tim.com/laravel-user-profile)
 [View More](https://soft-ui-dashboard-laravel.creative-tim.com/dashboard)
 
 ## Documentation
