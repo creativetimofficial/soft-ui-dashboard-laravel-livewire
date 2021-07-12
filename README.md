@@ -93,7 +93,7 @@ Besides the dashboard, the auth pages, the billing and table pages, there is als
 
 | Forgot Password Page | Reset Password Page | Profile Page  |
 | --- | --- | ---  |
-| [<img src="https://github.com/creativetimofficial/public-assets/blob/master/soft-ui-design-system-laravel/Forgot-password.png" width="340" />](https://soft-ui-dashboard-laravel.creative-tim.com/login/forgot-password)  | [<img src="https://github.com/creativetimofficial/public-assets/blob/master/soft-ui-design-system-laravel/Login.png" width="335" />](https://soft-ui-dashboard-laravel.creative-tim.com/) | [<img src="https://github.com/creativetimofficial/public-assets/blob/master/soft-ui-design-system-laravel/Profile.png" width="350" />](https://soft-ui-dashboard-laravel.creative-tim.com/laravel-user-profile)
+| [<img src="https://github.com/creativetimofficial/public-assets/blob/master/soft-ui-design-system-laravel/Forgot-password.png" width="340" />](https://soft-ui-dashboard-laravel.creative-tim.com/login/forgot-password)  | [<img src="https://github.com/creativetimofficial/public-assets/blob/master/soft-ui-design-system-laravel/Login.png" width="332" />](https://soft-ui-dashboard-laravel.creative-tim.com/) | [<img src="https://github.com/creativetimofficial/public-assets/blob/master/soft-ui-design-system-laravel/Profile.png" width="350" />](https://soft-ui-dashboard-laravel.creative-tim.com/laravel-user-profile)
 [View More](https://soft-ui-dashboard-laravel.creative-tim.com/dashboard)
 
 ## Documentation
