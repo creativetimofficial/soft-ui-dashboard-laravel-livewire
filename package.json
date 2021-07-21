@@ -1,6 +1,7 @@
 {
     "private": true,
     "scripts": {
+        "scss": "node-sass resources/scss -o css",
         "dev": "npm run development",
         "development": "mix",
         "watch": "mix watch",

@@ -8,6 +8,6 @@ class Rtl extends Component
 {
     public function render()
     {
-        return view('livewire.rtl');
+        return view('livewire.rtl')->layout('layouts.base');
     }
 }
