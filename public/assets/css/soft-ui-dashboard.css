@@ -20981,7 +20981,7 @@ p {
 }
 
 .sidenav {
-  z-index: 990;
+  z-index: 9999;
 }
 
 .sidenav .navbar-brand,
