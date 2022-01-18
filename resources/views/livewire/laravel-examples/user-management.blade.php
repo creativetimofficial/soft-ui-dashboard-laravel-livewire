@@ -1,4 +1,4 @@
-<div>
+<div class="main-content">
     <div class="alert alert-secondary mx-4" role="alert">
         <span class="text-white"><strong>Add, Edit, Delete features are not functional!</strong> This is a
             <strong>PRO</strong> feature!

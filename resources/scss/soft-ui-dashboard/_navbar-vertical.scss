@@ -225,10 +225,10 @@
             padding: 1.5rem;
         }
 
-        &.fixed-left + .main-content {
+        &.fixed-left ~ .main-content {
             margin-left: $navbar-vertical-open-width + 1.5;
           }
-        &.fixed-right + .main-content {
+        &.fixed-right ~ .main-content {
             margin-right: $navbar-vertical-open-width + 1.5;
         }
     }
