@@ -9,9 +9,11 @@
         "fideloper/proxy": "^4.4",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
-        "laravel/framework": "^8.12",
+        "laravel/framework": "^8.75",
         "laravel/tinker": "^2.5",
-        "livewire/livewire": "^2.4"
+        "league/flysystem": "1.1.4",
+        "livewire/livewire": "^2.4",
+        "symfony/http-kernel": "5.4"
     },
     "require-dev": {
         "facade/ignition": "^2.5",
