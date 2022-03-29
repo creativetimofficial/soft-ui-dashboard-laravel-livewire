@@ -8,7 +8,7 @@
 
 *Frontend version*: Soft UI Dashboard v1.0.0. More info at https://www.creative-tim.com/product/soft-ui-dashboard-laravel/?ref=sudl-readme 
 
-[<img src="https://github.com/creativetimofficial/public-assets/blob/master/soft-ui-design-system-laravel/Dashboard.png?raw=true" width="100%" />](https://soft-ui-dashboard-laravel.creative-tim.com/dashboard)
+[<img src="https://s3.amazonaws.com/creativetim_bucket/products/492/original/soft-ui-dashboard-laravel-livewire.jpg" width="100%" />](https://www.creative-tim.com/live/soft-ui-dashboard-laravel)
 
 ## Free Frontend Web App for Laravel with Livewire & Alpine.js
 What happens when you combine Soft UI, one of the hottest design trends right now, and Laravel?  We've partnered with [UPDIVISION](https://updivision.com/) to create the ultimate design & development toolbox. 
