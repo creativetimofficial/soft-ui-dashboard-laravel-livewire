@@ -82,6 +82,31 @@
   &.btn-rounded {
     border-radius: $btn-border-rounded;
   }
+
+  &.btn-transparent {
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+  }
+}
+
+.btn-check{
+  &:checked{
+    +.btn{
+      svg{
+        .color-background{
+          fill: $white;
+        }
+      }
+      &:hover{
+        svg{
+          .color-background{
+            fill: $dark;
+          }
+        }
+      }
+    }
+  }
 }
 
 .icon-move-right {

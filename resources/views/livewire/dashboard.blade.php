@@ -1,4 +1,4 @@
- <main class="main-content">
+ <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg">
     <div class="container-fluid py-4">
       <div class="row">
         <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
@@ -107,7 +107,7 @@
                   </div>
                 </div>
                 <div class="col-lg-5 ms-auto text-center mt-5 mt-lg-0">
-                  <div class="bg-gradient-primary border-radius-lg h-100">
+                  <div class="bg-gradient-warning border-radius-lg h-100">
                     <img src="../assets/img/shapes/waves-white.svg" class="position-absolute h-100 w-50 top-0 d-lg-block d-none" alt="waves">
                     <div class="position-relative d-flex align-items-center justify-content-center h-100">
                       <img class="w-100 position-relative z-index-2 pt-4" src="/assets/img/illustrations/warning-rocket.png">
@@ -617,8 +617,8 @@
   </main>
 
   <!--   Core JS Files   -->
-  <script src="../assets/js/plugins/chartjs.min.js"></script>
-  <script src="../assets/js/plugins/Chart.extension.js"></script>
+  <script src="/assets/js/plugins/chartjs.min.js"></script>
+  <script src="/assets/js/plugins/Chart.extension.js"></script>
   <script>
     var ctx = document.getElementById("chart-bars").getContext("2d");
 

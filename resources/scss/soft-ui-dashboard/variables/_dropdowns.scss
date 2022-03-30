@@ -11,6 +11,7 @@ $dropup-transform-origin:                  bottom !default;
 $dropup-transform:                         perspective(999px) rotateX(12deg) translateZ(0) translate3d(0px, 0px, 0px) !important !default;
 $dropup-transform-show:                    perspective(999px) rotateX(0deg) translateZ(0) translate3d(1px,0px,5px) !important !default;
 
+$dropdown-transform-responsive-show:       $dropdown-multilevel-transform-show !default;
 $dropdown-icon-margin-right:               .75rem !default;
 
 $dropdown-toggle-arrow-transform:          rotate(180deg) !default;
@@ -38,3 +39,16 @@ $dropdown-md-min-width:                    15rem !default;
 $dropdown-lg-min-width:                    23rem !default;
 $dropdown-lg-width-responsive:             19rem !default;
 $dropdown-xl-min-width:                    40rem !default;
+
+$dropdown-subitem-position:                101% !default;
+
+
+// Extend
+$dropdown-subitem-position-right: -197px !default;
+$dropdown-subitem-left-hover:   -8px !default;
+$dropdown-subitem-arrow-rotate:   rotate(-90deg) !default;
+
+$dropdown-md-min-width:         15rem !default;
+$dropdown-lg-min-width:         23rem !default;
+$dropdown-lg-width-responsive:  19rem !default;
+$dropdown-xl-min-width:         40rem !default;

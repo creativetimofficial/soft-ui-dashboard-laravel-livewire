@@ -2058,9 +2058,17 @@ module.exports = {
 /*!*****************************!*\
   !*** ./resources/js/app.js ***!
   \*****************************/
-/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var perfect_scrollbar__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! perfect-scrollbar */ "./node_modules/perfect-scrollbar/dist/perfect-scrollbar.esm.js");
+
+window.PerfectScrollbar = perfect_scrollbar__WEBPACK_IMPORTED_MODULE_0__["default"];
 
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
+
+__webpack_require__(/*! ./custom */ "./resources/js/custom.js");
 
 /***/ }),
 
@@ -2092,6 +2100,459 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     forceTLS: true
 // });
+
+/***/ }),
+
+/***/ "./resources/js/custom.js":
+/*!********************************!*\
+  !*** ./resources/js/custom.js ***!
+  \********************************/
+/***/ (() => {
+
+"use strict";
+
+
+(function () {
+  var isWindows = navigator.platform.indexOf('Win') > -1 ? true : false;
+
+  if (isWindows) {
+    // if we are on windows OS we activate the perfectScrollbar function
+    if (document.getElementsByClassName('main-content')[0]) {
+      var mainpanel = document.querySelector('.main-content');
+      var ps = new PerfectScrollbar(mainpanel);
+    }
+
+    ;
+
+    if (document.getElementsByClassName('sidenav')[0]) {
+      var sidebar = document.querySelector('.sidenav');
+      var ps1 = new PerfectScrollbar(sidebar);
+    }
+
+    ;
+
+    if (document.getElementsByClassName('navbar-collapse')[0]) {
+      var fixedplugin = document.querySelector('.navbar:not(.navbar-expand-lg) .navbar-collapse');
+      var ps2 = new PerfectScrollbar(fixedplugin);
+    }
+
+    ;
+
+    if (document.getElementsByClassName('fixed-plugin')[0]) {
+      var fixedplugin = document.querySelector('.fixed-plugin');
+      var ps3 = new PerfectScrollbar(fixedplugin);
+    }
+
+    ;
+  }
+
+  ;
+})(); // Verify navbar blur on scroll
+
+
+navbarBlurOnScroll('navbarBlur'); // initialization of Tooltips
+
+var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+  return new bootstrap.Tooltip(tooltipTriggerEl);
+}); // Fixed Plugin
+
+if (document.querySelector('.fixed-plugin')) {
+  var fixedPlugin = document.querySelector('.fixed-plugin');
+  var fixedPluginButton = document.querySelector('.fixed-plugin-button');
+  var fixedPluginButtonNav = document.querySelector('.fixed-plugin-button-nav');
+  var fixedPluginCard = document.querySelector('.fixed-plugin .card');
+  var fixedPluginCloseButton = document.querySelectorAll('.fixed-plugin-close-button');
+  var navbar = document.getElementById('navbarBlur');
+  var buttonNavbarFixed = document.getElementById('navbarFixed');
+
+  if (fixedPluginButton) {
+    fixedPluginButton.onclick = function () {
+      if (!fixedPlugin.classList.contains('show')) {
+        fixedPlugin.classList.add('show');
+      } else {
+        fixedPlugin.classList.remove('show');
+      }
+    };
+  }
+
+  if (fixedPluginButtonNav) {
+    fixedPluginButtonNav.onclick = function () {
+      if (!fixedPlugin.classList.contains('show')) {
+        fixedPlugin.classList.add('show');
+      } else {
+        fixedPlugin.classList.remove('show');
+      }
+    };
+  }
+
+  fixedPluginCloseButton.forEach(function (el) {
+    el.onclick = function () {
+      fixedPlugin.classList.remove('show');
+    };
+  });
+
+  document.querySelector('body').onclick = function (e) {
+    if (e.target != fixedPluginButton && e.target != fixedPluginButtonNav && e.target.closest('.fixed-plugin .card') != fixedPluginCard) {
+      fixedPlugin.classList.remove('show');
+    }
+  };
+
+  if (navbar) {
+    if (navbar.getAttribute('navbar-scroll') == 'true') {
+      buttonNavbarFixed.setAttribute("checked", "true");
+    }
+  }
+} // Tabs navigation
+
+
+var total = document.querySelectorAll('.nav-pills');
+total.forEach(function (item, i) {
+  var moving_div = document.createElement('div');
+  var first_li = item.querySelector('li:first-child .nav-link');
+  var tab = first_li.cloneNode();
+  tab.innerHTML = "-";
+  moving_div.classList.add('moving-tab', 'position-absolute', 'nav-link');
+  moving_div.appendChild(tab);
+  item.appendChild(moving_div);
+  var list_length = item.getElementsByTagName("li").length;
+  moving_div.style.padding = '0px';
+  moving_div.style.width = item.querySelector('li:nth-child(1)').offsetWidth + 'px';
+  moving_div.style.transform = 'translate3d(0px, 0px, 0px)';
+  moving_div.style.transition = '.5s ease';
+
+  item.onmouseover = function (event) {
+    var target = getEventTarget(event);
+    var li = target.closest('li'); // get reference
+
+    if (li) {
+      var nodes = Array.from(li.closest('ul').children); // get array
+
+      var index = nodes.indexOf(li) + 1;
+
+      item.querySelector('li:nth-child(' + index + ') .nav-link').onclick = function () {
+        moving_div = item.querySelector('.moving-tab');
+        var sum = 0;
+
+        if (item.classList.contains('flex-column')) {
+          for (var j = 1; j <= nodes.indexOf(li); j++) {
+            sum += item.querySelector('li:nth-child(' + j + ')').offsetHeight;
+          }
+
+          moving_div.style.transform = 'translate3d(0px,' + sum + 'px, 0px)';
+          moving_div.style.height = item.querySelector('li:nth-child(' + j + ')').offsetHeight;
+        } else {
+          for (var j = 1; j <= nodes.indexOf(li); j++) {
+            sum += item.querySelector('li:nth-child(' + j + ')').offsetWidth;
+          }
+
+          moving_div.style.transform = 'translate3d(' + sum + 'px, 0px, 0px)';
+          moving_div.style.width = item.querySelector('li:nth-child(' + index + ')').offsetWidth + 'px';
+        }
+      };
+    }
+  };
+}); // Tabs navigation resize
+
+window.addEventListener('resize', function (event) {
+  total.forEach(function (item, i) {
+    item.querySelector('.moving-tab').remove();
+    var moving_div = document.createElement('div');
+    var tab = item.querySelector(".nav-link.active").cloneNode();
+    tab.innerHTML = "-";
+    moving_div.classList.add('moving-tab', 'position-absolute', 'nav-link');
+    moving_div.appendChild(tab);
+    item.appendChild(moving_div);
+    moving_div.style.padding = '0px';
+    moving_div.style.transition = '.5s ease';
+    var li = item.querySelector(".nav-link.active").parentElement;
+
+    if (li) {
+      var nodes = Array.from(li.closest('ul').children); // get array
+
+      var index = nodes.indexOf(li) + 1;
+      var sum = 0;
+
+      if (item.classList.contains('flex-column')) {
+        for (var j = 1; j <= nodes.indexOf(li); j++) {
+          sum += item.querySelector('li:nth-child(' + j + ')').offsetHeight;
+        }
+
+        moving_div.style.transform = 'translate3d(0px,' + sum + 'px, 0px)';
+        moving_div.style.width = item.querySelector('li:nth-child(' + index + ')').offsetWidth + 'px';
+        moving_div.style.height = item.querySelector('li:nth-child(' + j + ')').offsetHeight;
+      } else {
+        for (var j = 1; j <= nodes.indexOf(li); j++) {
+          sum += item.querySelector('li:nth-child(' + j + ')').offsetWidth;
+        }
+
+        moving_div.style.transform = 'translate3d(' + sum + 'px, 0px, 0px)';
+        moving_div.style.width = item.querySelector('li:nth-child(' + index + ')').offsetWidth + 'px';
+      }
+    }
+  });
+
+  if (window.innerWidth < 991) {
+    total.forEach(function (item, i) {
+      if (!item.classList.contains('flex-column')) {
+        item.classList.add('flex-column', 'on-resize');
+      }
+    });
+  } else {
+    total.forEach(function (item, i) {
+      if (item.classList.contains('on-resize')) {
+        item.classList.remove('flex-column', 'on-resize');
+      }
+    });
+  }
+});
+
+function getEventTarget(e) {
+  e = e || window.event;
+  return e.target || e.srcElement;
+} // End tabs navigation
+//Set Sidebar Color
+
+
+function sidebarColor(a) {
+  var parent = a.parentElement.children;
+  var color = a.getAttribute("data-color");
+
+  for (var i = 0; i < parent.length; i++) {
+    parent[i].classList.remove('active');
+  }
+
+  if (!a.classList.contains('active')) {
+    a.classList.add('active');
+  } else {
+    a.classList.remove('active');
+  }
+
+  var sidebar = document.querySelector('.sidenav');
+  sidebar.setAttribute("data-color", color);
+
+  if (document.querySelector('#sidenavCard')) {
+    var _sidenavCard$classLis, _sidenavCardIcon$clas;
+
+    var sidenavCard = document.querySelector('#sidenavCard');
+    var sidenavCardClasses = ['card', 'card-background', 'shadow-none', 'card-background-mask-' + color];
+    sidenavCard.className = '';
+
+    (_sidenavCard$classLis = sidenavCard.classList).add.apply(_sidenavCard$classLis, sidenavCardClasses);
+
+    var sidenavCardIcon = document.querySelector('#sidenavCardIcon');
+    var sidenavCardIconClasses = ['ni', 'ni-diamond', 'text-gradient', 'text-lg', 'top-0', 'text-' + color];
+    sidenavCardIcon.className = '';
+
+    (_sidenavCardIcon$clas = sidenavCardIcon.classList).add.apply(_sidenavCardIcon$clas, sidenavCardIconClasses);
+  }
+} // Set Navbar Fixed
+
+
+function navbarFixed(el) {
+  var classes = ['position-sticky', 'blur', 'shadow-blur', 'mt-4', 'left-auto', 'top-1', 'z-index-sticky'];
+  var navbar = document.getElementById('navbarBlur');
+
+  if (!el.getAttribute("checked")) {
+    var _navbar$classList;
+
+    (_navbar$classList = navbar.classList).add.apply(_navbar$classList, classes);
+
+    navbar.setAttribute('navbar-scroll', 'true');
+    navbarBlurOnScroll('navbarBlur');
+    el.setAttribute("checked", "true");
+  } else {
+    var _navbar$classList2;
+
+    (_navbar$classList2 = navbar.classList).remove.apply(_navbar$classList2, classes);
+
+    navbar.setAttribute('navbar-scroll', 'false');
+    navbarBlurOnScroll('navbarBlur');
+    el.removeAttribute("checked");
+  }
+}
+
+; // Navbar blur on scroll
+
+function navbarBlurOnScroll(id) {
+  var navbar = document.getElementById(id);
+  var navbarScrollActive = navbar ? navbar.getAttribute("navbar-scroll") : false;
+  var scrollDistance = 5;
+  var classes = ['position-sticky', 'blur', 'shadow-blur', 'mt-4', 'left-auto', 'top-1', 'z-index-sticky'];
+  var toggleClasses = ['shadow-none'];
+
+  if (navbarScrollActive == 'true') {
+    window.onscroll = debounce(function () {
+      if (window.scrollY > scrollDistance) {
+        blurNavbar();
+      } else {
+        transparentNavbar();
+      }
+    }, 10);
+  } else {
+    window.onscroll = debounce(function () {
+      transparentNavbar();
+    }, 10);
+  }
+
+  function blurNavbar() {
+    var _navbar$classList3, _navbar$classList4;
+
+    (_navbar$classList3 = navbar.classList).add.apply(_navbar$classList3, classes);
+
+    (_navbar$classList4 = navbar.classList).remove.apply(_navbar$classList4, toggleClasses);
+
+    toggleNavLinksColor('blur');
+  }
+
+  function transparentNavbar() {
+    if (navbar) {
+      var _navbar$classList5, _navbar$classList6;
+
+      (_navbar$classList5 = navbar.classList).remove.apply(_navbar$classList5, classes);
+
+      (_navbar$classList6 = navbar.classList).add.apply(_navbar$classList6, toggleClasses);
+
+      toggleNavLinksColor('transparent');
+    }
+  }
+
+  function toggleNavLinksColor(type) {
+    var navLinks = document.querySelectorAll('.navbar-main .nav-link');
+    var navLinksToggler = document.querySelectorAll('.navbar-main .sidenav-toggler-line');
+
+    if (type === "blur") {
+      navLinks.forEach(function (element) {
+        element.classList.remove('text-body');
+      });
+      navLinksToggler.forEach(function (element) {
+        element.classList.add('bg-dark');
+      });
+    } else if (type === "transparent") {
+      navLinks.forEach(function (element) {
+        element.classList.add('text-body');
+      });
+      navLinksToggler.forEach(function (element) {
+        element.classList.remove('bg-dark');
+      });
+    }
+  }
+} // Debounce Function
+// Returns a function, that, as long as it continues to be invoked, will not
+// be triggered. The function will be called after it stops being called for
+// N milliseconds. If `immediate` is passed, trigger the function on the
+// leading edge, instead of the trailing.
+
+
+function debounce(func, wait, immediate) {
+  var timeout;
+  return function () {
+    var context = this,
+        args = arguments;
+
+    var later = function later() {
+      timeout = null;
+      if (!immediate) func.apply(context, args);
+    };
+
+    var callNow = immediate && !timeout;
+    clearTimeout(timeout);
+    timeout = setTimeout(later, wait);
+    if (callNow) func.apply(context, args);
+  };
+}
+
+; //Set Sidebar Type
+
+function sidebarType(a) {
+  var parent = a.parentElement.children;
+  var color = a.getAttribute("data-class");
+  var colors = [];
+
+  for (var i = 0; i < parent.length; i++) {
+    parent[i].classList.remove('active');
+    colors.push(parent[i].getAttribute('data-class'));
+  }
+
+  if (!a.classList.contains('active')) {
+    a.classList.add('active');
+  } else {
+    a.classList.remove('active');
+  }
+
+  var sidebar = document.querySelector('.sidenav');
+
+  for (var i = 0; i < colors.length; i++) {
+    sidebar.classList.remove(colors[i]);
+  }
+
+  sidebar.classList.add(color);
+} // Toggle Sidenav
+
+
+var iconNavbarSidenav = document.getElementById('iconNavbarSidenav');
+var iconSidenav = document.getElementById('iconSidenav');
+var sidenav = document.getElementById('sidenav-main');
+var body = document.getElementsByTagName('body')[0];
+var className = 'g-sidenav-pinned';
+
+if (iconNavbarSidenav) {
+  iconNavbarSidenav.addEventListener("click", toggleSidenav);
+}
+
+if (iconSidenav) {
+  iconSidenav.addEventListener("click", toggleSidenav);
+}
+
+function toggleSidenav() {
+  if (body.classList.contains(className)) {
+    body.classList.remove(className);
+    setTimeout(function () {
+      sidenav.classList.remove('bg-white');
+    }, 100);
+    sidenav.classList.remove('bg-transparent');
+  } else {
+    body.classList.add(className);
+    sidenav.classList.add('bg-white');
+    sidenav.classList.remove('bg-transparent');
+    iconSidenav.classList.remove('d-none');
+  }
+} // Resize navbar color depends on configurator active type of sidenav
+
+
+var referenceButtons = document.querySelector('[data-class]');
+window.addEventListener("resize", navbarColorOnResize);
+
+function navbarColorOnResize() {
+  if (window.innerWidth > 1200) {
+    if (referenceButtons.classList.contains('active') && referenceButtons.getAttribute('data-class') === 'bg-transparent') {
+      sidenav.classList.remove('bg-white');
+    } else {
+      sidenav.classList.add('bg-white');
+    }
+  } else {
+    sidenav.classList.add('bg-white');
+    sidenav.classList.remove('bg-transparent');
+  }
+} // Deactivate sidenav type buttons on resize and small screens
+
+
+window.addEventListener("resize", sidenavTypeOnResize);
+window.addEventListener("load", sidenavTypeOnResize);
+
+function sidenavTypeOnResize() {
+  var elements = document.querySelectorAll('[onclick="sidebarType(this)"]');
+
+  if (window.innerWidth < 1200) {
+    elements.forEach(function (el) {
+      el.classList.add('disabled');
+    });
+  } else {
+    elements.forEach(function (el) {
+      el.classList.remove('disabled');
+    });
+  }
+}
 
 /***/ }),
 
@@ -19320,15 +19781,1366 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/css/app.css":
-/*!*******************************!*\
-  !*** ./resources/css/app.css ***!
-  \*******************************/
+/***/ "./node_modules/perfect-scrollbar/dist/perfect-scrollbar.esm.js":
+/*!**********************************************************************!*\
+  !*** ./node_modules/perfect-scrollbar/dist/perfect-scrollbar.esm.js ***!
+  \**********************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-// extracted by mini-css-extract-plugin
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/*!
+ * perfect-scrollbar v1.5.3
+ * Copyright 2021 Hyunje Jun, MDBootstrap and Contributors
+ * Licensed under MIT
+ */
+
+function get(element) {
+  return getComputedStyle(element);
+}
+
+function set(element, obj) {
+  for (var key in obj) {
+    var val = obj[key];
+    if (typeof val === 'number') {
+      val = val + "px";
+    }
+    element.style[key] = val;
+  }
+  return element;
+}
+
+function div(className) {
+  var div = document.createElement('div');
+  div.className = className;
+  return div;
+}
+
+var elMatches =
+  typeof Element !== 'undefined' &&
+  (Element.prototype.matches ||
+    Element.prototype.webkitMatchesSelector ||
+    Element.prototype.mozMatchesSelector ||
+    Element.prototype.msMatchesSelector);
+
+function matches(element, query) {
+  if (!elMatches) {
+    throw new Error('No element matching method supported');
+  }
+
+  return elMatches.call(element, query);
+}
+
+function remove(element) {
+  if (element.remove) {
+    element.remove();
+  } else {
+    if (element.parentNode) {
+      element.parentNode.removeChild(element);
+    }
+  }
+}
+
+function queryChildren(element, selector) {
+  return Array.prototype.filter.call(element.children, function (child) { return matches(child, selector); }
+  );
+}
+
+var cls = {
+  main: 'ps',
+  rtl: 'ps__rtl',
+  element: {
+    thumb: function (x) { return ("ps__thumb-" + x); },
+    rail: function (x) { return ("ps__rail-" + x); },
+    consuming: 'ps__child--consume',
+  },
+  state: {
+    focus: 'ps--focus',
+    clicking: 'ps--clicking',
+    active: function (x) { return ("ps--active-" + x); },
+    scrolling: function (x) { return ("ps--scrolling-" + x); },
+  },
+};
+
+/*
+ * Helper methods
+ */
+var scrollingClassTimeout = { x: null, y: null };
+
+function addScrollingClass(i, x) {
+  var classList = i.element.classList;
+  var className = cls.state.scrolling(x);
+
+  if (classList.contains(className)) {
+    clearTimeout(scrollingClassTimeout[x]);
+  } else {
+    classList.add(className);
+  }
+}
+
+function removeScrollingClass(i, x) {
+  scrollingClassTimeout[x] = setTimeout(
+    function () { return i.isAlive && i.element.classList.remove(cls.state.scrolling(x)); },
+    i.settings.scrollingThreshold
+  );
+}
+
+function setScrollingClassInstantly(i, x) {
+  addScrollingClass(i, x);
+  removeScrollingClass(i, x);
+}
+
+var EventElement = function EventElement(element) {
+  this.element = element;
+  this.handlers = {};
+};
+
+var prototypeAccessors = { isEmpty: { configurable: true } };
+
+EventElement.prototype.bind = function bind (eventName, handler) {
+  if (typeof this.handlers[eventName] === 'undefined') {
+    this.handlers[eventName] = [];
+  }
+  this.handlers[eventName].push(handler);
+  this.element.addEventListener(eventName, handler, false);
+};
+
+EventElement.prototype.unbind = function unbind (eventName, target) {
+    var this$1 = this;
+
+  this.handlers[eventName] = this.handlers[eventName].filter(function (handler) {
+    if (target && handler !== target) {
+      return true;
+    }
+    this$1.element.removeEventListener(eventName, handler, false);
+    return false;
+  });
+};
+
+EventElement.prototype.unbindAll = function unbindAll () {
+  for (var name in this.handlers) {
+    this.unbind(name);
+  }
+};
+
+prototypeAccessors.isEmpty.get = function () {
+    var this$1 = this;
+
+  return Object.keys(this.handlers).every(
+    function (key) { return this$1.handlers[key].length === 0; }
+  );
+};
+
+Object.defineProperties( EventElement.prototype, prototypeAccessors );
+
+var EventManager = function EventManager() {
+  this.eventElements = [];
+};
+
+EventManager.prototype.eventElement = function eventElement (element) {
+  var ee = this.eventElements.filter(function (ee) { return ee.element === element; })[0];
+  if (!ee) {
+    ee = new EventElement(element);
+    this.eventElements.push(ee);
+  }
+  return ee;
+};
+
+EventManager.prototype.bind = function bind (element, eventName, handler) {
+  this.eventElement(element).bind(eventName, handler);
+};
+
+EventManager.prototype.unbind = function unbind (element, eventName, handler) {
+  var ee = this.eventElement(element);
+  ee.unbind(eventName, handler);
+
+  if (ee.isEmpty) {
+    // remove
+    this.eventElements.splice(this.eventElements.indexOf(ee), 1);
+  }
+};
+
+EventManager.prototype.unbindAll = function unbindAll () {
+  this.eventElements.forEach(function (e) { return e.unbindAll(); });
+  this.eventElements = [];
+};
+
+EventManager.prototype.once = function once (element, eventName, handler) {
+  var ee = this.eventElement(element);
+  var onceHandler = function (evt) {
+    ee.unbind(eventName, onceHandler);
+    handler(evt);
+  };
+  ee.bind(eventName, onceHandler);
+};
+
+function createEvent(name) {
+  if (typeof window.CustomEvent === 'function') {
+    return new CustomEvent(name);
+  } else {
+    var evt = document.createEvent('CustomEvent');
+    evt.initCustomEvent(name, false, false, undefined);
+    return evt;
+  }
+}
+
+function processScrollDiff(
+  i,
+  axis,
+  diff,
+  useScrollingClass,
+  forceFireReachEvent
+) {
+  if ( useScrollingClass === void 0 ) useScrollingClass = true;
+  if ( forceFireReachEvent === void 0 ) forceFireReachEvent = false;
+
+  var fields;
+  if (axis === 'top') {
+    fields = [
+      'contentHeight',
+      'containerHeight',
+      'scrollTop',
+      'y',
+      'up',
+      'down' ];
+  } else if (axis === 'left') {
+    fields = [
+      'contentWidth',
+      'containerWidth',
+      'scrollLeft',
+      'x',
+      'left',
+      'right' ];
+  } else {
+    throw new Error('A proper axis should be provided');
+  }
+
+  processScrollDiff$1(i, diff, fields, useScrollingClass, forceFireReachEvent);
+}
+
+function processScrollDiff$1(
+  i,
+  diff,
+  ref,
+  useScrollingClass,
+  forceFireReachEvent
+) {
+  var contentHeight = ref[0];
+  var containerHeight = ref[1];
+  var scrollTop = ref[2];
+  var y = ref[3];
+  var up = ref[4];
+  var down = ref[5];
+  if ( useScrollingClass === void 0 ) useScrollingClass = true;
+  if ( forceFireReachEvent === void 0 ) forceFireReachEvent = false;
+
+  var element = i.element;
+
+  // reset reach
+  i.reach[y] = null;
+
+  // 1 for subpixel rounding
+  if (element[scrollTop] < 1) {
+    i.reach[y] = 'start';
+  }
+
+  // 1 for subpixel rounding
+  if (element[scrollTop] > i[contentHeight] - i[containerHeight] - 1) {
+    i.reach[y] = 'end';
+  }
+
+  if (diff) {
+    element.dispatchEvent(createEvent(("ps-scroll-" + y)));
+
+    if (diff < 0) {
+      element.dispatchEvent(createEvent(("ps-scroll-" + up)));
+    } else if (diff > 0) {
+      element.dispatchEvent(createEvent(("ps-scroll-" + down)));
+    }
+
+    if (useScrollingClass) {
+      setScrollingClassInstantly(i, y);
+    }
+  }
+
+  if (i.reach[y] && (diff || forceFireReachEvent)) {
+    element.dispatchEvent(createEvent(("ps-" + y + "-reach-" + (i.reach[y]))));
+  }
+}
+
+function toInt(x) {
+  return parseInt(x, 10) || 0;
+}
+
+function isEditable(el) {
+  return (
+    matches(el, 'input,[contenteditable]') ||
+    matches(el, 'select,[contenteditable]') ||
+    matches(el, 'textarea,[contenteditable]') ||
+    matches(el, 'button,[contenteditable]')
+  );
+}
+
+function outerWidth(element) {
+  var styles = get(element);
+  return (
+    toInt(styles.width) +
+    toInt(styles.paddingLeft) +
+    toInt(styles.paddingRight) +
+    toInt(styles.borderLeftWidth) +
+    toInt(styles.borderRightWidth)
+  );
+}
+
+var env = {
+  isWebKit:
+    typeof document !== 'undefined' &&
+    'WebkitAppearance' in document.documentElement.style,
+  supportsTouch:
+    typeof window !== 'undefined' &&
+    ('ontouchstart' in window ||
+      ('maxTouchPoints' in window.navigator &&
+        window.navigator.maxTouchPoints > 0) ||
+      (window.DocumentTouch && document instanceof window.DocumentTouch)),
+  supportsIePointer:
+    typeof navigator !== 'undefined' && navigator.msMaxTouchPoints,
+  isChrome:
+    typeof navigator !== 'undefined' &&
+    /Chrome/i.test(navigator && navigator.userAgent),
+};
+
+function updateGeometry(i) {
+  var element = i.element;
+  var roundedScrollTop = Math.floor(element.scrollTop);
+  var rect = element.getBoundingClientRect();
+
+  i.containerWidth = Math.round(rect.width);
+  i.containerHeight = Math.round(rect.height);
+
+  i.contentWidth = element.scrollWidth;
+  i.contentHeight = element.scrollHeight;
+
+  if (!element.contains(i.scrollbarXRail)) {
+    // clean up and append
+    queryChildren(element, cls.element.rail('x')).forEach(function (el) { return remove(el); }
+    );
+    element.appendChild(i.scrollbarXRail);
+  }
+  if (!element.contains(i.scrollbarYRail)) {
+    // clean up and append
+    queryChildren(element, cls.element.rail('y')).forEach(function (el) { return remove(el); }
+    );
+    element.appendChild(i.scrollbarYRail);
+  }
+
+  if (
+    !i.settings.suppressScrollX &&
+    i.containerWidth + i.settings.scrollXMarginOffset < i.contentWidth
+  ) {
+    i.scrollbarXActive = true;
+    i.railXWidth = i.containerWidth - i.railXMarginWidth;
+    i.railXRatio = i.containerWidth / i.railXWidth;
+    i.scrollbarXWidth = getThumbSize(
+      i,
+      toInt((i.railXWidth * i.containerWidth) / i.contentWidth)
+    );
+    i.scrollbarXLeft = toInt(
+      ((i.negativeScrollAdjustment + element.scrollLeft) *
+        (i.railXWidth - i.scrollbarXWidth)) /
+        (i.contentWidth - i.containerWidth)
+    );
+  } else {
+    i.scrollbarXActive = false;
+  }
+
+  if (
+    !i.settings.suppressScrollY &&
+    i.containerHeight + i.settings.scrollYMarginOffset < i.contentHeight
+  ) {
+    i.scrollbarYActive = true;
+    i.railYHeight = i.containerHeight - i.railYMarginHeight;
+    i.railYRatio = i.containerHeight / i.railYHeight;
+    i.scrollbarYHeight = getThumbSize(
+      i,
+      toInt((i.railYHeight * i.containerHeight) / i.contentHeight)
+    );
+    i.scrollbarYTop = toInt(
+      (roundedScrollTop * (i.railYHeight - i.scrollbarYHeight)) /
+        (i.contentHeight - i.containerHeight)
+    );
+  } else {
+    i.scrollbarYActive = false;
+  }
+
+  if (i.scrollbarXLeft >= i.railXWidth - i.scrollbarXWidth) {
+    i.scrollbarXLeft = i.railXWidth - i.scrollbarXWidth;
+  }
+  if (i.scrollbarYTop >= i.railYHeight - i.scrollbarYHeight) {
+    i.scrollbarYTop = i.railYHeight - i.scrollbarYHeight;
+  }
+
+  updateCss(element, i);
+
+  if (i.scrollbarXActive) {
+    element.classList.add(cls.state.active('x'));
+  } else {
+    element.classList.remove(cls.state.active('x'));
+    i.scrollbarXWidth = 0;
+    i.scrollbarXLeft = 0;
+    element.scrollLeft = i.isRtl === true ? i.contentWidth : 0;
+  }
+  if (i.scrollbarYActive) {
+    element.classList.add(cls.state.active('y'));
+  } else {
+    element.classList.remove(cls.state.active('y'));
+    i.scrollbarYHeight = 0;
+    i.scrollbarYTop = 0;
+    element.scrollTop = 0;
+  }
+}
+
+function getThumbSize(i, thumbSize) {
+  if (i.settings.minScrollbarLength) {
+    thumbSize = Math.max(thumbSize, i.settings.minScrollbarLength);
+  }
+  if (i.settings.maxScrollbarLength) {
+    thumbSize = Math.min(thumbSize, i.settings.maxScrollbarLength);
+  }
+  return thumbSize;
+}
+
+function updateCss(element, i) {
+  var xRailOffset = { width: i.railXWidth };
+  var roundedScrollTop = Math.floor(element.scrollTop);
+
+  if (i.isRtl) {
+    xRailOffset.left =
+      i.negativeScrollAdjustment +
+      element.scrollLeft +
+      i.containerWidth -
+      i.contentWidth;
+  } else {
+    xRailOffset.left = element.scrollLeft;
+  }
+  if (i.isScrollbarXUsingBottom) {
+    xRailOffset.bottom = i.scrollbarXBottom - roundedScrollTop;
+  } else {
+    xRailOffset.top = i.scrollbarXTop + roundedScrollTop;
+  }
+  set(i.scrollbarXRail, xRailOffset);
+
+  var yRailOffset = { top: roundedScrollTop, height: i.railYHeight };
+  if (i.isScrollbarYUsingRight) {
+    if (i.isRtl) {
+      yRailOffset.right =
+        i.contentWidth -
+        (i.negativeScrollAdjustment + element.scrollLeft) -
+        i.scrollbarYRight -
+        i.scrollbarYOuterWidth -
+        9;
+    } else {
+      yRailOffset.right = i.scrollbarYRight - element.scrollLeft;
+    }
+  } else {
+    if (i.isRtl) {
+      yRailOffset.left =
+        i.negativeScrollAdjustment +
+        element.scrollLeft +
+        i.containerWidth * 2 -
+        i.contentWidth -
+        i.scrollbarYLeft -
+        i.scrollbarYOuterWidth;
+    } else {
+      yRailOffset.left = i.scrollbarYLeft + element.scrollLeft;
+    }
+  }
+  set(i.scrollbarYRail, yRailOffset);
+
+  set(i.scrollbarX, {
+    left: i.scrollbarXLeft,
+    width: i.scrollbarXWidth - i.railBorderXWidth,
+  });
+  set(i.scrollbarY, {
+    top: i.scrollbarYTop,
+    height: i.scrollbarYHeight - i.railBorderYWidth,
+  });
+}
+
+function clickRail(i) {
+  var element = i.element;
+
+  i.event.bind(i.scrollbarY, 'mousedown', function (e) { return e.stopPropagation(); });
+  i.event.bind(i.scrollbarYRail, 'mousedown', function (e) {
+    var positionTop =
+      e.pageY -
+      window.pageYOffset -
+      i.scrollbarYRail.getBoundingClientRect().top;
+    var direction = positionTop > i.scrollbarYTop ? 1 : -1;
+
+    i.element.scrollTop += direction * i.containerHeight;
+    updateGeometry(i);
+
+    e.stopPropagation();
+  });
+
+  i.event.bind(i.scrollbarX, 'mousedown', function (e) { return e.stopPropagation(); });
+  i.event.bind(i.scrollbarXRail, 'mousedown', function (e) {
+    var positionLeft =
+      e.pageX -
+      window.pageXOffset -
+      i.scrollbarXRail.getBoundingClientRect().left;
+    var direction = positionLeft > i.scrollbarXLeft ? 1 : -1;
+
+    i.element.scrollLeft += direction * i.containerWidth;
+    updateGeometry(i);
+
+    e.stopPropagation();
+  });
+}
+
+function dragThumb(i) {
+  bindMouseScrollHandler(i, [
+    'containerWidth',
+    'contentWidth',
+    'pageX',
+    'railXWidth',
+    'scrollbarX',
+    'scrollbarXWidth',
+    'scrollLeft',
+    'x',
+    'scrollbarXRail' ]);
+  bindMouseScrollHandler(i, [
+    'containerHeight',
+    'contentHeight',
+    'pageY',
+    'railYHeight',
+    'scrollbarY',
+    'scrollbarYHeight',
+    'scrollTop',
+    'y',
+    'scrollbarYRail' ]);
+}
+
+function bindMouseScrollHandler(
+  i,
+  ref
+) {
+  var containerHeight = ref[0];
+  var contentHeight = ref[1];
+  var pageY = ref[2];
+  var railYHeight = ref[3];
+  var scrollbarY = ref[4];
+  var scrollbarYHeight = ref[5];
+  var scrollTop = ref[6];
+  var y = ref[7];
+  var scrollbarYRail = ref[8];
+
+  var element = i.element;
+
+  var startingScrollTop = null;
+  var startingMousePageY = null;
+  var scrollBy = null;
+
+  function mouseMoveHandler(e) {
+    if (e.touches && e.touches[0]) {
+      e[pageY] = e.touches[0].pageY;
+    }
+    element[scrollTop] =
+      startingScrollTop + scrollBy * (e[pageY] - startingMousePageY);
+    addScrollingClass(i, y);
+    updateGeometry(i);
+
+    e.stopPropagation();
+    if (e.type.startsWith('touch') && e.changedTouches.length > 1) {
+      e.preventDefault();
+    }
+  }
+
+  function mouseUpHandler() {
+    removeScrollingClass(i, y);
+    i[scrollbarYRail].classList.remove(cls.state.clicking);
+    i.event.unbind(i.ownerDocument, 'mousemove', mouseMoveHandler);
+  }
+
+  function bindMoves(e, touchMode) {
+    startingScrollTop = element[scrollTop];
+    if (touchMode && e.touches) {
+      e[pageY] = e.touches[0].pageY;
+    }
+    startingMousePageY = e[pageY];
+    scrollBy =
+      (i[contentHeight] - i[containerHeight]) /
+      (i[railYHeight] - i[scrollbarYHeight]);
+    if (!touchMode) {
+      i.event.bind(i.ownerDocument, 'mousemove', mouseMoveHandler);
+      i.event.once(i.ownerDocument, 'mouseup', mouseUpHandler);
+      e.preventDefault();
+    } else {
+      i.event.bind(i.ownerDocument, 'touchmove', mouseMoveHandler);
+    }
+
+    i[scrollbarYRail].classList.add(cls.state.clicking);
+
+    e.stopPropagation();
+  }
+
+  i.event.bind(i[scrollbarY], 'mousedown', function (e) {
+    bindMoves(e);
+  });
+  i.event.bind(i[scrollbarY], 'touchstart', function (e) {
+    bindMoves(e, true);
+  });
+}
+
+function keyboard(i) {
+  var element = i.element;
+
+  var elementHovered = function () { return matches(element, ':hover'); };
+  var scrollbarFocused = function () { return matches(i.scrollbarX, ':focus') || matches(i.scrollbarY, ':focus'); };
+
+  function shouldPreventDefault(deltaX, deltaY) {
+    var scrollTop = Math.floor(element.scrollTop);
+    if (deltaX === 0) {
+      if (!i.scrollbarYActive) {
+        return false;
+      }
+      if (
+        (scrollTop === 0 && deltaY > 0) ||
+        (scrollTop >= i.contentHeight - i.containerHeight && deltaY < 0)
+      ) {
+        return !i.settings.wheelPropagation;
+      }
+    }
+
+    var scrollLeft = element.scrollLeft;
+    if (deltaY === 0) {
+      if (!i.scrollbarXActive) {
+        return false;
+      }
+      if (
+        (scrollLeft === 0 && deltaX < 0) ||
+        (scrollLeft >= i.contentWidth - i.containerWidth && deltaX > 0)
+      ) {
+        return !i.settings.wheelPropagation;
+      }
+    }
+    return true;
+  }
+
+  i.event.bind(i.ownerDocument, 'keydown', function (e) {
+    if (
+      (e.isDefaultPrevented && e.isDefaultPrevented()) ||
+      e.defaultPrevented
+    ) {
+      return;
+    }
+
+    if (!elementHovered() && !scrollbarFocused()) {
+      return;
+    }
+
+    var activeElement = document.activeElement
+      ? document.activeElement
+      : i.ownerDocument.activeElement;
+    if (activeElement) {
+      if (activeElement.tagName === 'IFRAME') {
+        activeElement = activeElement.contentDocument.activeElement;
+      } else {
+        // go deeper if element is a webcomponent
+        while (activeElement.shadowRoot) {
+          activeElement = activeElement.shadowRoot.activeElement;
+        }
+      }
+      if (isEditable(activeElement)) {
+        return;
+      }
+    }
+
+    var deltaX = 0;
+    var deltaY = 0;
+
+    switch (e.which) {
+      case 37: // left
+        if (e.metaKey) {
+          deltaX = -i.contentWidth;
+        } else if (e.altKey) {
+          deltaX = -i.containerWidth;
+        } else {
+          deltaX = -30;
+        }
+        break;
+      case 38: // up
+        if (e.metaKey) {
+          deltaY = i.contentHeight;
+        } else if (e.altKey) {
+          deltaY = i.containerHeight;
+        } else {
+          deltaY = 30;
+        }
+        break;
+      case 39: // right
+        if (e.metaKey) {
+          deltaX = i.contentWidth;
+        } else if (e.altKey) {
+          deltaX = i.containerWidth;
+        } else {
+          deltaX = 30;
+        }
+        break;
+      case 40: // down
+        if (e.metaKey) {
+          deltaY = -i.contentHeight;
+        } else if (e.altKey) {
+          deltaY = -i.containerHeight;
+        } else {
+          deltaY = -30;
+        }
+        break;
+      case 32: // space bar
+        if (e.shiftKey) {
+          deltaY = i.containerHeight;
+        } else {
+          deltaY = -i.containerHeight;
+        }
+        break;
+      case 33: // page up
+        deltaY = i.containerHeight;
+        break;
+      case 34: // page down
+        deltaY = -i.containerHeight;
+        break;
+      case 36: // home
+        deltaY = i.contentHeight;
+        break;
+      case 35: // end
+        deltaY = -i.contentHeight;
+        break;
+      default:
+        return;
+    }
+
+    if (i.settings.suppressScrollX && deltaX !== 0) {
+      return;
+    }
+    if (i.settings.suppressScrollY && deltaY !== 0) {
+      return;
+    }
+
+    element.scrollTop -= deltaY;
+    element.scrollLeft += deltaX;
+    updateGeometry(i);
+
+    if (shouldPreventDefault(deltaX, deltaY)) {
+      e.preventDefault();
+    }
+  });
+}
+
+function wheel(i) {
+  var element = i.element;
+
+  function shouldPreventDefault(deltaX, deltaY) {
+    var roundedScrollTop = Math.floor(element.scrollTop);
+    var isTop = element.scrollTop === 0;
+    var isBottom =
+      roundedScrollTop + element.offsetHeight === element.scrollHeight;
+    var isLeft = element.scrollLeft === 0;
+    var isRight =
+      element.scrollLeft + element.offsetWidth === element.scrollWidth;
+
+    var hitsBound;
+
+    // pick axis with primary direction
+    if (Math.abs(deltaY) > Math.abs(deltaX)) {
+      hitsBound = isTop || isBottom;
+    } else {
+      hitsBound = isLeft || isRight;
+    }
+
+    return hitsBound ? !i.settings.wheelPropagation : true;
+  }
+
+  function getDeltaFromEvent(e) {
+    var deltaX = e.deltaX;
+    var deltaY = -1 * e.deltaY;
+
+    if (typeof deltaX === 'undefined' || typeof deltaY === 'undefined') {
+      // OS X Safari
+      deltaX = (-1 * e.wheelDeltaX) / 6;
+      deltaY = e.wheelDeltaY / 6;
+    }
+
+    if (e.deltaMode && e.deltaMode === 1) {
+      // Firefox in deltaMode 1: Line scrolling
+      deltaX *= 10;
+      deltaY *= 10;
+    }
+
+    if (deltaX !== deltaX && deltaY !== deltaY /* NaN checks */) {
+      // IE in some mouse drivers
+      deltaX = 0;
+      deltaY = e.wheelDelta;
+    }
+
+    if (e.shiftKey) {
+      // reverse axis with shift key
+      return [-deltaY, -deltaX];
+    }
+    return [deltaX, deltaY];
+  }
+
+  function shouldBeConsumedByChild(target, deltaX, deltaY) {
+    // FIXME: this is a workaround for <select> issue in FF and IE #571
+    if (!env.isWebKit && element.querySelector('select:focus')) {
+      return true;
+    }
+
+    if (!element.contains(target)) {
+      return false;
+    }
+
+    var cursor = target;
+
+    while (cursor && cursor !== element) {
+      if (cursor.classList.contains(cls.element.consuming)) {
+        return true;
+      }
+
+      var style = get(cursor);
+
+      // if deltaY && vertical scrollable
+      if (deltaY && style.overflowY.match(/(scroll|auto)/)) {
+        var maxScrollTop = cursor.scrollHeight - cursor.clientHeight;
+        if (maxScrollTop > 0) {
+          if (
+            (cursor.scrollTop > 0 && deltaY < 0) ||
+            (cursor.scrollTop < maxScrollTop && deltaY > 0)
+          ) {
+            return true;
+          }
+        }
+      }
+      // if deltaX && horizontal scrollable
+      if (deltaX && style.overflowX.match(/(scroll|auto)/)) {
+        var maxScrollLeft = cursor.scrollWidth - cursor.clientWidth;
+        if (maxScrollLeft > 0) {
+          if (
+            (cursor.scrollLeft > 0 && deltaX < 0) ||
+            (cursor.scrollLeft < maxScrollLeft && deltaX > 0)
+          ) {
+            return true;
+          }
+        }
+      }
+
+      cursor = cursor.parentNode;
+    }
+
+    return false;
+  }
+
+  function mousewheelHandler(e) {
+    var ref = getDeltaFromEvent(e);
+    var deltaX = ref[0];
+    var deltaY = ref[1];
+
+    if (shouldBeConsumedByChild(e.target, deltaX, deltaY)) {
+      return;
+    }
+
+    var shouldPrevent = false;
+    if (!i.settings.useBothWheelAxes) {
+      // deltaX will only be used for horizontal scrolling and deltaY will
+      // only be used for vertical scrolling - this is the default
+      element.scrollTop -= deltaY * i.settings.wheelSpeed;
+      element.scrollLeft += deltaX * i.settings.wheelSpeed;
+    } else if (i.scrollbarYActive && !i.scrollbarXActive) {
+      // only vertical scrollbar is active and useBothWheelAxes option is
+      // active, so let's scroll vertical bar using both mouse wheel axes
+      if (deltaY) {
+        element.scrollTop -= deltaY * i.settings.wheelSpeed;
+      } else {
+        element.scrollTop += deltaX * i.settings.wheelSpeed;
+      }
+      shouldPrevent = true;
+    } else if (i.scrollbarXActive && !i.scrollbarYActive) {
+      // useBothWheelAxes and only horizontal bar is active, so use both
+      // wheel axes for horizontal bar
+      if (deltaX) {
+        element.scrollLeft += deltaX * i.settings.wheelSpeed;
+      } else {
+        element.scrollLeft -= deltaY * i.settings.wheelSpeed;
+      }
+      shouldPrevent = true;
+    }
+
+    updateGeometry(i);
+
+    shouldPrevent = shouldPrevent || shouldPreventDefault(deltaX, deltaY);
+    if (shouldPrevent && !e.ctrlKey) {
+      e.stopPropagation();
+      e.preventDefault();
+    }
+  }
+
+  if (typeof window.onwheel !== 'undefined') {
+    i.event.bind(element, 'wheel', mousewheelHandler);
+  } else if (typeof window.onmousewheel !== 'undefined') {
+    i.event.bind(element, 'mousewheel', mousewheelHandler);
+  }
+}
+
+function touch(i) {
+  if (!env.supportsTouch && !env.supportsIePointer) {
+    return;
+  }
+
+  var element = i.element;
+
+  function shouldPrevent(deltaX, deltaY) {
+    var scrollTop = Math.floor(element.scrollTop);
+    var scrollLeft = element.scrollLeft;
+    var magnitudeX = Math.abs(deltaX);
+    var magnitudeY = Math.abs(deltaY);
+
+    if (magnitudeY > magnitudeX) {
+      // user is perhaps trying to swipe up/down the page
+
+      if (
+        (deltaY < 0 && scrollTop === i.contentHeight - i.containerHeight) ||
+        (deltaY > 0 && scrollTop === 0)
+      ) {
+        // set prevent for mobile Chrome refresh
+        return window.scrollY === 0 && deltaY > 0 && env.isChrome;
+      }
+    } else if (magnitudeX > magnitudeY) {
+      // user is perhaps trying to swipe left/right across the page
+
+      if (
+        (deltaX < 0 && scrollLeft === i.contentWidth - i.containerWidth) ||
+        (deltaX > 0 && scrollLeft === 0)
+      ) {
+        return true;
+      }
+    }
+
+    return true;
+  }
+
+  function applyTouchMove(differenceX, differenceY) {
+    element.scrollTop -= differenceY;
+    element.scrollLeft -= differenceX;
+
+    updateGeometry(i);
+  }
+
+  var startOffset = {};
+  var startTime = 0;
+  var speed = {};
+  var easingLoop = null;
+
+  function getTouch(e) {
+    if (e.targetTouches) {
+      return e.targetTouches[0];
+    } else {
+      // Maybe IE pointer
+      return e;
+    }
+  }
+
+  function shouldHandle(e) {
+    if (e.pointerType && e.pointerType === 'pen' && e.buttons === 0) {
+      return false;
+    }
+    if (e.targetTouches && e.targetTouches.length === 1) {
+      return true;
+    }
+    if (
+      e.pointerType &&
+      e.pointerType !== 'mouse' &&
+      e.pointerType !== e.MSPOINTER_TYPE_MOUSE
+    ) {
+      return true;
+    }
+    return false;
+  }
+
+  function touchStart(e) {
+    if (!shouldHandle(e)) {
+      return;
+    }
+
+    var touch = getTouch(e);
+
+    startOffset.pageX = touch.pageX;
+    startOffset.pageY = touch.pageY;
+
+    startTime = new Date().getTime();
+
+    if (easingLoop !== null) {
+      clearInterval(easingLoop);
+    }
+  }
+
+  function shouldBeConsumedByChild(target, deltaX, deltaY) {
+    if (!element.contains(target)) {
+      return false;
+    }
+
+    var cursor = target;
+
+    while (cursor && cursor !== element) {
+      if (cursor.classList.contains(cls.element.consuming)) {
+        return true;
+      }
+
+      var style = get(cursor);
+
+      // if deltaY && vertical scrollable
+      if (deltaY && style.overflowY.match(/(scroll|auto)/)) {
+        var maxScrollTop = cursor.scrollHeight - cursor.clientHeight;
+        if (maxScrollTop > 0) {
+          if (
+            (cursor.scrollTop > 0 && deltaY < 0) ||
+            (cursor.scrollTop < maxScrollTop && deltaY > 0)
+          ) {
+            return true;
+          }
+        }
+      }
+      // if deltaX && horizontal scrollable
+      if (deltaX && style.overflowX.match(/(scroll|auto)/)) {
+        var maxScrollLeft = cursor.scrollWidth - cursor.clientWidth;
+        if (maxScrollLeft > 0) {
+          if (
+            (cursor.scrollLeft > 0 && deltaX < 0) ||
+            (cursor.scrollLeft < maxScrollLeft && deltaX > 0)
+          ) {
+            return true;
+          }
+        }
+      }
+
+      cursor = cursor.parentNode;
+    }
+
+    return false;
+  }
+
+  function touchMove(e) {
+    if (shouldHandle(e)) {
+      var touch = getTouch(e);
+
+      var currentOffset = { pageX: touch.pageX, pageY: touch.pageY };
+
+      var differenceX = currentOffset.pageX - startOffset.pageX;
+      var differenceY = currentOffset.pageY - startOffset.pageY;
+
+      if (shouldBeConsumedByChild(e.target, differenceX, differenceY)) {
+        return;
+      }
+
+      applyTouchMove(differenceX, differenceY);
+      startOffset = currentOffset;
+
+      var currentTime = new Date().getTime();
+
+      var timeGap = currentTime - startTime;
+      if (timeGap > 0) {
+        speed.x = differenceX / timeGap;
+        speed.y = differenceY / timeGap;
+        startTime = currentTime;
+      }
+
+      if (shouldPrevent(differenceX, differenceY)) {
+        e.preventDefault();
+      }
+    }
+  }
+  function touchEnd() {
+    if (i.settings.swipeEasing) {
+      clearInterval(easingLoop);
+      easingLoop = setInterval(function() {
+        if (i.isInitialized) {
+          clearInterval(easingLoop);
+          return;
+        }
+
+        if (!speed.x && !speed.y) {
+          clearInterval(easingLoop);
+          return;
+        }
+
+        if (Math.abs(speed.x) < 0.01 && Math.abs(speed.y) < 0.01) {
+          clearInterval(easingLoop);
+          return;
+        }
+
+        if (!i.element) {
+          clearInterval(easingLoop);
+          return;
+        }
+
+        applyTouchMove(speed.x * 30, speed.y * 30);
+
+        speed.x *= 0.8;
+        speed.y *= 0.8;
+      }, 10);
+    }
+  }
+
+  if (env.supportsTouch) {
+    i.event.bind(element, 'touchstart', touchStart);
+    i.event.bind(element, 'touchmove', touchMove);
+    i.event.bind(element, 'touchend', touchEnd);
+  } else if (env.supportsIePointer) {
+    if (window.PointerEvent) {
+      i.event.bind(element, 'pointerdown', touchStart);
+      i.event.bind(element, 'pointermove', touchMove);
+      i.event.bind(element, 'pointerup', touchEnd);
+    } else if (window.MSPointerEvent) {
+      i.event.bind(element, 'MSPointerDown', touchStart);
+      i.event.bind(element, 'MSPointerMove', touchMove);
+      i.event.bind(element, 'MSPointerUp', touchEnd);
+    }
+  }
+}
+
+var defaultSettings = function () { return ({
+  handlers: ['click-rail', 'drag-thumb', 'keyboard', 'wheel', 'touch'],
+  maxScrollbarLength: null,
+  minScrollbarLength: null,
+  scrollingThreshold: 1000,
+  scrollXMarginOffset: 0,
+  scrollYMarginOffset: 0,
+  suppressScrollX: false,
+  suppressScrollY: false,
+  swipeEasing: true,
+  useBothWheelAxes: false,
+  wheelPropagation: true,
+  wheelSpeed: 1,
+}); };
+
+var handlers = {
+  'click-rail': clickRail,
+  'drag-thumb': dragThumb,
+  keyboard: keyboard,
+  wheel: wheel,
+  touch: touch,
+};
+
+var PerfectScrollbar = function PerfectScrollbar(element, userSettings) {
+  var this$1 = this;
+  if ( userSettings === void 0 ) userSettings = {};
+
+  if (typeof element === 'string') {
+    element = document.querySelector(element);
+  }
+
+  if (!element || !element.nodeName) {
+    throw new Error('no element is specified to initialize PerfectScrollbar');
+  }
+
+  this.element = element;
+
+  element.classList.add(cls.main);
+
+  this.settings = defaultSettings();
+  for (var key in userSettings) {
+    this.settings[key] = userSettings[key];
+  }
+
+  this.containerWidth = null;
+  this.containerHeight = null;
+  this.contentWidth = null;
+  this.contentHeight = null;
+
+  var focus = function () { return element.classList.add(cls.state.focus); };
+  var blur = function () { return element.classList.remove(cls.state.focus); };
+
+  this.isRtl = get(element).direction === 'rtl';
+  if (this.isRtl === true) {
+    element.classList.add(cls.rtl);
+  }
+  this.isNegativeScroll = (function () {
+    var originalScrollLeft = element.scrollLeft;
+    var result = null;
+    element.scrollLeft = -1;
+    result = element.scrollLeft < 0;
+    element.scrollLeft = originalScrollLeft;
+    return result;
+  })();
+  this.negativeScrollAdjustment = this.isNegativeScroll
+    ? element.scrollWidth - element.clientWidth
+    : 0;
+  this.event = new EventManager();
+  this.ownerDocument = element.ownerDocument || document;
+
+  this.scrollbarXRail = div(cls.element.rail('x'));
+  element.appendChild(this.scrollbarXRail);
+  this.scrollbarX = div(cls.element.thumb('x'));
+  this.scrollbarXRail.appendChild(this.scrollbarX);
+  this.scrollbarX.setAttribute('tabindex', 0);
+  this.event.bind(this.scrollbarX, 'focus', focus);
+  this.event.bind(this.scrollbarX, 'blur', blur);
+  this.scrollbarXActive = null;
+  this.scrollbarXWidth = null;
+  this.scrollbarXLeft = null;
+  var railXStyle = get(this.scrollbarXRail);
+  this.scrollbarXBottom = parseInt(railXStyle.bottom, 10);
+  if (isNaN(this.scrollbarXBottom)) {
+    this.isScrollbarXUsingBottom = false;
+    this.scrollbarXTop = toInt(railXStyle.top);
+  } else {
+    this.isScrollbarXUsingBottom = true;
+  }
+  this.railBorderXWidth =
+    toInt(railXStyle.borderLeftWidth) + toInt(railXStyle.borderRightWidth);
+  // Set rail to display:block to calculate margins
+  set(this.scrollbarXRail, { display: 'block' });
+  this.railXMarginWidth =
+    toInt(railXStyle.marginLeft) + toInt(railXStyle.marginRight);
+  set(this.scrollbarXRail, { display: '' });
+  this.railXWidth = null;
+  this.railXRatio = null;
+
+  this.scrollbarYRail = div(cls.element.rail('y'));
+  element.appendChild(this.scrollbarYRail);
+  this.scrollbarY = div(cls.element.thumb('y'));
+  this.scrollbarYRail.appendChild(this.scrollbarY);
+  this.scrollbarY.setAttribute('tabindex', 0);
+  this.event.bind(this.scrollbarY, 'focus', focus);
+  this.event.bind(this.scrollbarY, 'blur', blur);
+  this.scrollbarYActive = null;
+  this.scrollbarYHeight = null;
+  this.scrollbarYTop = null;
+  var railYStyle = get(this.scrollbarYRail);
+  this.scrollbarYRight = parseInt(railYStyle.right, 10);
+  if (isNaN(this.scrollbarYRight)) {
+    this.isScrollbarYUsingRight = false;
+    this.scrollbarYLeft = toInt(railYStyle.left);
+  } else {
+    this.isScrollbarYUsingRight = true;
+  }
+  this.scrollbarYOuterWidth = this.isRtl ? outerWidth(this.scrollbarY) : null;
+  this.railBorderYWidth =
+    toInt(railYStyle.borderTopWidth) + toInt(railYStyle.borderBottomWidth);
+  set(this.scrollbarYRail, { display: 'block' });
+  this.railYMarginHeight =
+    toInt(railYStyle.marginTop) + toInt(railYStyle.marginBottom);
+  set(this.scrollbarYRail, { display: '' });
+  this.railYHeight = null;
+  this.railYRatio = null;
+
+  this.reach = {
+    x:
+      element.scrollLeft <= 0
+        ? 'start'
+        : element.scrollLeft >= this.contentWidth - this.containerWidth
+        ? 'end'
+        : null,
+    y:
+      element.scrollTop <= 0
+        ? 'start'
+        : element.scrollTop >= this.contentHeight - this.containerHeight
+        ? 'end'
+        : null,
+  };
+
+  this.isAlive = true;
+
+  this.settings.handlers.forEach(function (handlerName) { return handlers[handlerName](this$1); });
+
+  this.lastScrollTop = Math.floor(element.scrollTop); // for onScroll only
+  this.lastScrollLeft = element.scrollLeft; // for onScroll only
+  this.event.bind(this.element, 'scroll', function (e) { return this$1.onScroll(e); });
+  updateGeometry(this);
+};
+
+PerfectScrollbar.prototype.update = function update () {
+  if (!this.isAlive) {
+    return;
+  }
+
+  // Recalcuate negative scrollLeft adjustment
+  this.negativeScrollAdjustment = this.isNegativeScroll
+    ? this.element.scrollWidth - this.element.clientWidth
+    : 0;
+
+  // Recalculate rail margins
+  set(this.scrollbarXRail, { display: 'block' });
+  set(this.scrollbarYRail, { display: 'block' });
+  this.railXMarginWidth =
+    toInt(get(this.scrollbarXRail).marginLeft) +
+    toInt(get(this.scrollbarXRail).marginRight);
+  this.railYMarginHeight =
+    toInt(get(this.scrollbarYRail).marginTop) +
+    toInt(get(this.scrollbarYRail).marginBottom);
+
+  // Hide scrollbars not to affect scrollWidth and scrollHeight
+  set(this.scrollbarXRail, { display: 'none' });
+  set(this.scrollbarYRail, { display: 'none' });
+
+  updateGeometry(this);
+
+  processScrollDiff(this, 'top', 0, false, true);
+  processScrollDiff(this, 'left', 0, false, true);
+
+  set(this.scrollbarXRail, { display: '' });
+  set(this.scrollbarYRail, { display: '' });
+};
+
+PerfectScrollbar.prototype.onScroll = function onScroll (e) {
+  if (!this.isAlive) {
+    return;
+  }
+
+  updateGeometry(this);
+  processScrollDiff(this, 'top', this.element.scrollTop - this.lastScrollTop);
+  processScrollDiff(
+    this,
+    'left',
+    this.element.scrollLeft - this.lastScrollLeft
+  );
+
+  this.lastScrollTop = Math.floor(this.element.scrollTop);
+  this.lastScrollLeft = this.element.scrollLeft;
+};
+
+PerfectScrollbar.prototype.destroy = function destroy () {
+  if (!this.isAlive) {
+    return;
+  }
+
+  this.event.unbindAll();
+  remove(this.scrollbarX);
+  remove(this.scrollbarY);
+  remove(this.scrollbarXRail);
+  remove(this.scrollbarYRail);
+  this.removePsClasses();
+
+  // unset elements
+  this.element = null;
+  this.scrollbarX = null;
+  this.scrollbarY = null;
+  this.scrollbarXRail = null;
+  this.scrollbarYRail = null;
+
+  this.isAlive = false;
+};
+
+PerfectScrollbar.prototype.removePsClasses = function removePsClasses () {
+  this.element.className = this.element.className
+    .split(' ')
+    .filter(function (name) { return !name.match(/^ps([-_].+|)$/); })
+    .join(' ');
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (PerfectScrollbar);
+//# sourceMappingURL=perfect-scrollbar.esm.js.map
 
 
 /***/ }),
@@ -19534,7 +21346,7 @@ process.umask = function() { return 0; };
 /***/ ((module) => {
 
 "use strict";
-module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"Promise based HTTP client for the browser and node.js","main":"index.js","scripts":{"test":"grunt test","start":"node ./sandbox/server.js","build":"NODE_ENV=production grunt build","preversion":"npm test","version":"npm run build && grunt version && git add -A dist && git add CHANGELOG.md bower.json package.json","postversion":"git push && git push --tags","examples":"node ./examples/server.js","coveralls":"cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js","fix":"eslint --fix lib/**/*.js"},"repository":{"type":"git","url":"https://github.com/axios/axios.git"},"keywords":["xhr","http","ajax","promise","node"],"author":"Matt Zabriskie","license":"MIT","bugs":{"url":"https://github.com/axios/axios/issues"},"homepage":"https://axios-http.com","devDependencies":{"coveralls":"^3.0.0","es6-promise":"^4.2.4","grunt":"^1.3.0","grunt-banner":"^0.6.0","grunt-cli":"^1.2.0","grunt-contrib-clean":"^1.1.0","grunt-contrib-watch":"^1.0.0","grunt-eslint":"^23.0.0","grunt-karma":"^4.0.0","grunt-mocha-test":"^0.13.3","grunt-ts":"^6.0.0-beta.19","grunt-webpack":"^4.0.2","istanbul-instrumenter-loader":"^1.0.0","jasmine-core":"^2.4.1","karma":"^6.3.2","karma-chrome-launcher":"^3.1.0","karma-firefox-launcher":"^2.1.0","karma-jasmine":"^1.1.1","karma-jasmine-ajax":"^0.1.13","karma-safari-launcher":"^1.0.0","karma-sauce-launcher":"^4.3.6","karma-sinon":"^1.0.5","karma-sourcemap-loader":"^0.3.8","karma-webpack":"^4.0.2","load-grunt-tasks":"^3.5.2","minimist":"^1.2.0","mocha":"^8.2.1","sinon":"^4.5.0","terser-webpack-plugin":"^4.2.3","typescript":"^4.0.5","url-search-params":"^0.10.0","webpack":"^4.44.2","webpack-dev-server":"^3.11.0"},"browser":{"./lib/adapters/http.js":"./lib/adapters/xhr.js"},"jsdelivr":"dist/axios.min.js","unpkg":"dist/axios.min.js","typings":"./index.d.ts","dependencies":{"follow-redirects":"^1.14.0"},"bundlesize":[{"path":"./dist/axios.min.js","threshold":"5kB"}]}');
+module.exports = JSON.parse('{"_args":[["axios@0.21.4","/home/corina/Code/soft-ui-dashboard-laravel"]],"_development":true,"_from":"axios@0.21.4","_id":"axios@0.21.4","_inBundle":false,"_integrity":"sha512-ut5vewkiu8jjGBdqpM44XxjuCjq9LAKeHVmoVfHVzy8eHgxxq8SbAVQNovDA8mVi05kP0Ea/n/UzcSHcTJQfNg==","_location":"/axios","_phantomChildren":{},"_requested":{"type":"version","registry":true,"raw":"axios@0.21.4","name":"axios","escapedName":"axios","rawSpec":"0.21.4","saveSpec":null,"fetchSpec":"0.21.4"},"_requiredBy":["#DEV:/"],"_resolved":"https://registry.npmjs.org/axios/-/axios-0.21.4.tgz","_spec":"0.21.4","_where":"/home/corina/Code/soft-ui-dashboard-laravel","author":{"name":"Matt Zabriskie"},"browser":{"./lib/adapters/http.js":"./lib/adapters/xhr.js"},"bugs":{"url":"https://github.com/axios/axios/issues"},"bundlesize":[{"path":"./dist/axios.min.js","threshold":"5kB"}],"dependencies":{"follow-redirects":"^1.14.0"},"description":"Promise based HTTP client for the browser and node.js","devDependencies":{"coveralls":"^3.0.0","es6-promise":"^4.2.4","grunt":"^1.3.0","grunt-banner":"^0.6.0","grunt-cli":"^1.2.0","grunt-contrib-clean":"^1.1.0","grunt-contrib-watch":"^1.0.0","grunt-eslint":"^23.0.0","grunt-karma":"^4.0.0","grunt-mocha-test":"^0.13.3","grunt-ts":"^6.0.0-beta.19","grunt-webpack":"^4.0.2","istanbul-instrumenter-loader":"^1.0.0","jasmine-core":"^2.4.1","karma":"^6.3.2","karma-chrome-launcher":"^3.1.0","karma-firefox-launcher":"^2.1.0","karma-jasmine":"^1.1.1","karma-jasmine-ajax":"^0.1.13","karma-safari-launcher":"^1.0.0","karma-sauce-launcher":"^4.3.6","karma-sinon":"^1.0.5","karma-sourcemap-loader":"^0.3.8","karma-webpack":"^4.0.2","load-grunt-tasks":"^3.5.2","minimist":"^1.2.0","mocha":"^8.2.1","sinon":"^4.5.0","terser-webpack-plugin":"^4.2.3","typescript":"^4.0.5","url-search-params":"^0.10.0","webpack":"^4.44.2","webpack-dev-server":"^3.11.0"},"homepage":"https://axios-http.com","jsdelivr":"dist/axios.min.js","keywords":["xhr","http","ajax","promise","node"],"license":"MIT","main":"index.js","name":"axios","repository":{"type":"git","url":"git+https://github.com/axios/axios.git"},"scripts":{"build":"NODE_ENV=production grunt build","coveralls":"cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js","examples":"node ./examples/server.js","fix":"eslint --fix lib/**/*.js","postversion":"git push && git push --tags","preversion":"npm test","start":"node ./sandbox/server.js","test":"grunt test","version":"npm run build && grunt version && git add -A dist && git add CHANGELOG.md bower.json package.json"},"typings":"./index.d.ts","unpkg":"dist/axios.min.js","version":"0.21.4"}');
 
 /***/ })
 
@@ -19603,6 +21415,18 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 		};
 /******/ 	})();
 /******/ 	
+/******/ 	/* webpack/runtime/define property getters */
+/******/ 	(() => {
+/******/ 		// define getter functions for harmony exports
+/******/ 		__webpack_require__.d = (exports, definition) => {
+/******/ 			for(var key in definition) {
+/******/ 				if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
+/******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
+/******/ 				}
+/******/ 			}
+/******/ 		};
+/******/ 	})();
+/******/ 	
 /******/ 	/* webpack/runtime/global */
 /******/ 	(() => {
 /******/ 		__webpack_require__.g = (function() {
@@ -19649,7 +21473,6 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 		// [resolve, reject, Promise] = chunk loading, 0 = chunk loaded
 /******/ 		var installedChunks = {
 /******/ 			"/js/app": 0,
-/******/ 			"css/app": 0,
 /******/ 			"assets/css/soft-ui-dashboard": 0
 /******/ 		};
 /******/ 		
@@ -19700,9 +21523,8 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
-/******/ 	__webpack_require__.O(undefined, ["css/app","assets/css/soft-ui-dashboard"], () => (__webpack_require__("./resources/js/app.js")))
-/******/ 	__webpack_require__.O(undefined, ["css/app","assets/css/soft-ui-dashboard"], () => (__webpack_require__("./resources/scss/soft-ui-dashboard.scss")))
-/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/app","assets/css/soft-ui-dashboard"], () => (__webpack_require__("./resources/css/app.css")))
+/******/ 	__webpack_require__.O(undefined, ["assets/css/soft-ui-dashboard"], () => (__webpack_require__("./resources/js/app.js")))
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["assets/css/soft-ui-dashboard"], () => (__webpack_require__("./resources/scss/soft-ui-dashboard.scss")))
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 	
 /******/ })()

@@ -18,5 +18,8 @@
         "resolve-url-loader": "^4.0.0",
         "sass": "^1.45.0",
         "sass-loader": "^12.4.0"
+    },
+    "dependencies": {
+        "perfect-scrollbar": "^1.5.5"
     }
 }

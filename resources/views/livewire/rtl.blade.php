@@ -1,4 +1,4 @@
-  <aside class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-right me-3"
+  <aside class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-end me-3"
       id="sidenav-main">
       <div class="sidenav-header">
           <i class="fas fa-times p-3 cursor-pointer text-secondary opacity-5 position-absolute left-0 top-0 d-none d-xl-none"
@@ -9,7 +9,7 @@
           </a>
       </div>
       <hr class="horizontal dark mt-0">
-      <div class="collapse navbar-collapse px-0 w-auto" id="sidenav-collapse-main">
+      <div class="collapse navbar-collapse w-auto" id="sidenav-collapse-main">
           <ul class="navbar-nav">
               <li class="nav-item">
                   <a class="nav-link " href="{{ route('dashboard') }}">
