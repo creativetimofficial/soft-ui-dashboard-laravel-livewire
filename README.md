@@ -1,19 +1,19 @@
-# [Soft UI Dashboard Laravel](https://soft-ui-dashboard-laravel.creative-tim.com/login)
+# [Soft UI Dashboard Laravel Laravel](https://soft-ui-dashboard-laravel.creative-tim.com/login)
 
 ![version](https://img.shields.io/badge/version-1.0.0-blue.svg) 
 ![license](https://img.shields.io/badge/license-MIT-blue.svg)
-[![GitHub issues open](https://img.shields.io/github/issues/creativetimofficial/soft-ui-dashboard-laravel.svg)](https://github.com/creativetimofficial/soft-ui-dashboard-laravel/issues?q=is%3Aopen+is%3Aissue) 
-[![GitHub issues closed](https://img.shields.io/github/issues-closed-raw/creativetimofficial/soft-ui-dashboard-laravel.svg)](https://github.com/creativetimofficial/soft-ui-dashboard-laravel/issues?q=is%3Aissue+is%3Aclosed)
+[![GitHub issues open](https://img.shields.io/github/issues/creativetimofficial/soft-ui-dashboard-laravel-livewire.svg)](https://github.com/creativetimofficial/soft-ui-dashboard-laravel-livewire/issues?q=is%3Aopen+is%3Aissue) 
+[![GitHub issues closed](https://img.shields.io/github/issues-closed-raw/creativetimofficial/soft-ui-dashboard-laravel-livewire.svg)](https://github.com/creativetimofficial/soft-ui-dashboard-laravel-livewire/issues?q=is%3Aissue+is%3Aclosed)
 
 
-*Frontend version*: Soft UI Dashboard v1.0.0. More info at https://www.creative-tim.com/product/soft-ui-dashboard-laravel/?ref=sudl-readme 
+*Frontend version*: Soft UI Dashboard v1.0.0. More info at https://www.creative-tim.com/product/soft-ui-dashboard-laravel-livewire/?ref=sudl-readme 
 
-[<img src="https://s3.amazonaws.com/creativetim_bucket/products/492/original/soft-ui-dashboard-laravel-livewire.jpg" width="100%" />](https://www.creative-tim.com/live/soft-ui-dashboard-laravel)
+[<img src="https://s3.amazonaws.com/creativetim_bucket/products/492/original/soft-ui-dashboard-laravel-livewire.jpg" width="100%" />](https://www.creative-tim.com/live/soft-ui-dashboard-laravel-livewire)
 
 ## Free Frontend Web App for Laravel with Livewire & Alpine.js
 What happens when you combine Soft UI, one of the hottest design trends right now, and Laravel?  We've partnered with [UPDIVISION](https://updivision.com/) to create the ultimate design & development toolbox. 
 
-Soft UI Dashboard Laravel comes with dozens of handcrafted UI elements tailored for Bootstrap 5 and an out of the box Laravel backend. The Livewire integration allows you to build dynamic interfaces easier without leaving the comfort of your favourite framework. If you combine this even further with Alpine.js, you get the perfect combo for kickstarting your next project.       
+Soft UI Dashboard Laravel Livewire comes with dozens of handcrafted UI elements tailored for Bootstrap 5 and an out of the box Laravel backend. The Livewire integration allows you to build dynamic interfaces easier without leaving the comfort of your favourite framework. If you combine this even further with Alpine.js, you get the perfect combo for kickstarting your next project.       
  
 ## Ok, I`m hooked. So, what am I getting?
 You're getting a lean, mean, app-building machine. Here is the blueprint:  
@@ -23,10 +23,10 @@ You're getting a lean, mean, app-building machine. Here is the blueprint:
 * Livewire & Alpine.js integration
 
 ## Free for personal and commercial projects
-Whether you're working on a side project or delivering to a client, we've got you covered. Soft UI Dashboard Laravel is released under MIT license, so you can use it both for personal and commercial projects for free. All you need to do is start coding.    
+Whether you're working on a side project or delivering to a client, we've got you covered. Soft UI Dashboard Laravel Livewire is released under MIT license, so you can use it both for personal and commercial projects for free. All you need to do is start coding.    
 
 ## Detailed documentation and example pages
-We also included detailed documentation for every component and feature so you can follow along. The pre-built example pages give you a quick glimpse of what Soft UI Dashboard Laravel has to offer so you can get started in no time.  
+We also included detailed documentation for every component and feature so you can follow along. The pre-built example pages give you a quick glimpse of what Soft UI Dashboard Laravel Livewire has to offer so you can get started in no time.  
 
 
 ## Table of Contents
@@ -82,22 +82,22 @@ Besides the dashboard, the auth pages, the billing and table pages, there is als
 [<img src="https://github.com/creativetimofficial/public-assets/blob/master/logos/html-logo.jpg?raw=true" width="60" height="60" />](https://demos.creative-tim.com/argon-dashboard-pro/pages/dashboards/dashboard.html?ref=sudl-readme)
 [<img src="https://github.com/creativetimofficial/public-assets/blob/master/logos/laravel_logo.png?raw=true" width="60" height="60" />](https://argon-dashboard-pro-laravel.creative-tim.com/?ref=sudl-readme)
 
-| HTML | Laravel |
+| HTML | Laravel Livewire |
 | --- | --- |
-| [![HTML](https://github.com/creativetimofficial/public-assets/blob/master/soft-ui-design-system-laravel/soft-ui-html.png)](https://www.creative-tim.com/product/soft-ui-dashboard) | [![Laravel](https://github.com/creativetimofficial/public-assets/blob/master/soft-ui-design-system-laravel/Dashboard.png)](https://www.creative-tim.com/product/soft-ui-dashboard-laravel)  | 
+| [![HTML](https://github.com/creativetimofficial/public-assets/blob/master/soft-ui-design-system-laravel/soft-ui-html.png)](https://www.creative-tim.com/product/soft-ui-dashboard) | [![Laravel](https://github.com/creativetimofficial/public-assets/blob/master/soft-ui-design-system-laravel/Dashboard.png)](https://www.creative-tim.com/product/soft-ui-dashboard-laravel-livewire)  | 
 
 ## Demo
 | Register | Login | Dashboard |
 | --- | --- | ---  |
-| [<img src="https://github.com/creativetimofficial/public-assets/blob/master/soft-ui-design-system-laravel/Register.png" width="322" />](https://soft-ui-dashboard-laravel.creative-tim.com/sign-up) | [<img src="https://github.com/creativetimofficial/public-assets/blob/master/soft-ui-design-system-laravel/Login.png?raw=true" width="322" />](https://soft-ui-dashboard-laravel.creative-tim.com/login)  | [<img src="https://github.com/creativetimofficial/public-assets/blob/master/soft-ui-design-system-laravel/Dashboard.png?raw=true" width="322" />](https://soft-ui-dashboard-laravel.creative-tim.com/dashboard)
+| [<img src="https://github.com/creativetimofficial/public-assets/blob/master/soft-ui-design-system-laravel/Register.png" width="322" />](https://soft-ui-dashboard-laravel-livewire.creative-tim.com/sign-up) | [<img src="https://github.com/creativetimofficial/public-assets/blob/master/soft-ui-design-system-laravel/Login.png?raw=true" width="322" />](https://soft-ui-dashboard-laravel-livewire.creative-tim.com/login)  | [<img src="https://github.com/creativetimofficial/public-assets/blob/master/soft-ui-design-system-laravel/Dashboard.png?raw=true" width="322" />](https://soft-ui-dashboard-laravel-livewire.creative-tim.com/dashboard)
 
 | Forgot Password Page | Reset Password Page | Profile Page  |
 | --- | --- | ---  |
-| [<img src="https://github.com/creativetimofficial/public-assets/blob/master/soft-ui-design-system-laravel/Forgot-password.png" width="320" />](https://soft-ui-dashboard-laravel.creative-tim.com/login/forgot-password)  | [<img src="https://github.com/creativetimofficial/public-assets/blob/master/soft-ui-design-system-laravel/Login.png" width="312" />](https://soft-ui-dashboard-laravel.creative-tim.com/) | [<img src="https://github.com/creativetimofficial/public-assets/blob/master/soft-ui-design-system-laravel/Profile.png" width="330" />](https://soft-ui-dashboard-laravel.creative-tim.com/laravel-user-profile)
+| [<img src="https://github.com/creativetimofficial/public-assets/blob/master/soft-ui-design-system-laravel/Forgot-password.png" width="320" />](https://soft-ui-dashboard-laravel-livewire.creative-tim.com/login/forgot-password)  | [<img src="https://github.com/creativetimofficial/public-assets/blob/master/soft-ui-design-system-laravel/Login.png" width="312" />](https://soft-ui-dashboard-laravel-livewire.creative-tim.com/) | [<img src="https://github.com/creativetimofficial/public-assets/blob/master/soft-ui-design-system-laravel/Profile.png" width="330" />](https://soft-ui-dashboard-laravel-livewire.creative-tim.com/laravel-user-profile)
 [View More](https://soft-ui-dashboard-laravel.creative-tim.com/dashboard)
 
 ## Documentation
-The documentation for the Soft UI Dashboard Laravel is hosted at our [website](https://soft-ui-dashboard-laravel.creative-tim.com/documentation/bootstrap/overview/soft-ui-dashboard/index.html).
+The documentation for the Soft UI Dashboard Laravel Livewire is hosted at our [website](https://soft-ui-dashboard-laravel-livewire.creative-tim.com/documentation/bootstrap/overview/soft-ui-dashboard/index.html).
 
 ### Login
 If you are not logged in you can only access this page or the Sign Up page. The default url takes you to the login page where you use the default credentials **admin@softui.com** with the password **secret**. Logging in is possible only with already existing credentials. For this to work you should have run the migrations. 
@@ -253,7 +253,7 @@ At present, we officially aim to support the last two versions of the following 
 ## Reporting Issues
 We use GitHub Issues as the official bug tracker for the Soft UI Dashboard. Here are some advices for our users that want to report an issue:
 
-1. Make sure that you are using the latest version of the Soft UI Dashboard. Check the CHANGELOG from your dashboard on our [website](https://www.creative-tim.com/product/soft-ui-dashboard-laravel?ref=readme-sudl).
+1. Make sure that you are using the latest version of the Soft UI Dashboard. Check the CHANGELOG from your dashboard on our [website](https://www.creative-tim.com/product/soft-ui-dashboard-laravel-livewire?ref=readme-sudl).
 2. Providing us reproducible steps for the issue will shorten the time it takes for it to be fixed.
 3. Some issues may be browser specific, so specifying in what browser you encountered the issue might help.
 
