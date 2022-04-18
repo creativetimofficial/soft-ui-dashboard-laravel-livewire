@@ -84,7 +84,7 @@ Besides the dashboard, the auth pages, the billing and table pages, there is als
 
 | HTML | Laravel Livewire |
 | --- | --- |
-| [![HTML](https://github.com/creativetimofficial/public-assets/blob/master/soft-ui-design-system-laravel/soft-ui-html.png)](https://www.creative-tim.com/product/soft-ui-dashboard) | [![Laravel](https://github.com/creativetimofficial/public-assets/blob/master/soft-ui-design-system-laravel/Dashboard.png)](https://www.creative-tim.com/product/soft-ui-dashboard-laravel-livewire)  | 
+| [![HTML](https://s3.amazonaws.com/creativetim_bucket/products/487/thumb/opt_sdp_thumbnail.jpg)](https://www.creative-tim.com/product/soft-ui-dashboard) | [![Laravel](https://s3.amazonaws.com/creativetim_bucket/products/492/thumb/soft-ui-dashboard-laravel-livewire.jpg)](https://www.creative-tim.com/product/soft-ui-dashboard-laravel-livewire)  | 
 
 ## Demo
 | Register | Login | Dashboard |
@@ -94,7 +94,7 @@ Besides the dashboard, the auth pages, the billing and table pages, there is als
 | Forgot Password Page | Reset Password Page | Profile Page  |
 | --- | --- | ---  |
 | [<img src="https://github.com/creativetimofficial/public-assets/blob/master/soft-ui-design-system-laravel/Forgot-password.png" width="320" />](https://soft-ui-dashboard-laravel-livewire.creative-tim.com/login/forgot-password)  | [<img src="https://github.com/creativetimofficial/public-assets/blob/master/soft-ui-design-system-laravel/Login.png" width="312" />](https://soft-ui-dashboard-laravel-livewire.creative-tim.com/) | [<img src="https://github.com/creativetimofficial/public-assets/blob/master/soft-ui-design-system-laravel/Profile.png" width="330" />](https://soft-ui-dashboard-laravel-livewire.creative-tim.com/laravel-user-profile)
-[View More](https://soft-ui-dashboard-laravel.creative-tim.com/dashboard)
+[View More](https://soft-ui-dashboard-laravel-livewire.creative-tim.com/dashboard)
 
 ## Documentation
 The documentation for the Soft UI Dashboard Laravel Livewire is hosted at our [website](https://soft-ui-dashboard-laravel-livewire.creative-tim.com/documentation/bootstrap/overview/soft-ui-dashboard/index.html).
