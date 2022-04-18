@@ -14,7 +14,7 @@
             </nav>
             <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4 d-flex justify-content-end" id="navbar">
                 <div class="nav-item d-flex align-self-end">
-                    <a href="https://www.creative-tim.com/product/soft-ui-dashboard-laravel" target="_blank"
+                    <a href="https://www.creative-tim.com/product/soft-ui-dashboard-laravel-livewire" target="_blank"
                         class="btn btn-primary active mb-0 text-white" role="button" aria-pressed="true">
                         Download
                     </a>
