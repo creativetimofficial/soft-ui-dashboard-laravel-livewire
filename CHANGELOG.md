@@ -8,3 +8,7 @@ All notable changes to `Soft UI Dashboard Laravel` will be documented in this fi
 - Register
 - Forgot password
 - Profile edit
+
+## [1.0.1]
+- Upgrade to Laravel 9.x
+
