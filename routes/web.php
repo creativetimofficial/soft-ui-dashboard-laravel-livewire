@@ -30,13 +30,15 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::get('/', Login::class)->name('login');
+Route::get('/', function() {
+    return redirect('/login');
+});
 
 Route::get('/sign-up', SignUp::class)->name('sign-up');
 Route::get('/login', Login::class)->name('login');
 
 Route::get('/login/forgot-password', ForgotPassword::class)->name('forgot-password');
- 
+
 Route::get('/reset-password/{id}',ResetPassword::class)->name('reset-password')->middleware('signed');
 
 Route::middleware('auth')->group(function () {
