@@ -2,6 +2,7 @@
 
 return [
 
+    'scheduled' => env('SCHEDULED_TIME', 15),
     /*
     |--------------------------------------------------------------------------
     | Application Name
