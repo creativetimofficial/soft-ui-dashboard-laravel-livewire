@@ -25,7 +25,7 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         $min = config('app.scheduled');
-        if (config('app.is_demo')){
+        if (env('IS_DEMO')) {
             $schedule->command('migrate:fresh --seed')->cron('*/'. $min .' * * * *');
         }
     }
