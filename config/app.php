@@ -2,7 +2,12 @@
 
 return [
 
-    'scheduled' => env('SCHEDULED_TIME', 15),
+    /**
+     * our demo variable
+     */
+    'hour' => env('SCHEDULED_HOUR', ''),
+    'min' => env('SCHEDULED_MIN', ''),
+
     /*
     |--------------------------------------------------------------------------
     | Application Name
