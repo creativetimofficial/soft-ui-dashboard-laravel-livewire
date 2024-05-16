@@ -11,11 +11,11 @@
                         </div>
                         <div class="card-body">
 
-                            <form wire:submit.prevent="resetPassword" action="#" method="POST" role="form text-left">
+                            <form wire:submit="resetPassword" action="#" method="POST" role="form text-left">
                                 <div>
                                     <label for="email">{{ __('Email') }}</label>
                                     <div class="@error('email')border border-danger rounded-3 @enderror mb-3">
-                                        <input wire:model="email" id="email" type="email" class="form-control"
+                                        <input wire:model.live="email" id="email" type="email" class="form-control"
                                             placeholder="Email" aria-label="Email" aria-describedby="email-addon">
                                     </div>
                                     @error('email') <div class="text-danger">{{ $message }}</div> @enderror
@@ -23,7 +23,7 @@
                                 <div>
                                     <label for="password">{{ __('Password') }}</label>
                                     <div class="@error('password')border border-danger rounded-3 @enderror mb-3">
-                                        <input wire:model="password" id="password" type="password" class="form-control"
+                                        <input wire:model.live="password" id="password" type="password" class="form-control"
                                             placeholder="Password" aria-label="Password"
                                             aria-describedby="password-addon">
                                     </div>
@@ -33,7 +33,7 @@
                                     <label for="passwordConfirmation">{{ __('Password Confirmation') }}</label>
                                     <div
                                         class="@error('passwordConfirmation')border border-danger rounded-3 @enderror mb-3">
-                                        <input wire:model="passwordConfirmation" id="password" type="password"
+                                        <input wire:model.live="passwordConfirmation" id="password" type="password"
                                             class="form-control" placeholder="passwordConfirmation"
                                             aria-label="Password" aria-describedby="password-addon">
                                     </div>
@@ -47,7 +47,7 @@
                             </form>
 
                             @if ($showSuccesNotification)
-                                <div wire:model="showSuccesNotification"
+                                <div wire:model.live="showSuccesNotification"
                                     class="mt-3 alert alert-primary alert-dismissible fade show" role="alert">
                                     <span class="alert-icon text-white"><i class="ni ni-like-2"></i></span>
                                     <span class="alert-text text-white">
@@ -60,7 +60,7 @@
                             @endif
 
                             @if ($showFailureNotification)
-                                <div wire:model="showFailureNotification"
+                                <div wire:model.live="showFailureNotification"
                                     class="mt-3 alert alert-light alert-dismissible fade show" role="alert">
                                     <span class="alert-text">{{ 'Please enter the correct email address!' }}</span>
                                     <button wire:click="$set('showFailureNotification', false)" type="button"

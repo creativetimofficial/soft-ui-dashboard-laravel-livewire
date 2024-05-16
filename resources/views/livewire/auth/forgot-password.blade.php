@@ -7,7 +7,7 @@
                     <div class="card card-plain mt-8">
                         <div class="card-header pb-0 text-left bg-transparent">
                             @if ($showDemoNotification)
-                                <div wire:model="showDemoNotification"
+                                <div wire:model.live="showDemoNotification"
                                     class="mt-3 alert alert-primary alert-dismissible fade show" role="alert">
                                     <span
                                         class="alert-text text-white">{{ __(' You are in a demo version, you can\'t update the
@@ -20,11 +20,11 @@
                             <h4 class="mb-0">{{ __('Forgot your password? Enter your email here') }}</h4>
                         </div>
                         <div class="card-body">
-                            <form wire:submit.prevent="recoverPassword" action="#" method="POST" role="form text-left">
+                            <form wire:submit="recoverPassword" action="#" method="POST" role="form text-left">
                                 <div>
                                     <label for="email">{{ __('Email') }}</label>
                                     <div class="@error('email')border border-danger rounded-3 @enderror">
-                                        <input wire:model="email" id="email" type="email" class="form-control"
+                                        <input wire:model.live="email" id="email" type="email" class="form-control"
                                             placeholder="Email" aria-label="Email" aria-describedby="email-addon">
                                     </div>
                                     @error('email') <div class="text-danger">{{ $message }}</div> @enderror
@@ -36,7 +36,7 @@
                                 </div>
                             </form>
                             @if ($showSuccesNotification)
-                                <div wire:model="showSuccesNotification"
+                                <div wire:model.live="showSuccesNotification"
                                     class="mt-3 alert alert-primary alert-dismissible fade show" role="alert">
                                     <span class="alert-icon text-white"><i class="ni ni-like-2"></i></span>
                                     <span
@@ -49,7 +49,7 @@
                             @endif
 
                             @if ($showFailureNotification)
-                                <div wire:model="showFailureNotification"
+                                <div wire:model.live="showFailureNotification"
                                     class="mt-3 alert alert-primary alert-dismissible fade show" role="alert">
                                     <span class="alert-text text-white">
                                         {{ __('You are not registered as a user. Please sign
