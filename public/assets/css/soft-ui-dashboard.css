@@ -6359,7 +6359,7 @@ textarea.form-control-lg {
 }
 
 .tooltip-inner {
-  max-width: 200px;
+  max-width: 500px;
   padding: 0.25rem 0.5rem;
   color: #fff;
   text-align: center;
@@ -20330,6 +20330,10 @@ label,
   opacity: 1 !important;
   transition: opacity 0.3 ease;
 }
+
+.bg-gradient-purple {
+    background-image: linear-gradient(310deg, #7928ca 0%, #ff0080 100%);
+  }
 
 .bg-gradient-primary {
   background-image: linear-gradient(310deg, #f53939 0%, #fbcf33 100%);

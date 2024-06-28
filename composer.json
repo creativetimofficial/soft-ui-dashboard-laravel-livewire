@@ -12,7 +12,8 @@
         "guzzlehttp/guzzle": "^7.4",
         "laravel/framework": "^11.0",
         "laravel/tinker": "^2.6",
-        "livewire/livewire": "^3.0"
+        "livewire/livewire": "^3.0",
+        "predis/predis": "^2.2"
     },
     "require-dev": {
         "spatie/laravel-ignition": "^2.0",

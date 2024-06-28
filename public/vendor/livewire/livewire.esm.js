@@ -1594,7 +1594,7 @@ var require_module_cjs = __commonJS({
         const target = objects.find((obj) => Object.prototype.hasOwnProperty.call(obj, name)) || objects[objects.length - 1];
         const descriptor = Object.getOwnPropertyDescriptor(target, name);
         if ((descriptor == null ? void 0 : descriptor.set) && (descriptor == null ? void 0 : descriptor.get))
-          return Reflect.set(target, name, value, thisProxy);
+          return descriptor.set.call(thisProxy, value) || true;
         return Reflect.set(target, name, value);
       }
     };
@@ -2348,7 +2348,7 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
               let carry = Promise.all([
                 el2._x_hidePromise,
                 ...(el2._x_hideChildren || []).map(hideAfterChildren)
-              ]).then(([i]) => i());
+              ]).then(([i]) => i == null ? void 0 : i());
               delete el2._x_hidePromise;
               delete el2._x_hideChildren;
               return carry;
@@ -2861,7 +2861,7 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
       get raw() {
         return raw;
       },
-      version: "3.13.10",
+      version: "3.14.1",
       flushAndStopDeferringMutations,
       dontAutoEvaluateFunctions,
       disableEffectScheduling,
@@ -3156,14 +3156,14 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
         handler4 = wrapHandler(handler4, (next, e) => {
           e.target === el && next(e);
         });
-      handler4 = wrapHandler(handler4, (next, e) => {
-        if (isKeyEvent(event)) {
+      if (isKeyEvent(event) || isClickEvent(event)) {
+        handler4 = wrapHandler(handler4, (next, e) => {
           if (isListeningForASpecificKeyThatHasntBeenPressed(e, modifiers)) {
             return;
           }
-        }
-        next(e);
-      });
+          next(e);
+        });
+      }
       listenerTarget.addEventListener(event, handler4, options);
       return () => {
         listenerTarget.removeEventListener(event, handler4, options);
@@ -3186,9 +3186,12 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
     function isKeyEvent(event) {
       return ["keydown", "keyup"].includes(event);
     }
+    function isClickEvent(event) {
+      return ["contextmenu", "click", "mouse"].some((i) => event.includes(i));
+    }
     function isListeningForASpecificKeyThatHasntBeenPressed(e, modifiers) {
       let keyModifiers = modifiers.filter((i) => {
-        return !["window", "document", "prevent", "stop", "once", "capture"].includes(i);
+        return !["window", "document", "prevent", "stop", "once", "capture", "self", "away", "outside", "passive"].includes(i);
       });
       if (keyModifiers.includes("debounce")) {
         let debounceIndex = keyModifiers.indexOf("debounce");
@@ -3212,6 +3215,8 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
           return e[`${modifier}Key`];
         });
         if (activelyPressedKeyModifiers.length === selectedSystemKeyModifiers.length) {
+          if (isClickEvent(e.type))
+            return false;
           if (keyToModifiers(e.key).includes(keyModifiers[0]))
             return false;
         }
@@ -3882,7 +3887,7 @@ var require_module_cjs2 = __commonJS({
               start: { height: current + "px" },
               end: { height: full + "px" }
             }, () => el._x_isShown = true, () => {
-              if (el.getBoundingClientRect().height == full) {
+              if (Math.abs(el.getBoundingClientRect().height - full) < 1) {
                 el.style.overflow = null;
               }
             });
@@ -7492,7 +7497,7 @@ var UploadManager = class {
     });
     request.upload.addEventListener("progress", (e) => {
       e.detail = {};
-      e.detail.progress = Math.round(e.loaded * 100 / e.total);
+      e.detail.progress = Math.floor(e.loaded * 100 / e.total);
       this.uploadBag.first(name).progressCallback(e);
     });
     request.addEventListener("load", () => {
@@ -7534,7 +7539,9 @@ var UploadManager = class {
     unsetUploadLoading(this.component);
     let uploadItem = this.uploadBag.first(name);
     if (uploadItem) {
-      uploadItem.request.abort();
+      if (uploadItem.request) {
+        uploadItem.request.abort();
+      }
       this.uploadBag.shift(name).cancelledCallback();
       if (cancelledCallback)
         cancelledCallback();
@@ -8304,6 +8311,9 @@ var Component = class {
     if (this.originalEffects.url) {
       effects.url = this.originalEffects.url;
     }
+    if (this.originalEffects.scripts) {
+      effects.scripts = this.originalEffects.scripts;
+    }
     el.setAttribute("wire:effects", JSON.stringify(effects));
   }
   addCleanup(cleanup) {
@@ -8820,7 +8830,7 @@ import_nprogress.default.configure({
   minimum: 0.1,
   trickleSpeed: 200,
   showSpinner: false,
-  parent: "html"
+  parent: "body"
 });
 injectStyles();
 var inProgress = false;
@@ -9266,13 +9276,15 @@ function history2(Alpine19) {
   });
   Alpine19.history = { track };
 }
-function track(name, initialSeedValue, alwaysShow = false) {
+function track(name, initialSeedValue, alwaysShow = false, except = null) {
   let { has, get, set, remove } = queryStringUtils();
   let url = new URL(window.location.href);
   let isInitiallyPresentInUrl = has(url, name);
   let initialValue = isInitiallyPresentInUrl ? get(url, name) : initialSeedValue;
   let initialValueMemo = JSON.stringify(initialValue);
+  let exceptValueMemo = [false, null, void 0].includes(except) ? initialSeedValue : JSON.stringify(except);
   let hasReturnedToInitialValue = (newValue) => JSON.stringify(newValue) === initialValueMemo;
+  let hasReturnedToExceptValue = (newValue) => JSON.stringify(newValue) === exceptValueMemo;
   if (alwaysShow)
     url = set(url, name, initialValue);
   replace(url, name, { value: initialValue });
@@ -9284,6 +9296,8 @@ function track(name, initialSeedValue, alwaysShow = false) {
     if (!alwaysShow && !isInitiallyPresentInUrl && hasReturnedToInitialValue(newValue)) {
       url2 = remove(url2, name);
     } else if (newValue === void 0) {
+      url2 = remove(url2, name);
+    } else if (!alwaysShow && hasReturnedToExceptValue(newValue)) {
       url2 = remove(url2, name);
     } else {
       url2 = set(url2, name, newValue);
@@ -9661,6 +9675,12 @@ function morph2(component, el, html) {
       if (isntElement(el2))
         return;
       trigger("morph.updating", { el: el2, toEl, component, skip, childrenOnly });
+      if (el2.__livewire_replace === true)
+        el2.innerHTML = toEl.innerHTML;
+      if (el2.__livewire_replace_self === true) {
+        el2.outerHTML = toEl.outerHTML;
+        return skip();
+      }
       if (el2.__livewire_ignore === true)
         return skip();
       if (el2.__livewire_ignore_self === true)
@@ -9939,7 +9959,7 @@ on("effect", ({ component, effects, cleanup }) => {
     if (!as)
       as = name;
     let initialValue = [false, null, void 0].includes(except) ? dataGet(component.ephemeral, name) : except;
-    let { replace: replace2, push: push2, pop } = track(as, initialValue, alwaysShow);
+    let { replace: replace2, push: push2, pop } = track(as, initialValue, alwaysShow, except);
     if (use === "replace") {
       let effectReference = import_alpinejs10.default.effect(() => {
         replace2(dataGet(component.reactive, name));
@@ -10463,6 +10483,15 @@ function extractStreamObjects(raw) {
   let remaining = raw.replace(regex, "");
   return [parsed, remaining];
 }
+
+// js/directives/wire-replace.js
+directive("replace", ({ el, directive: directive2 }) => {
+  if (directive2.modifiers.includes("self")) {
+    el.__livewire_replace_self = true;
+  } else {
+    el.__livewire_replace = true;
+  }
+});
 
 // js/directives/wire-ignore.js
 directive("ignore", ({ el, directive: directive2 }) => {

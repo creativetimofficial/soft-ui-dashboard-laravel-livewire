@@ -593,7 +593,7 @@
       });
       request.upload.addEventListener("progress", (e) => {
         e.detail = {};
-        e.detail.progress = Math.round(e.loaded * 100 / e.total);
+        e.detail.progress = Math.floor(e.loaded * 100 / e.total);
         this.uploadBag.first(name).progressCallback(e);
       });
       request.addEventListener("load", () => {
@@ -635,7 +635,9 @@
       unsetUploadLoading(this.component);
       let uploadItem = this.uploadBag.first(name);
       if (uploadItem) {
-        uploadItem.request.abort();
+        if (uploadItem.request) {
+          uploadItem.request.abort();
+        }
         this.uploadBag.shift(name).cancelledCallback();
         if (cancelledCallback)
           cancelledCallback();
@@ -1011,7 +1013,7 @@
       const target = objects.find((obj) => Object.prototype.hasOwnProperty.call(obj, name)) || objects[objects.length - 1];
       const descriptor = Object.getOwnPropertyDescriptor(target, name);
       if (descriptor?.set && descriptor?.get)
-        return Reflect.set(target, name, value, thisProxy);
+        return descriptor.set.call(thisProxy, value) || true;
       return Reflect.set(target, name, value);
     }
   };
@@ -1765,7 +1767,7 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
             let carry = Promise.all([
               el2._x_hidePromise,
               ...(el2._x_hideChildren || []).map(hideAfterChildren)
-            ]).then(([i]) => i());
+            ]).then(([i]) => i?.());
             delete el2._x_hidePromise;
             delete el2._x_hideChildren;
             return carry;
@@ -2278,7 +2280,7 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
     get raw() {
       return raw;
     },
-    version: "3.13.10",
+    version: "3.14.1",
     flushAndStopDeferringMutations,
     dontAutoEvaluateFunctions,
     disableEffectScheduling,
@@ -3220,14 +3222,14 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
       handler4 = wrapHandler(handler4, (next, e) => {
         e.target === el && next(e);
       });
-    handler4 = wrapHandler(handler4, (next, e) => {
-      if (isKeyEvent(event)) {
+    if (isKeyEvent(event) || isClickEvent(event)) {
+      handler4 = wrapHandler(handler4, (next, e) => {
         if (isListeningForASpecificKeyThatHasntBeenPressed(e, modifiers)) {
           return;
         }
-      }
-      next(e);
-    });
+        next(e);
+      });
+    }
     listenerTarget.addEventListener(event, handler4, options);
     return () => {
       listenerTarget.removeEventListener(event, handler4, options);
@@ -3250,9 +3252,12 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
   function isKeyEvent(event) {
     return ["keydown", "keyup"].includes(event);
   }
+  function isClickEvent(event) {
+    return ["contextmenu", "click", "mouse"].some((i) => event.includes(i));
+  }
   function isListeningForASpecificKeyThatHasntBeenPressed(e, modifiers) {
     let keyModifiers = modifiers.filter((i) => {
-      return !["window", "document", "prevent", "stop", "once", "capture"].includes(i);
+      return !["window", "document", "prevent", "stop", "once", "capture", "self", "away", "outside", "passive"].includes(i);
     });
     if (keyModifiers.includes("debounce")) {
       let debounceIndex = keyModifiers.indexOf("debounce");
@@ -3276,6 +3281,8 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
         return e[`${modifier}Key`];
       });
       if (activelyPressedKeyModifiers.length === selectedSystemKeyModifiers.length) {
+        if (isClickEvent(e.type))
+          return false;
         if (keyToModifiers(e.key).includes(keyModifiers[0]))
           return false;
       }
@@ -4562,6 +4569,9 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
       if (this.originalEffects.url) {
         effects.url = this.originalEffects.url;
       }
+      if (this.originalEffects.scripts) {
+        effects.scripts = this.originalEffects.scripts;
+      }
       el.setAttribute("wire:effects", JSON.stringify(effects));
     }
     addCleanup(cleanup2) {
@@ -4802,7 +4812,7 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
             start: { height: current + "px" },
             end: { height: full + "px" }
           }, () => el._x_isShown = true, () => {
-            if (el.getBoundingClientRect().height == full) {
+            if (Math.abs(el.getBoundingClientRect().height - full) < 1) {
               el.style.overflow = null;
             }
           });
@@ -7463,7 +7473,7 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
     minimum: 0.1,
     trickleSpeed: 200,
     showSpinner: false,
-    parent: "html"
+    parent: "body"
   });
   injectStyles();
   var inProgress = false;
@@ -7909,13 +7919,15 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
     });
     Alpine3.history = { track: track2 };
   }
-  function track2(name, initialSeedValue, alwaysShow = false) {
+  function track2(name, initialSeedValue, alwaysShow = false, except = null) {
     let { has: has2, get: get3, set: set3, remove } = queryStringUtils();
     let url = new URL(window.location.href);
     let isInitiallyPresentInUrl = has2(url, name);
     let initialValue = isInitiallyPresentInUrl ? get3(url, name) : initialSeedValue;
     let initialValueMemo = JSON.stringify(initialValue);
+    let exceptValueMemo = [false, null, void 0].includes(except) ? initialSeedValue : JSON.stringify(except);
     let hasReturnedToInitialValue = (newValue) => JSON.stringify(newValue) === initialValueMemo;
+    let hasReturnedToExceptValue = (newValue) => JSON.stringify(newValue) === exceptValueMemo;
     if (alwaysShow)
       url = set3(url, name, initialValue);
     replace(url, name, { value: initialValue });
@@ -7927,6 +7939,8 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
       if (!alwaysShow && !isInitiallyPresentInUrl && hasReturnedToInitialValue(newValue)) {
         url2 = remove(url2, name);
       } else if (newValue === void 0) {
+        url2 = remove(url2, name);
+      } else if (!alwaysShow && hasReturnedToExceptValue(newValue)) {
         url2 = remove(url2, name);
       } else {
         url2 = set3(url2, name, newValue);
@@ -8795,6 +8809,12 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
         if (isntElement(el2))
           return;
         trigger2("morph.updating", { el: el2, toEl, component, skip, childrenOnly });
+        if (el2.__livewire_replace === true)
+          el2.innerHTML = toEl.innerHTML;
+        if (el2.__livewire_replace_self === true) {
+          el2.outerHTML = toEl.outerHTML;
+          return skip();
+        }
         if (el2.__livewire_ignore === true)
           return skip();
         if (el2.__livewire_ignore_self === true)
@@ -9071,7 +9091,7 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
       if (!as)
         as = name;
       let initialValue = [false, null, void 0].includes(except) ? dataGet(component.ephemeral, name) : except;
-      let { replace: replace2, push: push2, pop } = track2(as, initialValue, alwaysShow);
+      let { replace: replace2, push: push2, pop } = track2(as, initialValue, alwaysShow, except);
       if (use === "replace") {
         let effectReference = module_default.effect(() => {
           replace2(dataGet(component.reactive, name));
@@ -9592,6 +9612,15 @@ ${expression ? 'Expression: "' + expression + '"\n\n' : ""}`, el);
     let remaining = raw2.replace(regex, "");
     return [parsed, remaining];
   }
+
+  // js/directives/wire-replace.js
+  directive2("replace", ({ el, directive: directive3 }) => {
+    if (directive3.modifiers.includes("self")) {
+      el.__livewire_replace_self = true;
+    } else {
+      el.__livewire_replace = true;
+    }
+  });
 
   // js/directives/wire-ignore.js
   directive2("ignore", ({ el, directive: directive3 }) => {

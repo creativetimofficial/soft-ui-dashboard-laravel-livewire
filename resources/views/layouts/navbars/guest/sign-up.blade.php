@@ -1,8 +1,8 @@
 <nav class="navbar navbar-expand-lg position-absolute top-0 z-index-3 w-100 shadow-none my-3  navbar-transparent mt-4">
     <div class="container">
         <a class="navbar-brand d-flex flex-column font-weight-bolder ms-lg-0 ms-3 text-white" href="{{ route('dashboard') }}">
-            Soft UI Dashboard
-            <span>Laravel Livewire</span>
+            Health Checkup
+            <span>Report System (HCRS)</span>
         </a>
         <button class="navbar-toggler shadow-none ms-2" type="button" data-bs-toggle="collapse"
             data-bs-target="#navigation" aria-controls="navigation" aria-expanded="false"
@@ -43,12 +43,14 @@
                     </a>
                 </li>
             </ul>
+
             <ul class="navbar-nav d-lg-block d-none">
                 <li class="nav-item">
-                    <a href="https://www.creative-tim.com/product/soft-ui-dashboard-laravel-livewire"
-                        class="btn btn-sm btn-round mb-0 me-1 bg-gradient-light" target="_blank">Free download</a>
+                    <a href="#"
+                        class="btn btn-sm btn-round mb-0 me-1 bg-gradient-light" target="_blank">ห้ามกดเล่น</a>
                 </li>
             </ul>
+
         </div>
     </div>
 </nav>

@@ -3,13 +3,14 @@
         <div class="container">
             <div class="row">
                 <div class="col-xl-4 col-lg-5 col-md-6 d-flex flex-column mx-auto">
-                    <div class="card card-plain mt-8">
+                    <div class="card card-plain mt-6">
                         <div class="card-header pb-0 text-left bg-transparent">
-                            <h3 class="font-weight-bolder text-info text-gradient">{{ __('Welcome back') }}</h3>
-                            <p class="mb-0">{{ __('Create a new acount')}}<br></p>
+                            <h3 class="font-weight-bolder text-info text-gradient">{{ __('เข้าสู่ระบบ(HCRS)') }}</h3>
+                            {{-- <p class="mb-0">{{ __('Create a new acount')}}<br></p>
                             <p class="mb-0">{{__('OR Sign in with these credentials:') }}</p>
                             <p class="mb-0">{{ __('Email ') }}<b>{{ __('admin@softui.com') }}</b></p>
-                            <p class="mb-0">{{ __('Password ') }}<b>{{ __('secret') }}</b></p>
+                            <p class="mb-0">{{ __('Password ') }}<b>{{ __('secret') }}</b></p> --}}
+                            <p class="mb-0">โปรดกรอกข้อมูล <b>เพื่อเข้าสู่ระบบ</b></p>
                         </div>
                         <div class="card-body">
                             <form wire:submit="login" action="#" method="POST" role="form text-left">
@@ -42,13 +43,13 @@
                             </form>
                         </div>
                         <div class="card-footer text-center pt-0 px-lg-2 px-1">
-                            <small class="text-muted">{{ __('Forgot you password? Reset you password') }} <a
+                            <small class="text-muted">{{ __('หากลืมรหัสผ่านเข้าใช้งาน ') }} <a
                                     href="{{ route('forgot-password') }}"
-                                    class="text-info text-gradient font-weight-bold">{{ __('here') }}</a></small>
+                                    class="text-info text-gradient font-weight-bold">{{ __('รีเซ็ตรหัส') }}</a></small>
                             <p class="mb-4 text-sm mx-auto">
-                                {{ __(' Don\'t have an account?') }}
+                                {{ __(' ยังไม่มีบัญชีเข้าใช้งาน') }}
                                 <a href="{{ route('sign-up') }}"
-                                    class="text-info text-gradient font-weight-bold">{{ __('Sign up') }}</a>
+                                    class="text-info text-gradient font-weight-bold">{{ __('สมัคร') }}</a>
                             </p>
                         </div>
                     </div>
@@ -56,7 +57,7 @@
                 <div class="col-md-6">
                     <div class="oblique position-absolute top-0 h-100 d-md-block d-none me-n8">
                         <div class="oblique-image bg-cover position-absolute fixed-top ms-auto h-100 z-index-0 ms-n6"
-                            style="background-image:url('../assets/img/curved-images/curved6.jpg')"></div>
+                            style="background-image:url('../assets/img/curved-images/bg.webp');"></div>
                     </div>
                 </div>
             </div>

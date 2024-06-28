@@ -63,6 +63,58 @@ return [
             ]) : [],
         ],
 
+        'mysql_hxp' => [
+            'driver' => 'mysql',
+            'url' => env('DATABASE_HOSXP_URL'),
+            // 'host' => env('DB_CONNECTION_HXP', '127.0.0.1'),
+            'read' => [
+                'host' => '192.168.3.136',
+            ],
+            'write' => [
+                'host' => '127.0.0.1',
+            ],
+            'port' => env('DB_HOSXP_PORT', '3306'),
+            'database' => env('DB_HOSXP_DATABASE', 'forge'),
+            'username' => env('DB_HOSXP_USERNAME', 'forge'),
+            'password' => env('DB_HOSXP_PASSWORD', ''),
+            'unix_socket' => env('DB_HOSXP_SOCKET', ''),
+            'charset' => 'utf8mb4',
+            'collation' => 'utf8mb4_unicode_ci',
+            'prefix' => '',
+            'prefix_indexes' => true,
+            'strict' => false,
+            'engine' => null,
+            'options' => extension_loaded('pdo_mysql') ? array_filter([
+                PDO::MYSQL_ATTR_SSL_CA => env('MYSQL_ATTR_SSL_CA'),
+            ]) : [],
+        ],
+
+        'mysql_image_hxp' => [
+            'driver' => 'mysql',
+            'url' => env('DATABASE_IMAGE_URL'),
+            // 'host' => env('DB_CONNECTION_HXP', '127.0.0.1'),
+            'read' => [
+                'host' => '192.168.3.138',
+            ],
+            'write' => [
+                'host' => '127.0.0.1',
+            ],
+            'port' => env('DB_IMAGE_PORT', '3306'),
+            'database' => env('DB_IMAGE_DATABASE', 'forge'),
+            'username' => env('DB_IMAGE_USERNAME', 'forge'),
+            'password' => env('DB_IMAGE_PASSWORD', ''),
+            'unix_socket' => env('DB_IMAGE_SOCKET', ''),
+            'charset' => 'utf8mb4',
+            'collation' => 'utf8mb4_unicode_ci',
+            'prefix' => '',
+            'prefix_indexes' => true,
+            'strict' => false,
+            'engine' => null,
+            'options' => extension_loaded('pdo_mysql') ? array_filter([
+                PDO::MYSQL_ATTR_SSL_CA => env('MYSQL_ATTR_SSL_CA'),
+            ]) : [],
+        ],
+
         'pgsql' => [
             'driver' => 'pgsql',
             'url' => env('DATABASE_URL'),
