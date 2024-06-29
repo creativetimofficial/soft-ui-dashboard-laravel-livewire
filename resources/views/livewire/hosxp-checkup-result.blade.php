@@ -50,7 +50,8 @@
                             </div>
                             <div class="col-4 text-end">
                                 <div class="icon icon-shape bg-gradient-primary shadow text-center border-radius-md">
-                                    <i class="ni ni-money-coins text-lg opacity-10" aria-hidden="true"></i>
+                                    {{-- <i class="ni ni-money-coins text-lg opacity-10" aria-hidden="true"></i> --}}
+                                    <i class="fa-solid fa-hospital-user text-lg opacity-10" aria-hidden="true"></i>
                                 </div>
                             </div>
                         </div>
@@ -72,7 +73,8 @@
                             </div>
                             <div class="col-4 text-end">
                                 <div class="icon icon-shape bg-gradient-primary shadow text-center border-radius-md">
-                                    <i class="ni ni-world text-lg opacity-10" aria-hidden="true"></i>
+                                    {{-- <i class="ni ni-world text-lg opacity-10" aria-hidden="true"></i> --}}
+                                    <i class="fas fa-solid fa-weight-scale text-lg opacity-10" aria-hidden="true"></i>
                                 </div>
                             </div>
                         </div>
@@ -94,7 +96,8 @@
                             </div>
                             <div class="col-4 text-end">
                                 <div class="icon icon-shape bg-gradient-primary shadow text-center border-radius-md">
-                                    <i class="ni ni-paper-diploma text-lg opacity-10" aria-hidden="true"></i>
+                                    {{-- <i class="ni ni-paper-diploma text-lg opacity-10" aria-hidden="true"></i> --}}
+                                    <i class="fa-solid fa-droplet-percent text-lg opacity-10" aria-hidden="true"></i>
                                 </div>
                             </div>
                         </div>
@@ -110,13 +113,14 @@
                                     <p class="text-sm mb-0 text-capitalize font-weight-bold">ชีพจร</p>
                                     <h5 class="font-weight-bolder mb-0">
                                         1000 ครั้ง/นาที
-                                        <span class="text-success text-sm font-weight-bolder">ดี</span>
+                                        {{-- <span class="text-success text-sm font-weight-bolder">ดี</span> --}}
                                     </h5>
                                 </div>
                             </div>
                             <div class="col-4 text-end">
                                 <div class="icon icon-shape bg-gradient-primary shadow text-center border-radius-md">
-                                    <i class="ni ni-cart text-lg opacity-10" aria-hidden="true"></i>
+                                    {{-- <i class="ni ni-cart text-lg opacity-10" aria-hidden="true"></i> --}}
+                                    <i class="fa-solid fa-heart text-lg opacity-10" aria-hidden="true"></i>
                                 </div>
                             </div>
                         </div>
