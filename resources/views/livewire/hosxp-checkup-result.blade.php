@@ -713,6 +713,7 @@
                                                     <td></td>
                                                     <td></td>
                                                 </tr>
+
                                             </tbody>
                                         </table>
                                     </div>
@@ -867,7 +868,7 @@
 
                 <!-- START X-Ray -->
                 <div class="card mb-2">
-                    <div class="card-body p-3">
+                    <div class="card-body p-3 pb-4">
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="d-flex flex-column h-100">
@@ -896,6 +897,7 @@
                                                         <span class="badge badge-pill badge-md bg-gradient-warning">ผิดปกติ</span>
                                                     </td>
                                                 </tr>
+                                                <tr></tr>
 
 
                                             </tbody>
@@ -910,7 +912,7 @@
 
                 <!-- START EKG -->
                 <div class="card">
-                    <div class="card-body p-3">
+                    <div class="card-body p-3 pb-4">
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="d-flex flex-column h-100">
@@ -939,7 +941,7 @@
                                                         <span class="badge badge-pill badge-md bg-gradient-warning">ผิดปกติ</span>
                                                     </td>
                                                 </tr>
-
+                                                <tr></tr>
 
                                             </tbody>
                                         </table>
