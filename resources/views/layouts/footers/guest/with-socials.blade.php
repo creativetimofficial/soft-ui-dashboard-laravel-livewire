@@ -48,9 +48,9 @@
           <div class="row">
               <div class="col-8 mx-auto text-center mt-1">
                   <p class="mb-0 text-secondary">
-                      Copyright © {{ now()->year }} Dev by <a style="color: #252f40;" href="#"
-                          class="font-weight-bold ml-1" target="_blank">PICHAPOB</a> &amp; <a style="color: #252f40;"
-                          href="#" class="font-weight-bold ml-1" target="_blank">DIGITAL Nangrong Hospital</a>
+                      Copyright © {{ now()->year }} Dev by <a style="color: #252f40;" href="https://ko-fi.com/pichapob"
+                          class="font-weight-bold ml-1" target="_blank">Pichapob.K</a> &amp; <a style="color: #252f40;"
+                          href="https://buymeacoffee.com/pichapob" class="font-weight-bold ml-1" target="_blank">Pakpoom.M</a>
               </div>
               </p>
           </div>
