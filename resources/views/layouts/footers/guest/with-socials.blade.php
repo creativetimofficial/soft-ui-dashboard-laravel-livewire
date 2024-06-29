@@ -4,19 +4,7 @@
               <div class="col-lg-8 mb-4 mx-auto text-center">
                   <a href="#" target="_blank"
                       class="text-secondary me-xl-5 me-3 mb-sm-0 mb-2">
-                      Pakpoom Mekmok
-                  </a>
-                  <a href="#" target="_blank"
-                      class="text-secondary me-xl-5 me-3 mb-sm-0 mb-2">
-                      Pakpoom Mekmok
-                  </a>
-                  <a href="#" target="_blank"
-                      class="text-secondary me-xl-5 me-3 mb-sm-0 mb-2">
-                      Pakpoom Mekmok
-                  </a>
-                  <a href="#" target="_blank"
-                      class="text-secondary me-xl-5 me-3 mb-sm-0 mb-2">
-                      Pakpoom Mekmok
+                      HCRS Version : {{config('version.string') ?? 'v0.0.0'}}
                   </a>
                   {{-- <a href="#" target="_blank"
                       class="text-secondary me-xl-5 me-3 mb-sm-0 mb-2">
@@ -25,7 +13,12 @@
                   <a href="#" target="_blank"
                       class="text-secondary me-xl-5 me-3 mb-sm-0 mb-2">
                       Pakpoom Mekmok
+                  </a>
+                  <a href="#" target="_blank"
+                      class="text-secondary me-xl-5 me-3 mb-sm-0 mb-2">
+                      Pakpoom Mekmok
                   </a> --}}
+
               </div>
 
 
