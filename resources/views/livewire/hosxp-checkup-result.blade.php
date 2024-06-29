@@ -131,7 +131,7 @@
                 <div class="card">
                     <div class="card-body p-3">
                         <div class="row">
-                            <div class="col-lg-11">
+                            <div class="col-lg-12">
                                 <div class="d-flex flex-column h-100">
                                     <p class="mb-1 pt-2 text-bold">รายงานผลการตรวจ</p>
                                     <h5 class="font-weight-bolder">ความสมบูรณ์ของเม็ดเลือด</h5>
@@ -150,7 +150,7 @@
                                             <tbody>
 
                                                 <tr>
-                                                    <td>
+                                                    <td class="px-0">
                                                         <h6 class="font-weight-bolder mb-0 text-sm">
                                                             <i class="fas fa-solid fa-droplet text-lg text-danger opacity-10 me-2" aria-hidden="true"></i>
                                                             Hb (ความเข้มข้นของฮีโมโกลบิน)
@@ -161,7 +161,7 @@
                                                     <td></td>
                                                 </tr>
                                                 <tr>
-                                                    <td>
+                                                    <td class="px-0">
                                                         <h6 class="font-weight-bolder mb-0 text-sm">
                                                             <i class="fas fa-solid fa-droplet text-lg text-danger opacity-10 me-2" aria-hidden="true"></i>
                                                             Hct (ค่าเม็ดเลือดแดงอัดแน่น)
@@ -172,7 +172,7 @@
                                                     <td></td>
                                                 </tr>
                                                 <tr>
-                                                    <td>
+                                                    <td class="px-0">
                                                         <h6 class="font-weight-bolder mb-0 text-sm">
                                                             <i class="fas fa-solid fa-droplet text-lg text-danger opacity-10 me-2" aria-hidden="true"></i>
                                                             RBC (จำนวนเม็ดเลือดแดง)
@@ -183,7 +183,7 @@
                                                     <td></td>
                                                 </tr>
                                                 <tr>
-                                                    <td>
+                                                    <td class="px-0">
                                                         <h6 class="font-weight-bolder mb-0 text-sm">
                                                             <i class="fas fa-solid fa-droplet text-lg text-danger opacity-10 me-2" aria-hidden="true"></i>
                                                             MCV (ขนาดตัวของเม็ดเลือดแดง)
@@ -194,7 +194,7 @@
                                                     <td></td>
                                                 </tr>
                                                 <tr>
-                                                    <td>
+                                                    <td class="px-0">
                                                         <h6 class="font-weight-bolder mb-0 text-sm">
                                                             <i class="fas fa-solid fa-droplet text-lg text-danger opacity-10 me-2" aria-hidden="true"></i>
                                                             WBC (จำนวนเม็ดเลือดขาว)
@@ -205,7 +205,7 @@
                                                     <td></td>
                                                 </tr>
                                                 <tr>
-                                                    <td>
+                                                    <td class="px-0">
                                                         <h6 class="font-weight-bolder mb-0 text-sm">
                                                             <i class="fas fa-solid fa-droplet text-lg text-danger opacity-10 me-2" aria-hidden="true"></i>
                                                             เม็ดเลือดขาว ชนิด Nuetrophil
@@ -216,7 +216,7 @@
                                                     <td></td>
                                                 </tr>
                                                 <tr>
-                                                    <td>
+                                                    <td class="px-0">
                                                         <h6 class="font-weight-bolder mb-0 text-sm">
                                                             <i class="fas fa-solid fa-droplet text-lg text-danger opacity-10 me-2" aria-hidden="true"></i>
                                                             เม็ดเลือดขาว ชนิด Lymphocyte
@@ -227,7 +227,7 @@
                                                     <td></td>
                                                 </tr>
                                                 <tr>
-                                                    <td>
+                                                    <td class="px-0">
                                                         <h6 class="font-weight-bolder mb-0 text-sm">
                                                             <i class="fas fa-solid fa-droplet text-lg text-danger opacity-10 me-2" aria-hidden="true"></i>
                                                             เม็ดเลือดขาว ชนิด Eosinophil
@@ -238,7 +238,7 @@
                                                     <td></td>
                                                 </tr>
                                                 <tr>
-                                                    <td>
+                                                    <td class="px-0">
                                                         <h6 class="font-weight-bolder mb-0 text-sm">
                                                             <i class="fas fa-solid fa-droplet text-lg text-danger opacity-10 me-2" aria-hidden="true"></i>
                                                             เม็ดเลือดขาว ชนิด Monocyte
@@ -249,7 +249,7 @@
                                                     <td></td>
                                                 </tr>
                                                 <tr>
-                                                    <td>
+                                                    <td class="px-0">
                                                         <h6 class="font-weight-bolder mb-0 text-sm">
                                                             <i class="fas fa-solid fa-droplet text-lg text-danger opacity-10 me-2" aria-hidden="true"></i>
                                                             เม็ดเลือดขาว ชนิด Basophil
@@ -260,7 +260,7 @@
                                                     <td></td>
                                                 </tr>
                                                 <tr>
-                                                    <td>
+                                                    <td class="px-0">
                                                         <h6 class="font-weight-bolder mb-0 text-sm">
                                                             <i class="fas fa-solid fa-droplet text-lg text-danger opacity-10 me-2" aria-hidden="true"></i>
                                                             Platelet count (จำนวนกล็ดเลือด)
@@ -298,7 +298,7 @@
                 <div class="card  mb-2">
                     <div class="card-body p-3">
                         <div class="row">
-                            <div class="col-lg-11">
+                            <div class="col-lg-12">
                                 <div class="d-flex flex-column h-100">
                                     <p class="mb-1 pt-2 text-bold">รายงานผลการตรวจ</p>
                                     <h5 class="font-weight-bolder">การทำงานของตับ</h5>
@@ -375,7 +375,7 @@
                 <div class="card">
                     <div class="card-body p-3">
                         <div class="row">
-                            <div class="col-lg-11">
+                            <div class="col-lg-12">
                                 <div class="d-flex flex-column h-100">
                                     <p class="mb-1 pt-2 text-bold">รายงานผลการตรวจ</p>
                                     <h5 class="font-weight-bolder">ตรวจปัสสาวะ</h5>
@@ -467,7 +467,7 @@
                 <div class="card mb-2">
                     <div class="card-body p-3">
                         <div class="row">
-                            <div class="col-lg-11">
+                            <div class="col-lg-12">
                                 <div class="d-flex flex-column h-100">
                                     <p class="mb-1 pt-2 text-bold">รายงานผลการตรวจ</p>
                                     <h5 class="font-weight-bolder">น้ำตาลในเลือด</h5>
@@ -530,7 +530,7 @@
                 <div class="card mb-2">
                     <div class="card-body p-3">
                         <div class="row">
-                            <div class="col-lg-11">
+                            <div class="col-lg-12">
                                 <div class="d-flex flex-column h-100">
                                     <p class="mb-1 pt-2 text-bold">รายงานผลการตรวจ</p>
                                     <h5 class="font-weight-bolder">ไขมันในเลือด</h5>
@@ -616,7 +616,7 @@
                 <div class="card mb-2">
                     <div class="card-body p-3">
                         <div class="row">
-                            <div class="col-lg-11">
+                            <div class="col-lg-12">
                                 <div class="d-flex flex-column h-100">
                                     <p class="mb-1 pt-2 text-bold">รายงานผลการตรวจ</p>
                                     <h5 class="font-weight-bolder">การทำงานของไต</h5>
@@ -685,7 +685,7 @@
                 <div class="card mb-2">
                     <div class="card-body p-3">
                         <div class="row">
-                            <div class="col-lg-11">
+                            <div class="col-lg-12">
                                 <div class="d-flex flex-column h-100">
                                     <p class="mb-1 pt-2 text-bold">รายงานผลการตรวจ</p>
                                     <h5 class="font-weight-bolder">กรดยูริค</h5>
@@ -729,7 +729,7 @@
                 <div class="card mb-2">
                     <div class="card-body p-3">
                         <div class="row">
-                            <div class="col-lg-11">
+                            <div class="col-lg-12">
                                 <div class="d-flex flex-column h-100">
                                     <p class="mb-1 pt-2 text-bold">รายงานผลการตรวจ</p>
                                     <h5 class="font-weight-bolder">ตรวจอุจจาระ</h5>
@@ -804,7 +804,7 @@
                 <div class="card mb-2">
                     <div class="card-body p-3">
                         <div class="row">
-                            <div class="col-lg-11">
+                            <div class="col-lg-12">
                                 <div class="d-flex flex-column h-100">
                                     <p class="mb-1 pt-2 text-bold">รายงานผลการตรวจ</p>
                                     <h5 class="font-weight-bolder">การตรวจไวรัสตับอักเสบ</h5>
@@ -869,7 +869,7 @@
                 <div class="card mb-2">
                     <div class="card-body p-3">
                         <div class="row">
-                            <div class="col-lg-11">
+                            <div class="col-lg-12">
                                 <div class="d-flex flex-column h-100">
                                     <p class="mb-1 pt-2 text-bold">รายงานผลการตรวจ</p>
                                     <h5 class="font-weight-bolder">เอกซเรย์ทรวงอก</h5>
@@ -912,7 +912,7 @@
                 <div class="card">
                     <div class="card-body p-3">
                         <div class="row">
-                            <div class="col-lg-11">
+                            <div class="col-lg-12">
                                 <div class="d-flex flex-column h-100">
                                     <p class="mb-1 pt-2 text-bold">รายงานผลการตรวจ</p>
                                     <h5 class="font-weight-bolder">คลื่นไฟฟ้าหัวใจ</h5>
