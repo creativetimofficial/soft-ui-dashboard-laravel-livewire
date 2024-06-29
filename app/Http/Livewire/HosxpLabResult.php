@@ -14,6 +14,7 @@ use Illuminate\Support\Collection;
 class HosxpLabResult extends Component
 {
 
+    public $vn;
     public $labnumber;
     public $labResultDetail;
 

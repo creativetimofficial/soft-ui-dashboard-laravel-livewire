@@ -1,4 +1,4 @@
-<p wire:key="lab-r-detail-{{ $labnumber }}" class="text-xs font-weight-bold m-0 p-0">
+<p wire:key="lab-r-detail-{{ $labnumber }}-{{$vn}}" class="text-xs font-weight-bold m-0 p-0"  wire:lazy>
     <button type="button" class="btn btn-sm bg-gradient-primary btn-tooltip my-1 py-1" data-bs-toggle="tooltip" data-bs-placement="top"
     @if($labResultDetail->isNotEmpty())
         title="{{ $labResultDetail->pluck('lab_items_name_ref')->implode(' - ') }}"

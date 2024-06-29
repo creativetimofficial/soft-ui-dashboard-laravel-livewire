@@ -5,15 +5,14 @@ namespace App\Http\Livewire;
 use Livewire\Component;
 
 use App\Models\HosxpPatientImageServer;
-
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Response;
-
 use Illuminate\Support\Facades\Auth;
 
 
 class HosxpPatientImage extends Component
 {
+    public $vn;
     public $hn;
     public $gender;
     public $imageExists = false;
@@ -40,6 +39,7 @@ class HosxpPatientImage extends Component
         $image = HosxpPatientImageServer::find($hn);
 
         if (!$image) {
+            $this->imageExists = false;
             abort(404, 'Image not found.');
         }
 
