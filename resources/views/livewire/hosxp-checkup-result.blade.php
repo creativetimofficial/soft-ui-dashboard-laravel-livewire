@@ -822,7 +822,7 @@
                                             </thead>
                                             <tbody>
                                                 <tr>
-                                                    <td>
+                                                    <td class="px-0">
                                                         <h6 class="font-weight-bolder mb-0 text-sm">
                                                             <i class="fas fa-solid fa-vial-virus text-lg opacity-10 me-2" style="color: #F9690E;" aria-hidden="true"></i>
                                                             การติดเชื้อไวรัสตับอักเสบบี (HBsAg)
@@ -833,7 +833,7 @@
                                                     <td></td>
                                                 </tr>
                                                 <tr>
-                                                    <td>
+                                                    <td class="px-0">
                                                         <h6 class="font-weight-bolder mb-0 text-sm">
                                                             <i class="fas fa-solid fa-vial-virus text-lg opacity-10 me-2" style="color: #F9690E;" aria-hidden="true"></i>
                                                             ภูมิคุ้มกันไวรัสตับอักเสบบี (HBsAb)
@@ -844,7 +844,7 @@
                                                     <td></td>
                                                 </tr>
                                                 <tr>
-                                                    <td>
+                                                    <td class="px-0">
                                                         <h6 class="font-weight-bolder mb-0 text-sm">
                                                             <i class="fas fa-solid fa-vial-virus text-lg opacity-10 me-2" style="color: #F9690E;" aria-hidden="true"></i>
                                                             การติดเชื้อไวรัสตับอักเสบซี (Anti-HCV)
