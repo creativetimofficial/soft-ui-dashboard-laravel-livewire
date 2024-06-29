@@ -4,7 +4,8 @@
         <i class="fas fa-times p-3 cursor-pointer text-secondary opacity-5 position-absolute end-0 top-0 d-none d-xl-none"
             aria-hidden="true" id="iconSidenav"></i>
         <a class="align-items-center d-flex m-0 navbar-brand text-wrap" href="{{ route('dashboard') }}">
-            <img src="../assets/img/logo.png" class="navbar-brand-img h-100" alt="logo">
+            {{-- <img src="../assets/img/logo.png" class="navbar-brand-img h-100" alt="logo"> --}}
+            <i class="fas fa-solid fa-heart-circle-check fa-3x" style="color: #2ABB9B;"></i>
             <span class="ms-2 font-weight-bold">Health Checkup Report System</span>
         </a>
     </div>
@@ -118,7 +119,7 @@
                 </a>
             </li>
 
-            {{-- <li class="nav-item">
+             <li class="nav-item">
                 <a class="nav-link {{ Route::currentRouteName() == 'tables' ? 'active' : '' }}"
                     href="{{ route('tables') }}">
                     <div
@@ -145,7 +146,7 @@
                     </div>
                     <span class="nav-link-text ms-1">Tables</span>
                 </a>
-            </li> --}}
+            </li>
 
             <li class="nav-item">
                 <a class="nav-link {{ Route::currentRouteName() == 'billing' ? 'active' : '' }}"
@@ -307,7 +308,8 @@
     </div>
 
     <div class="sidenav-footer mx-3 mt-3 pt-3">
-        {{-- <div class="card card-background shadow-none card-background-mask-secondary" id="sidenavCard">
+        <!--
+        <div class="card card-background shadow-none card-background-mask-secondary" id="sidenavCard">
             <div class="full-background" style="background-image: url('../assets/img/curved-images/white-curved.jpeg')">
             </div>
             <div class="card-body text-left p-3 w-100">
@@ -323,7 +325,7 @@
                         class="btn btn-white btn-sm w-100 mb-0">Documentation</a>
                 </div>
             </div>
-        </div> --}}
+        </div> -->
     </div>
 
 </aside>

@@ -92,6 +92,7 @@
       </div>
       <div class="row mt-4">
         <div class="col-lg-7 mb-lg-0 mb-4">
+
           <div class="card">
             <div class="card-body p-3">
               <div class="row">
@@ -117,6 +118,7 @@
               </div>
             </div>
           </div>
+
         </div>
         <div class="col-lg-5">
           <div class="card h-100 p-3">

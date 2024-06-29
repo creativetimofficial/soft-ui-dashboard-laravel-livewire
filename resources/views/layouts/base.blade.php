@@ -19,8 +19,18 @@
     <link href="../assets/css/nucleo-icons.css" rel="stylesheet" />
     <link href="../assets/css/nucleo-svg.css" rel="stylesheet" />
     <!-- Font Awesome Icons -->
-    <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
-    <link href="../assets/css/nucleo-svg.css" rel="stylesheet" />
+    <!-- <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script> -->
+
+    <!-- Add this line -->
+    {{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"> --}}
+    {{-- <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.5.2/css/all.css"> --}}
+
+    {{-- <link href="../assets/css/font-awesome-v6.5.2-all.css" rel="stylesheet" /> --}}
+
+    {{-- <link href="{{asset("assets/fontawesome-free-6.5.2-web/css/all.min.css")}}" rel="stylesheet" /> --}}
+    <link href="{{asset("assets/fa-6.5.2/css/font-awesome-v6.5.2-all.css")}}" rel="stylesheet" />
+
+    <!-- <link href="../assets/css/nucleo-svg.css" rel="stylesheet" /> -->
     <!-- CSS Files -->
     <link id="pagestyle" href="../assets/css/soft-ui-dashboard.css?v=1" rel="stylesheet" />
 
