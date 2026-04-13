@@ -73,6 +73,29 @@ And Laravel: https://laravel.com/docs/10.x
 6. Run `php artisan migrate --seed` to create the database tables and seed the roles and users tables
 7. Run `php artisan storage:link` to create the storage symlink (if you are using **Vagrant** with **Homestead** for development, remember to ssh into your virtual machine and run the command from there).
 
+## Installation using Laravel Sail and Docker
+For this to work you need to have [Docker Desktop](https://www.docker.com/products/docker-desktop/) installed.
+
+1. Unzip the downloaded archive
+2. Copy and paste **soft-ui-dashboard-laravel-master** folder in your **projects** folder. Rename the folder to your project's name
+3. In your terminal run the following command to install composer dependencies:
+
+```
+docker run --rm \
+    -u "$(id -u):$(id -g)" \
+    -v "$(pwd):/var/www/html" \
+    -w /var/www/html \
+    laravelsail/php83-composer:latest \
+    composer install --ignore-platform-reqs
+```
+
+4. Copy `.env.example` to `.env` and updated the configurations (mainly the database configuration)
+5. Start sail with the following command: `./vendor/bin/sail up`
+6. In a new terminal run `./vendor/bin/sail shell` to get a command line with access to the php installation
+7. Run `php artisan key:generate`
+9. Run `php artisan migrate --seed` to create the database tables and seed the roles and users tables
+9. Run `php artisan storage:link` to create the storage symlink
+
 ## Usage
 Register a user or login with default user **admin@softui.com** and password **secret** from your database and start testing (make sure to run the migrations and seeders for these credentials to be available).
 
